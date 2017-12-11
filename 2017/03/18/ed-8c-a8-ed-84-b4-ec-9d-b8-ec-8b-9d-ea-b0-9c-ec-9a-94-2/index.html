@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    패턴인식 개요 | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1489816594000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1489816594000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>패턴인식 개요</h1>
+    <h3 id="패턴인식-개요"><a href="#패턴인식-개요" class="headerlink" title="패턴인식 개요"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#%ED%8C%A8%ED%84%B4%EC%9D%B8%EC%8B%9D-%EA%B0%9C%EC%9A%94" title="패턴인식 개요" target="_blank" rel="noopener"></a>패턴인식 개요</h3><h3 id="패턴-인식"><a href="#패턴-인식" class="headerlink" title="패턴 인식"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#%ED%8C%A8%ED%84%B4-%EC%9D%B8%EC%8B%9D" title="패턴 인식" target="_blank" rel="noopener"></a>패턴 인식</h3><p>주어진 데이터의 집합에 대해 입력값을 바탕으로 하는 Classification. MNIST 처럼 이미지에서 숫자를 도출하는 것도 좋은 예</p>
+<ul>
+<li>구조적 방법 : 1은 하나의 직선에 가깝고 8은 원 두개.</li>
+<li>템플릿 매칭 : 패턴의 원형을 저장해 두고 데이타간의 거리를 계산</li>
+<li>기계학습</li>
+</ul>
+<h4 id="패턴-인식과-관련된-개념"><a href="#패턴-인식과-관련된-개념" class="headerlink" title="패턴 인식과 관련된 개념"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#%ED%8C%A8%ED%84%B4-%EC%9D%B8%EC%8B%9D%EA%B3%BC-%EA%B4%80%EB%A0%A8%EB%90%9C-%EA%B0%9C%EB%85%90" title="패턴 인식과 관련된 개념" target="_blank" rel="noopener"></a>패턴 인식과 관련된 개념</h4><h4 id="1-분류와-군집화"><a href="#1-분류와-군집화" class="headerlink" title="1. 분류와 군집화"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#1-%EB%B6%84%EB%A5%98%EC%99%80-%EA%B5%B0%EC%A7%91%ED%99%94" title="1\. 분류와 군집화" target="_blank" rel="noopener"></a>1. 분류와 군집화</h4><p><strong>분류( Classification ) : MNIST로 숫자를 맞추는 형태</strong></p>
+<ul>
+<li>베이지안 분류기, K 근접 이웃, 다층 퍼셉트(MLP), 서포트 벡터 머신</li>
+<li>지도학습</li>
+</ul>
+<p><strong>군집화( Clustering ) : 특성 고객층을 하나의 기준으로 분류하기 보다는 여러가지 기준이지만 뭉뚱그리는 것</strong></p>
+<ul>
+<li>K 편균 클러스터링, 계층적 군집화, 자기조직화 특징맵(SOM)</li>
+<li>비지도 학습</li>
+</ul>
+<h4 id="2-데이터와-데이터-분포"><a href="#2-데이터와-데이터-분포" class="headerlink" title="2. 데이터와 데이터 분포"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#2-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%ED%8F%AC" title="2\. 데이터와 데이터 분포" target="_blank" rel="noopener"></a>2. 데이터와 데이터 분포</h4><blockquote>
+<p>여러가지 데이터들은 결국 컴퓨터에서 다루어질 수 있게 수치로 표현 되어야 한다. 이 숫자들을 1차원으로 나열하면 벡터, 차원이 높아지면 행렬이 되는데 이런 모임을 Tensorflow에서는 tensor 라고 지칭하고 딥러닝의 과정이 이 tensor가 움직이면서 나타나서 Tensorflow 를 이루게 된다.</p>
+</blockquote>
+<ul>
+<li>표본집합 추출</li>
+<li>특징추출</li>
+<li>분류와 결정경계</li>
+</ul>
+<h4 id="분류율과-오차"><a href="#분류율과-오차" class="headerlink" title="분류율과 오차"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#%EB%B6%84%EB%A5%98%EC%9C%A8%EA%B3%BC-%EC%98%A4%EC%B0%A8" title="분류율과 오차" target="_blank" rel="noopener"></a>분류율과 오차</h4><p>학습 오차 : 학습데이타에 대하여 분류 오차를 계산한 것</p>
+<p>테스트 오차 : 실제 데이타의 오차</p>
+<p>일반화 오차 : 확률분포함수를 이용한 분포에 따른 평균 오차값. 테스트 오차가 절대값 수치 미적용에 따른 왜곡을 가질 수 있으므로 사용한다</p>
+<p>교차검증법을 통해 오차값을 얻어내기도 한다</p>
+<h4 id="3-과다-적합-overfitting"><a href="#3-과다-적합-overfitting" class="headerlink" title="3. 과다 적합(overfitting)"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#3-%EA%B3%BC%EB%8B%A4-%EC%A0%81%ED%95%A9-overfitting" title="3\. 과다 적합(overfitting)" target="_blank" rel="noopener"></a>3. 과다 적합(overfitting)</h4><ul>
+<li>Classifier가 학습데이타에 대해서만 지나치게 적합한 형태로 결정경계를 형성하는 경우. train데이타의 범주를 벗어나는 경우는 제대로 분류하지 못하는 경우.</li>
+<li><a href="http://sanghyukchun.github.io/59/" target="_blank" rel="noopener">Machine Learning 스터디 (3) Overfitting</a></li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*G9gNynok0IWGFWsX." alt=""></p>
+<h4 id="4-활용분야"><a href="#4-활용분야" class="headerlink" title="4. 활용분야"></a><a href="http://keen.devpools.kr/2017/03/18/%5B2017-03-18%2014:56:34%5D%E1%84%91%E1%85%A2%E1%84%90%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B5%E1%86%A8%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD/#4-%ED%99%9C%EC%9A%A9%EB%B6%84%EC%95%BC" title="4\. 활용분야" target="_blank" rel="noopener"></a>4. 활용분야</h4><ul>
+<li>문자 인식</li>
+<li>생체인식</li>
+<li>금융데이터</li>
+<li>생물정보</li>
+<li>뇌 신호 처리</li>
+<li>영상처리</li>
+<li>뇌 신호 처리</li>
+</ul>
+<p>By <a href="https://medium.com/@keendev" target="_blank" rel="noopener">Keen Dev</a> on <a href="https://medium.com/p/81a1fd6ca86a" target="_blank" rel="noopener">March 18, 2017</a>.</p>
+<p>Exported from <a href="https://medium.com/" target="_blank" rel="noopener">Medium</a> on May 31, 2017.</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

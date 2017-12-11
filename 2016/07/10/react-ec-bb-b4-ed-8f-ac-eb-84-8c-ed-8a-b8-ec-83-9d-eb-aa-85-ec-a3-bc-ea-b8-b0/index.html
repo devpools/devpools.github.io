@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    REACT 컴포넌트 생명 주기 | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  Lifecycle,React
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1468155805000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1468155805000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>REACT 컴포넌트 생명 주기</h1>
+    <p>지난 번 글에 대해 피드백을 많이 주셨습니다. 너무 감사합니다.</p>
+<p><a href="http://devpools.kr/2016/07/03/react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/" target="_blank" rel="noopener">http://devpools.kr/2016/07/03/react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/</a></p>
+<h3 id="wrap-up"><a href="#wrap-up" class="headerlink" title="wrap-up"></a>wrap-up</h3><ul>
+<li>Bind 에 관련해서 다뤄봤으면 하는 부분은  조만간 다루도록 하겠습니다.</li>
+<li>Stateless 함수의 Airbnb의 입장에 대해 어느 정도 갑론 을박도 이루어 지고 있어서 <a href="https://github.com/airbnb/javascript/issues/937" target="_blank" rel="noopener">Airbnb 이슈</a>(링크) 에 질문도 남겼습니다.  답변이 왔네요</li>
+</ul>
+<p><img src="https://i.imgur.com/IP033uC.jpg" alt=""></p>
+<p>요약하자면 성능의 경우는 가장 마지막에 다뤄져야 할 부분이고 state를 다루면 다룰수록 전체 애플리케이션에 해가 될 수 (toxic) 있다고 표현 하는 군요.  조금 생각해 볼 부분입니다.</p>
+<h1 id="React-Component-생명-주기"><a href="#React-Component-생명-주기" class="headerlink" title="React Component 생명 주기"></a>React Component 생명 주기</h1><p>React 사이트에서 정의를 따라 DOM혹은 페이지 위에 올라갈 때를 mount, DOM트리에서 삭제되거나 웹 페이지에서 없어질 때를 unmount로 정의합시다.</p>
+<p>또한 mount 와 unmount 사이에는 여러가지 생명 주기 함수들이 동작할 것인데, state와 props는 이 함수들과 밀접하게 연관이 있습니다. props는 컴포넌트의 속성을 나타내는 변수 값을 담는 객체입니다. state는 컴포넌트 상태를 나타내는 변수 값을담는 객체입니다. 이 값들의 변화에 따라 컴포넌트는 일종의 동작을 해야 하고(생명주기 함수) 혹은 그 변화의 끝에 다시 컴포넌트를 그려줘야 할 일들이 생깁니다.(render)</p>
+<p>다음과 같이 생명주기를 나뉘어서 컴포넌트의 상태 변화를 확인해 볼 수 있을 거 같습니다.</p>
+<ul>
+<li>mount 될 때</li>
+<li>property 가 변화될 때</li>
+<li>state가 변화될 때</li>
+<li>unmount 될 때</li>
+<li>전체 보기</li>
+</ul>
+<p>이전 React 컴포넌트를 설명할 때에</p>
+<pre><code>componentDidUpdate,
+componentWillMount,
+componentWillReceiveProps,
+componentWillUnmount,
+componentWillUpdate 등은 바로 뒤에 다룰 생명주기 함수들과 연관이 있습니다
+`&lt;/pre&gt;
+
+라고 이야기 했습니다. 각각의 미리 선언된 속성들을 개발자 도구에서 확인해 볼 수 있겠죠?
+
+![React.createClass](http://devpools.kr/wordpress/wp-content/uploads/2016/07/React.createClass-235x300.jpg)
+
+그러면 실제로 React 클래스를 생성해서 컴포넌트를 Mount 를 하고 어떻게 동작하는지를 확인해 보겠습니다.
+
+결과가 Dracula 패턴처럼 보여지기 위해 CSS는 다음과 같이 작성하겠습니다.
+
+&lt;pre&gt;`&lt;span class=&quot;hljs-selector-tag&quot;&gt;body&lt;/span&gt;{&lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;#282a36&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;#f8f8f2&lt;/span&gt;; &lt;span class=&quot;hljs-attribute&quot;&gt;font-size&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;16px&lt;/span&gt;;}
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;a&lt;/span&gt;{&lt;span class=&quot;hljs-attribute&quot;&gt;color&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;#50fa7b&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;padding-right&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;20px&lt;/span&gt;;}
+&lt;span class=&quot;hljs-selector-tag&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;hljs-selector-tag&quot;&gt;pre&lt;/span&gt;{&lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;#44475a&lt;/span&gt;; &lt;span class=&quot;hljs-attribute&quot;&gt;font-weight&lt;/span&gt;:bold;&lt;span class=&quot;hljs-attribute&quot;&gt;padding&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;hljs-number&quot;&gt;10px&lt;/span&gt;;}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.lParent&lt;/span&gt; {&lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;100px&lt;/span&gt;; &lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;90%&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;#6272a4&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;margin-left&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;5%&lt;/span&gt;;}
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.lifecycle&lt;/span&gt; {&lt;span class=&quot;hljs-attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;50px&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;90%&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;#bd93f9&lt;/span&gt;;&lt;span class=&quot;hljs-attribute&quot;&gt;margin-left&lt;/span&gt;:&lt;span class=&quot;hljs-number&quot;&gt;5%&lt;/span&gt;;}`&lt;/pre&gt;
+
+컴포넌트 이해를 돕기위해 Parent 컴포넌트와 LifeCycle 컴포넌트를 만들 것이기 때문에 lParent, lifecycle이라는 클래스를 생성해 두었습니다.
+
+HTML 코드는 다음과 같이 작성합니다.
+
+&lt;pre&gt;`&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;#&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;loading&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;컴포넌트 로딩&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;#&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;unloading&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;컴포넌트 제거&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;app&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;output&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;pre&lt;/span&gt;&amp;gt;&lt;/span&gt;`&lt;/pre&gt;
+
+app을 id로 가지는 DOM 노드 아래에 우리가 만들 웹 컴포넌트가 들어가고, output을 id로 DOM 노드 아래에 생명주기 함수가 어떻게 호출되게 되는지를 알리기 위해 값들을 집어 넣도록 하겠습니다.
+
+javascript 코드는 아래와 같습니다. 명확한 이해를 위해 React.createClass로 작성했고 즉시 DOM을 변경하고 확인하는데에 jquery만큼 간단한게 없어서 사용했습니다.
+
+https://gist.github.com/ehrudxo/4c05664d2daf76c5346095b10a79fc97
+
+소스 설명을 간단하게 드리자면 컴포넌트 클래스 생성은 React.createClass 함수를 통해 작성됩니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`var 컴포넌트명 = React.createClass({...});
+`&lt;/pre&gt;
+&apos;컴포넌트 로딩&apos;이라는 글자를 클릭하면 그 때에 ReactDOM.render라는 함수를 통해서 &apos;app&apos;이라는 id를 가진 노드에 방금 만든 컴포넌트를 로딩하는 소스입니다.
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`ReactDOM.render(&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;LifeCycleParent&lt;/span&gt; /&amp;gt;&lt;/span&gt;, document.getElementById(&quot;app&quot;));
+&lt;/span&gt;`&lt;/pre&gt;
+
+&apos;컴포넌트 제거&apos;를 클릭하면 ReactDOM.unmountComponentAtNode 함수를 통해 &apos;app&apos;이라는 id를 가진 노드에서 하위 컴포넌트를 모두 제거합니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`ReactDOM.unmountComponentAtNode(&lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;hljs-string&quot;&gt;&quot;app&quot;&lt;/span&gt;));
+`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+각 생명주기 함수 내의
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`$(&lt;span class=&quot;hljs-string&quot;&gt;&apos;#output&apos;&lt;/span&gt;).append(메세지);
+`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+부분은 output 을 id로 가지는 DOM 노드에 메세지를 출력하는 작업을 하고 있고, reset 함수를 통해 메세지를 모두 지울 수 있으며 그 소스는 다음과 같습니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`var reset = function(){ $(&apos;#output&apos;).empty();}
+`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;이렇게 소스를 작성하고 실행을 시키고 나면 아래와 같은 화면을 볼 수 있습니다.&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;![LifeCycleDeepDive01](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive01.jpg)&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+이 정도면 눈치가 빠른 개발자라면 뭔가 의아한 부분을 발견하셨을 것이라고 생각이 듭니다. 아직 DOM에 로딩을 하기 전인데, getDefaultProps가 output에 찍혀 있네요.
+
+즉 ReactDOM.createClass 함수를 통해 클래스를 생성하는 시간에 getDefaultProps는 호출이 된다는 것이고 부모 컴포넌트와 자식 컴포넌트 모두 메세지를 볼 수 있네요.
+
+즉, 상당히 많은 블로그에서 Mounting을 설명하면서 getDefaultProps를 생명주기에 넣고 있지만, 실제로는 클래스를 만드는 작업에서 그 과정은 이루어 진다고 보는 것이 조금더 명확한 설명입니다.
+
+이제 조금 더 안쪽으로 들어가 보죠
+
+&lt;/div&gt;
+
+### 1\. mount 될 때
+
+&lt;div class=&quot;marker&quot;&gt;
+
+컴포넌트 로딩을 클릭하면
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;![LifeCycleDeepDive02](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive02.jpg)&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+와 같이 화면이 바뀝니다. 그리고 화면 아래 output 을 보면 getInitialState, componentWillMount, render, componentDidMount 순으로 호출이 되었음을 알 수 있습니다.
+
+정리해 보면 다음과 같습니다.
+
+![mounting](http://devpools.kr/wordpress/wp-content/uploads/2016/07/mounting.jpg)
+
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+### 
+
+### 2\. props가 변화될 때
+
+이 props 가 바뀔 때는 소스를 잘 따라 읽어보셨다면 이해가 잘 되셨을 것이지만, 아닌 사람들을 위해서 설명을 좀 더 해 보도록 하겠습니다. 위의 소스코드에서 Parent 소스를 잘 살펴보시면
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`render(){
+  &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt;(&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;className&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;lParent&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;#&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;onClick&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;{this.changeProps}&lt;/span&gt;&amp;gt;&lt;/span&gt;props가 바뀔때&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;amp;nbsp;&amp;amp;nbsp;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;LifeCycle&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;isFoobar&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;{this.state.isFoobar}&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;childFoobar&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;{this.state.childFoobar}&lt;/span&gt;/&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;)
+}&lt;/span&gt;`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+ParentLifeCycle의 state 의 값인 isFoobar 와 childFoobar 값을 LifeCycle의 props 로 연결 시켜 놓은 것을 알 수 있습니다. 이 때 작동하는 형태는 부모 클래스의 state 값이 변하면 자식 클래스의 props가 바뀌게 되어 있는 셈입니다.
+
+아래 그림과 같이 생각하시면 될 듯 합니다.
+
+&lt;/div&gt;
+
+![LifeCycleDeepDive03](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive03.jpg)
+
+&lt;div class=&quot;marker&quot;&gt;
+
+부모 클래스에서 onClick을 통해 changeProps 함수를 실행하고
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`changeProps(){
+  $(&lt;span class=&quot;hljs-string&quot;&gt;&apos;#output&apos;&lt;/span&gt;).append(&lt;span class=&quot;hljs-string&quot;&gt;&quot;\n[props가 바뀔 때]\n\n&quot;&lt;/span&gt;);
+ &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.setState({
+    isFoobar: &lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt;,
+    childFoobar :&lt;span class=&quot;hljs-literal&quot;&gt;false&lt;/span&gt;
+  });
+},`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+this.setState 를 통해 state 가 바뀌면 자식 클래스인 LifeCycle의 componentWillReceiveProps 함수가 작동하게 되고 props 변경에 따라 state 변화가 자동적으로 이뤄지고 shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate 등의 함수가 차례로 호출됩니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;![LifeCycleDeepDive04](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive04-1024x719.jpg)&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+정리해 보면 다음과 같습니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;![receivingprops](http://devpools.kr/wordpress/wp-content/uploads/2016/07/receivingprops.jpg)&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+### 
+
+### 3\. state가 변화될 때
+
+state 가 변경될 때는 setState를 통해 state 값이 변경된 경우입니다. shouldComponentUpdate 부터 호출이 되고 아래와 같은 결과를 보여줍니다.
+
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;![LifeCycleDeepDive05](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive05-1024x687.jpg)&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+정리해 보면 다음과 같습니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;![changingstate](http://devpools.kr/wordpress/wp-content/uploads/2016/07/changingstate.jpg)&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;여기서는 shouldComponentUpdate 를 한번 살펴 봐야 하는데, 기본적으로 메쏘드를 적지 않고 놔두면 return 값은 true라 위에서 정리한 순서도를 따르지만&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;pre&gt;`shouldComponentUpdate(){
+  $(&lt;span class=&quot;hljs-string&quot;&gt;&apos;#output&apos;&lt;/span&gt;).append(&lt;span class=&quot;hljs-string&quot;&gt;&quot;shouldComponentUpdate\n&quot;&lt;/span&gt;);
+  &lt;span class=&quot;hljs-comment&quot;&gt;//return true;&lt;/span&gt;
+},`&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+void 로 두거나 return false; 로 변경하면 더 이상 진행되지 않고 컴포넌트를 다시 그리지 않습니다.
+
+&lt;div class=&quot;comments-icon&quot;&gt;
+&lt;div class=&quot;marker&quot;&gt;![LifeCycleDeepDive06](http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive06-1024x582.jpg)&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marker&quot;&gt;
+
+### 4\. unmount 될 때
+
+마지막으로 unmount 될 때를 살펴 보겠습니다.
+
+&lt;pre&gt;`ReactDOM.unmountComponentAtNode(&lt;span class=&quot;hljs-built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;hljs-string&quot;&gt;&quot;app&quot;&lt;/span&gt;));
+</code></pre><p>를 통해 제거를 하면 화면에서 컴포넌트가 사라지며 componentWillUnmount 가 호출되는 것을 확인해 볼 수 있습니다</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/LifeCycleDeepDive07-1024x243.jpg" alt="LifeCycleDeepDive07"></p>
+<p><br><br></p>
+<div class="marker"><br><br>### 5. 전체 그림<br><br>전체 그림은 다음과 같이 확인해 볼 수 있습니다.<br><br><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/part1-01-1024x791.png" alt="part1-01"><br><br></div><br><div class="marker">출처 : <a href="https://staminaloops.github.io/undefinedisnotafunction/understanding-react/" target="_blank" rel="noopener">https://staminaloops.github.io/undefinedisnotafunction/understanding-react/</a></div><br><br><div class="marker"><br><br>### 지금까지 설명한 소스는 다음에서 살펴 볼 수 있습니다.<br><br><div class="comments-icon"><iframe src="//jsfiddle.net/ehrudxo/77ub4adz/embedded/" width="800" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div><br><div class="marker">[각주1]</div><br><div class="marker"><br><br>Dracula theme이라고 보통 불리우는 이 테마는 개발자들에게 가장 각광받는 에디터 테마로 어두운 배경에 개발에 도드라지는 에디터 색감을 갖고 있습니다.<br><br>깃헙 주소 : <a href="https://github.com/dracula/dracula-theme" target="_blank" rel="noopener">https://github.com/dracula/dracula-theme</a><br><br>다음과 같은 Color Palette 를 가집니다.<br><br><table><br><thead><br><tr><br><th>Palette</th><br><th>Hex</th><br><th>RGB</th><br><th>HSL</th><br><th><img src="https://draculatheme.com/assets/img/color-boxes/eyedropper.png" alt="Color Picker Boxes"></th><br></tr><br></thead><br><tbody><br><tr><br><td>Background</td><br><td><code>#282a36</code></td><br><td><code>40 42 54</code></td><br><td><code>231° 15% 18%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/background.png" alt="Background Color"></td><br></tr><br><tr><br><td>Current Line</td><br><td><code>#44475a</code></td><br><td><code>68 71 90</code></td><br><td><code>232° 14% 31%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/current_line.png" alt="Current Line Color"></td><br></tr><br><tr><br><td>Selection</td><br><td><code>#44475a</code></td><br><td><code>68 71 90</code></td><br><td><code>232° 14% 31%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/selection.png" alt="Selection Color"></td><br></tr><br><tr><br><td>Foreground</td><br><td><code>#f8f8f2</code></td><br><td><code>248 248 242</code></td><br><td><code>60° 30% 96%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/foreground.png" alt="Foreground Color"></td><br></tr><br><tr><br><td>Comment</td><br><td><code>#6272a4</code></td><br><td><code>98 114 164</code></td><br><td><code>225° 27% 51%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/comment.png" alt="Comment Color"></td><br></tr><br><tr><br><td>Cyan</td><br><td><code>#8be9fd</code></td><br><td><code>139 233 253</code></td><br><td><code>191° 97% 77%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/cyan.png" alt="Cyan Color"></td><br></tr><br><tr><br><td>Green</td><br><td><code>#50fa7b</code></td><br><td><code>80 250 123</code></td><br><td><code>135° 94% 65%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/green.png" alt="Green Color"></td><br></tr><br><tr><br><td>Orange</td><br><td><code>#ffb86c</code></td><br><td><code>255 184 108</code></td><br><td><code>31° 100% 71%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/orange.png" alt="Orange Color"></td><br></tr><br><tr><br><td>Pink</td><br><td><code>#ff79c6</code></td><br><td><code>255 121 198</code></td><br><td><code>326° 100% 74%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/pink.png" alt="Pink Color"></td><br></tr><br><tr><br><td>Purple</td><br><td><code>#bd93f9</code></td><br><td><code>189 147 249</code></td><br><td><code>265° 89% 78%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/purple.png" alt="Purple Color"></td><br></tr><br><tr><br><td>Red</td><br><td><code>#ff5555</code></td><br><td><code>255 85 85</code></td><br><td><code>0° 100% 67%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/red.png" alt="Red Color"></td><br></tr><br><tr><br><td>Yellow</td><br><td><code>#f1fa8c</code></td><br><td><code>241 250 140</code></td><br><td><code>65° 92% 76%</code></td><br><td><img src="https://draculatheme.com/assets/img/color-boxes/yellow.png" alt="Yellow Color"></td><br></tr><br></tbody><br></table><br></div><br></div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

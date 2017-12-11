@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    REACT 컴포넌트 | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1467557563000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1467557563000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>REACT 컴포넌트</h1>
+    <p>React 컴포넌트를 작성하는 방법은 크게 두가지가 있습니다.(정확하게는 세가지가 있습니다.)</p>
+<p>하나는 React.createClass 메쏘드를 이용하는 방법이고 또 다른 방법은 ES2015의 class extends 를 사용하는 방법입니다.</p>
+<p>React.createClass 로 컴포넌트를 작성할때와 ES2015의 class extends를 사용하는 방법은 다음과 같습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/abea06e5da36555cf3fbc878920faca7" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/abea06e5da36555cf3fbc878920faca7</a></p>
+<p>이렇게 코드를 들여다 보면 의구심이 듭니다. React.createClass를 통해 Class생성을 하는 것과 ES2015 class extends를 이용하는 것은 어떤 차이가 있을까요?</p>
+<h3 id="실행환경에서-살펴보기"><a href="#실행환경에서-살펴보기" class="headerlink" title="실행환경에서 살펴보기"></a>실행환경에서 살펴보기</h3><h4 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h4><p>먼저 코드를 짜 보겠습니다.</p>
+<p>html 코드와 js 코드는 다음과 같습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/35105441ea195edfbf1bfffea9adb820" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/35105441ea195edfbf1bfffea9adb820</a></p>
+<p>&nbsp;</p>
+<p>위와 같이 javascript 코드를 짜면 손 쉽게 React.createClass를 이용해서 만든 코드가 실행환경에서 어떻게 보이는지 확인해 볼 수 있습니다.</p>
+<p>브라우저의 console 도구를 활용해서 본 클래스는 실제로는 function으로 정의가 되고 다음과 같이 보여집니다.</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/React.createClass-235x300.jpg" alt="React.createClass"></p>
+<p>var로 지정한 ReactComponent를 이름으로 가지고 prototype에 여러가지 속성들을 가지는데 한번 눈여겨 볼 필요가 있습니다.</p>
+<p>componentDidUpdate, componentWillMount, componentWillReceiveProps, componentWillUnmount, componentWillUpdate 등은 바로 뒤에 다룰 생명주기 함수들과 연관이 있습니다. 하지만 render 말고는 모두 null 로 셋팅이 되어 있는 것도 왜 그럴까 라고 생각해 보면 좋은 학습이 될 거 같습니다.( DeepDive#1)</p>
+<h4 id="ES2015-class"><a href="#ES2015-class" class="headerlink" title="ES2015 class"></a>ES2015 class</h4><p>ES2015 의 코드를 똑같이 짜 보도록 하겠습니다.</p>
+<p>코드는 다음과 같습니다</p>
+<p><a href="https://gist.github.com/ehrudxo/a54614c19a2d0a69f1aa654a17e2690c" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/a54614c19a2d0a69f1aa654a17e2690c</a></p>
+<p>어떤 일이 벌어질까요?</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/ES2015.Class-300x149.jpg" alt="ES2015.Class"></p>
+<p>어떤가요? React.createClass 와 비교해 보면 어떤 형태인가요?</p>
+<p>함수 이름은 ES2015Component로 바뀌었는데, prototype 부분에 있어야 할 많은 속성, 혹은 함수들이 보이지 않습니다.</p>
+<p>왜 이런 일이 벌어지는 걸까요? 이에 대한 답을 하기 전에 아까 두가지라고 하고는 괄호로 세가지라고 힌트를 준 걸 기억하실 겁니다. 다음 내용을 먼저 보시죠.</p>
+<h4 id="function-만으로-컴포넌트-생성"><a href="#function-만으로-컴포넌트-생성" class="headerlink" title="function 만으로 컴포넌트 생성"></a>function 만으로 컴포넌트 생성</h4><p>코드는 다음과 같습니다.</p>
+<p>실행을 하면 어떤 일이 벌어질까요?</p>
+<p><a href="https://gist.github.com/ehrudxo/93406b42f748426dd1624a24877cb768" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/93406b42f748426dd1624a24877cb768</a></p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/PureFunction01-300x71.jpg" alt="PureFunction01"></p>
+<p>보시는 바와 같이 훌륭하게 페이지에 출력 됩니다.</p>
+<p>콘솔 도구를 확인해 보겠습니다.</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/PureFunction02.jpg" alt="PureFunction02"></p>
+<p>훨씬 간단한 함수가 있다는 사실을 알게 됩니다.</p>
+<h4 id="왜-이렇게-돌아가는-걸까"><a href="#왜-이렇게-돌아가는-걸까" class="headerlink" title="왜 이렇게 돌아가는 걸까."></a>왜 이렇게 돌아가는 걸까.</h4><p><a href="https://facebook.github.io/react/docs/glossary.html" target="_blank" rel="noopener">facebook 공식 페이지에 따르면</a> ReacDOM.render 함수의 첫번째 arguments는 (ReactElement, HTMLElement | SVGElement)를 받을 수 있도록 되어 있습니다.</p>
+<p>결국 순수 함수라고는 했지만 이 함수가 하는 일은 HTML Element 를 반환하는 것 뿐입니다.</p>
+<p>즉 다음과 같이 표현식을 바꾸는 거랑 똑같은 역할을 한다는 것입니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/c2464a81fe005d5e889dbef2802b08a5" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/c2464a81fe005d5e889dbef2802b08a5</a></p>
+<p>이렇게 그려 넣고 보니 어떤가요?</p>
+<p>너무 당연한걸 돌아 돌아 설명을 한 거 같습니다. 처음 서두에 React 컴포넌트를 생성하는 방법은 두가지 라고 설명을 드렸습니다만, 반전으로 말씀드리면 Javascript Syntax로 클래스 라고 생각되는 방법을 크게 두가지로 알면 될 것 같습니다.</p>
+<pre>조금 더 심화의 내용으로 설명드리면 ES2015를 가더라도 브라우저가 인식하는 java 같은 언어에서 얘기하는 class라는 개념은 실제로는 존재하지 않습니다.
+보셔서 아시겠지만 function 이자 prototype 을 이용해서 React가 활용을 하는 셈이지요.
+관련 내용에 대해서 더 알고 싶으신 분을 위해서는 Javascript Definite Guide 책을 추천드립니다.
+</pre>
+
+<h4 id="그럼-어떤-방식으로-짜는-게-좋을까요"><a href="#그럼-어떤-방식으로-짜는-게-좋을까요" class="headerlink" title="그럼 어떤 방식으로 짜는 게 좋을까요?"></a>그럼 어떤 방식으로 짜는 게 좋을까요?</h4><p>Airbnb 는 각 개발언어의 style guide를 훌륭하게 내기로 유명한데 <a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="noopener">React 용 style 가이드</a>도 공개했습니다.</p>
+<p>아래와 같은 원칙을 갖고 있네요.</p>
+<p><a href="https://gist.github.com/ehrudxo/822b121cd680a23cf6cf6d704d6f505f" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/822b121cd680a23cf6cf6d704d6f505f</a></p>
+<p>생명주기와 관련된 함수가 사용되지 않는 이상(stateless) pure function 으로 사용하는 것이 낫다고 하는데, 여기에 대해서는 장기적인 performance 이슈를 그 예로 들고 있습니다. 이와 관련해서는 저도 찬성입니다.</p>
+<pre>**즉, 단순히 HTML을 구조화 하는 state 가 변할 필요학 없는 tag에 대해서는 javascript function 을 사용할 것. 그리고 그 경우가 아니면  ES2015 로 갈 것.
+**</pre>
+
+<p>을 원칙으로 하면 될 것 같습니다.</p>
+<p>저도 글을 작성할 때에 ES2015기준으로 작성하되, 설명을 위한 특별한 기준이 필요할 때에는 혼용해서 사용할 수 있음을 밝혀둡니다.</p>
+<h4 id="ES2015로-가면-모든-기능에-문제가-없을까"><a href="#ES2015로-가면-모든-기능에-문제가-없을까" class="headerlink" title="ES2015로 가면 모든 기능에 문제가 없을까?"></a>ES2015로 가면 모든 기능에 문제가 없을까?</h4><p>일단 ES2015를 이용하려면 브라우저 호환성을 위해 <a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a> 같은 transpiler(혹은 compiler)와 <a href="https://webpack.github.io/" target="_blank" rel="noopener">webpack</a> 같은 번들러가 필요합니다.</p>
+<p>컴포넌트에 관해서만 이야기하면 React 컴포넌트의 mixin, this autobinding 기능은 ES2015에서는 사용할 수 없습니다. 관련 기능을 이용하시려면 React.createClass를 이용해서 컴포넌트를 작성해야 합니다.(mixin 및 autobinding 기능은 재사용 컴포넌트 만들기를 설명할 때에 다시 다루도록 하겠습니다.)</p>
+<h4 id="끝내기-전에"><a href="#끝내기-전에" class="headerlink" title="끝내기 전에"></a>끝내기 전에</h4><p>읽어보다 SVGElement 관련해서 잠깐 언급된 적이 있죠?</p>
+<p>잘 되는지 한번 확인해 봐야겠습니다.</p>
+<p>SVG 코드 안에는 Devpools 로고를 집어 넣어 보겠습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/203ec6a0f4c0a97236f801b7ef44c769" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/203ec6a0f4c0a97236f801b7ef44c769</a></p>
+<p>결과를 확인해 보니</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2016/07/svg_element-300x200.jpg" alt="svg_element"></p>
+<p>잘 나오는 것을 확인해 볼 수 있습니다.</p>
+<h5 id="이것이-의미-하는-것은"><a href="#이것이-의미-하는-것은" class="headerlink" title="이것이 의미 하는 것은?"></a>이것이 의미 하는 것은?</h5><p>UI관련 컴포넌트를 만드는 데에도 React는 잘 준비되어 있다라는 것과 아직 구조적으로 Canvas에 대한 지원은 없겠구나 라는 것을 확인할 수 있습니다.</p>
+<p>위 내용의 코드는 모두 다음의 jsfiddle 사이트에서 확인할 수 있습니다.</p>
+<iframe src="//jsfiddle.net/ehrudxo/kwvrxpz0/embedded/" width="800" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

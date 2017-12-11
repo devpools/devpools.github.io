@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    jekyll로 Github Page 만들기 | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1489622400000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1489622400000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>jekyll로 Github Page 만들기</h1>
+    <p>Markdown문서로 문서를 작성하고, 이를 자동으로 정적인 페이지로 변환시켜주는 <a href="https://jekyllrb-ko.github.io/" target="_blank" rel="noopener">Jekyll</a>을 사용하여 손쉬운 블로그를 만들어 보도록 합시다. 이에 Gitbub Page는 Jekyll을 통해 서비스가 가능한 최고의 선택이 됩니다. Jekyll과 Github Page의 조합은 많은이들에게 사용된지 상당히 오래되었으므로, 본 포스팅에서는 현재의 페이지가 어떤 과정으로 생성되었는지에 대한 과정을 서술합니다.</p>
+<p><a href="http://blog.saltfactory.net/upgrade-github-pages-dependency-versions/" target="_blank" rel="noopener">송성광님의 포스트</a>를 참고하여 초기에 세팅을 진행했습니다. Ruby를 베이스로 한 Jekyll을 사용하기 위해서는 다양한 설정이 필요한데, 위의 포스팅은 초보자도 어려움 없이 맥에서 Jekyll환경을 세팅하기 위한 아주 자세한 설명이 담겨있습니다. 작성글대로 한다면 큰 어려움 없이 Github Page에 글을 작성하기 위한 준비를 하실 수 있을 것입니다.</p>
+<p>Jekyll은 전세계 개발자들이 미리 만들어 놓은 좋은 테마를 무료(또는 유료?)로 사용이 가능합니다. <a href="http://themes.jekyllrc.org/" target="_blank" rel="noopener">themes.jekyllrc.org</a>, <a href="http://jekyllthemes.org/" target="_blank" rel="noopener">jekyllthemes.org</a> 등을 통하여 본인의 취향에 맞는 테마를 선택하도록 합시다. 글쓴이는 <a href="http://steinvc.github.io/holo-alfa/" target="_blank" rel="noopener">holo-alfa</a>라는 단순하고 깔끔한 테마를 선택하여 진행을 하였습니다. <code>fork</code>를 떠서 본인의 repository에 옮긴뒤 약간의 커스터마이징을 가미하도록 합시다.</p>
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>Jekyll내의 모든 설정은 <code>_config.yml</code>을 통해서 관리합니다. 선택한 테마에서 데모를 위해 설정되어 있는 내용을 이 블로그를 위해 수정을 하도록 합시다.</p>
+<figure class="highlight"><br><br>    <span class="s">name</span><span class="pi">:</span> <span class="s">배움과 경험을 정리하는 삶</span><br>    <span class="s">author</span><span class="pi">:</span><br>      <span class="s">name</span><span class="pi">:</span> <span class="s">Hongsik Alex Lee</span><br>      <span class="s">email</span><span class="pi">:</span> <span class="s">labyrins@gmail.com</span><br>    <span class="s">url</span><span class="pi">:</span> <span class="s"><a href="http://labyrins.github.io" target="_blank" rel="noopener">http://labyrins.github.io</a></span><br>    <span class="s">baseurl</span><span class="pi">:</span> <span class="s2">“</span><span class="s">“</span><br><br>    <span class="c1"># Footer에 넣을 소셜아이콘들을 위해 설정</span><br>    <span class="s">facebook</span><span class="pi">:</span> <span class="s2">“</span><span class="s"><a href="https://www.facebook.com/hongsik.lee" target="_blank" rel="noopener">https://www.facebook.com/hongsik.lee</a>“</span><br>    <span class="s">github</span><span class="pi">:</span> <span class="s2">“</span><span class="s"><a href="https://github.com/Labyrins" target="_blank" rel="noopener">https://github.com/Labyrins</a>“</span>`<br><br>    </figure>
+
+<pre><code>#### CSS/Font 추가
+
+영문으로 쓴다면 테마에서 지정한 font로도 큰 문제가 없지만 한글로 작성할 블로그이니 font를 추가하고, 소셜 아이콘으로 쓸 이미지가 담긴 font-awesome을 추가한뒤 `style.css`를 수정하여 적용합니다.
+
+&lt;figure class=&quot;highlight&quot;&gt;
+
+&lt;pre&gt;`&lt;span class=&quot;c&quot;&gt;&amp;lt;!--header.html--&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.baseurl }}/css/font-awesome.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://fonts.googleapis.com/earlyaccess/jejugothic.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://fonts.googleapis.com/earlyaccess/nanumgothic.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;`&lt;/pre&gt;
+
+&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+
+&lt;pre&gt;`&lt;span class=&quot;c&quot;&gt;/* style.css */&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;/* 본문 텍스트로 쓰일 font는 클래스 수정 */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;Nanum Gothic&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;..&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;/* footer용 font로 쓰일 클래스는 신규추가 */&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.footer-text&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;Jeju Gothic&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;`&lt;/pre&gt;
+
+&lt;/figure&gt;
+
+#### Footer
+
+링크를 위한 소셜아이콘의 추가와 간단한 문구가 담긴 Footer를 위해 `footer.html`를 아래와 같이 수정합니다.
+
+&lt;figure class=&quot;highlight&quot;&gt;
+
+&lt;pre&gt;`&lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;inner&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer-text&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;2017, Hongsik Alex Lee&lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.facebook }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa-stack fa-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-circle fa-stack-2x&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-facebook fa-stack-1x fa-inverse&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.github }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa-stack fa-sm&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-circle fa-stack-2x&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-github fa-stack-1x fa-inverse&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;`&lt;/pre&gt;
+
+&lt;/figure&gt;
+
+#### jekyll의 빌드와 구동 그리고 draft모드
+
+포스트의 작성은 `_posts` 디렉토리에 `YYYY-MM-DD-Title.md`형식의 이름을 가진 markdown 파일을 작성함으로써 이루어집니다. 해당 파일이 `_posts`로 들어오면 Jekyll에 의해 정적인 웹페이지로 변환되며, 이는 `_site`에 날짜별 디렉토리로 작성되어 있음을 확인할 수 있습니다. 우선, 우리가 선택한 테마에는 템플릿용으로 `_posts`에 md파일이 있으니 삭제하고 빌드를 해줍니다.
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;`jekyll build
+`&lt;/pre&gt;
+&lt;/div&gt;
+
+빌드를 진행하면 현재 `_posts`디렉토리에 있는 md파일을 기준으로 `_site`내의 정적파일이 생성됩니다. 이제 Jekyll을 구동하여 작성한 페이지를 확인하도록 합시다. 기동이 완료되면 `localhost:4000`을 통해 확인가능합니다.
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;`jekyll serve
+`&lt;/pre&gt;
+&lt;/div&gt;
+
+한번에 글을 작성하기 어려운 분들을 위한 Draft모드도 있습니다. 프로젝트 루트에 `_drafts`를 생성한뒤 임의의 md파일을 넣고 draft모드로 서버를 구동하면 `_draft`내의 md파일이 현재의 날짜로 세팅이 되어 페이지를 통해 확인이 가능할 수 있습니다. Draft모드로의 서버구동은 아래와 같습니다.
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;`jekyll serve --drafts
+`&lt;/pre&gt;
+&lt;/div&gt;
+
+* * *
+
+이로써 정적인 포스트를 작성하기 위한 모든 작업을 마쳤습니다. Jekyll에서의 포스트 작성은 기본적으로 Markdown의 문법을 사용하지만 Liquid를 사용한 확장표현이 가능합니다. 아래에는 Markdown의 기본문법을 벗어난 좀더 다양한 방법을 통한 사용예제를 소개합니다.
+
+#### code snippet
+
+아래와 같이 liquid에서 제공하는 `hilight`과 `endhilight`으로 코드를 감싸 표기할 수 있습니다.
+
+&lt;figure class=&quot;highlight&quot;&gt;
+
+&lt;pre&gt;`&lt;span class=&quot;nt&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:hover&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;nav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.current&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.72&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.subtitle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;`&lt;/pre&gt;
+
+&lt;/figure&gt;
+
+#### 타이틀 이미지 설정
+
+페이지 상단에 멋진 이미지를 삽입하여 페이지의 품격을 높이기 위해서는 프로젝트 루트의 `/img/covers/`디렉토리 안에 원하는 이미지를 넣은뒤 Markdown문서 상단 페이지 속성에 `cover-image : 이미지 파일명`을 선언합니다. 본 페이지 상단과 같이, 삽입된 이미지는 자동으로 하단으로 갈수록 이미지가 fadeout 됩니다.
+
+#### 이미지 삽입
+
+모든 이미지는 `img`디렉토리에서 관리합니다. 여타의 Markdown문법과 같이 사용하고, URL선언을 현재 프로젝트 내의 파일로 지정하면 손쉽게 이미지를 삽입할 수 있습니다. `site.baseurl`은 `_config.yml`에 선언되어 있음을 확인합시다. 출처를 명시할 때는 `&amp;lt;small&amp;gt;&amp;lt;/small&amp;gt;`를 사용합니다.
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;`![Forest]({{ site.baseurl }}/img/howtoyoutubeimport.png)
+`&lt;/pre&gt;
+&lt;/div&gt;
+
+#### 인용문 삽입
+
+사용하려는 인용문을 `&amp;gt;`로 감싸 표기합니다. 이미지의 삽입과 마찬가지고 인용절 뒤에 `&amp;lt;small&amp;gt;&amp;lt;/small&amp;gt;`을 통해 출처 등을 남길 수 있습니다.
+
+&gt; It’ll be nipper heaps trent from punchy oldies. Trent from punchy no dramas when flat out like a tucker-bag. He hasn’t got a piker flamin frog in a sock.
+</code></pre><blockquote>
+<pre><code>&lt;small&gt;— [Bogan Ipsum](http://boganipsum.com/)&lt;/small&gt;
+</code></pre></blockquote>
+<pre><code>#### Youtube 영상 삽입
+
+Youtube영상을 삽입하기 위한 [FitVids.js](http://fitvidsjs.com/)가 추가되어 있습니다. `iframe`을 사용하여 삽입을 합니다. 아래와 같이 유튜브 영상페이지로부터 삽입할 소스코드는 손쉽게 구할 수 있습니다.
+
+![Forest](http://labyrins.github.io/img/howtoyoutubeimport.png)
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i1n_1jrUEjU&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+#### Tables 삽입
+
+Table의 삽입은 [Github-Flavored-Markdown](https://help.github.com/articles/github-flavored-markdown/#tables)에 기반한 Markdown문법을 사용합니다. 자세한 문법은 위의 링크를 참고바랍니다.
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;`| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+</code></pre><p></p>
+<table><br>  <thead><br>    <tr><br>      <th style="text-align: left">Left-Aligned</th><br>      <th style="text-align: center">Center Aligned</th><br>      <th style="text-align: right">Right Aligned</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td style="text-align: left">col 3 is</td><br>      <td style="text-align: center">some wordy text</td><br>      <td style="text-align: right">$1600</td><br>    </tr><br>    <tr><br>      <td style="text-align: left">col 2 is</td><br>      <td style="text-align: center">centered</td><br>      <td style="text-align: right">$12</td><br>    </tr><br>    <tr><br>      <td style="text-align: left">zebra stripes</td><br>      <td style="text-align: center">are neat</td><br>      <td style="text-align: right">$1</td><br>    </tr><br>  </tbody><br></table>
+
+<p>이로써 페이지의 Jekyll - Github Page를 통한 블로그 준비와 포스트 작성에 관한 모든 것이 정리 되었습니다. Tag기능과 SEO를 위한 설정은 추후에 세팅을 하도록 하고 이제부터는 지식을 쌓기만 하면 됩니다. 강철의 근성이 공부를 하는 여러분들에게 가호를 내리기 바라며..</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

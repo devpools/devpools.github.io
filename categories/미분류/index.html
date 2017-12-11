@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460">
+    <div class="user-name">
+      <div class="blog-title">devpools blog</div>
+      <div class="blog-author">devpools</div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Asia/Seoul
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:ehrudxo@gmail.com">ehrudxo@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.devpools.kr">http://www.devpools.kr</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      개발 바보들 모여라
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Asia/Seoul
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:ehrudxo@gmail.com">ehrudxo@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.devpools.kr">http://www.devpools.kr</a>
+    </li>
+  </ul>
+
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+      <li class="social-media-item"><a href="https://github.com/devpools" target="_blank"><i class="fa fa-github"></i></a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">52</span></a>
+    </li>
+    <li class="selected">
+      <a href="/categories">Categories <span
+                class="counter">23</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">44</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2017/05/16/ec-97-91-ec-85-80-ec-9d-98-eb-b6-84-ec-84-9d-eb-8f-84-ea-b5-ac-eb-a5-bc-ec-9d-b4-ec-9a-a9-ed-95-9c-ea-b0-84-eb-8b-a8-ed-95-9c-ec-84-a0-ed-98-95-ed-9a-8c-ea-b7-80-eb-b6-84-ec-84-9d-ec-8b-a4/">엑셀의 분석도구를 이용한 간단한 선형 회귀분석 실습</a></h2>
+          <p>
+             선형 회귀분석(Linear Regression)은 머신러닝을 공부할때 가장 첫번째 배우는 예측분석 모델입니다. 머신러닝 또는 딥러닝을 배우는 입장에서는 처음에 Python, Tensorflow, Keras, R, Matlab 등의 낯선 학습환경을 본인의 PC에 구성해...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item">Excel</li>
+            
+            <li class="tag-list-item">회귀분석</li>
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1494931297000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/05/09/ec-a3-bc-ea-b0-84-ea-b9-83-ed-97-99-5-ec-9b-94-1-ed-98-b8/">주간 깃헙 5월 1호</a></h2>
+          <p>
+               
+    Hospital   주목해 볼 필요가 있는 프로젝트 입니다.중국 개발자들끼리 공유하는 병원 정보 관련 프로젝트입니다. 이게 어떻게 시작된 것인지가 상당히 궁금한데 다음 글을 한번 읽어보셔야 합니다. 
+    中 ‘바이두 스캔들’, 의료계 마피아 ‘푸톈계’...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1462789431000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/05/08/4-ec-9b-94-5-ec-a3-bc-ec-b0-a8-ea-b9-83-ed-97-99-ed-8a-b8-eb-a0-8c-eb-93-9c/">4월 5주차 깃헙트렌드</a></h2>
+          <p>
+              https://i.imgur.com/paOSUXB.png  
+    HEAD   HTML 태그들을 아마 모두 꿰고 계시는 분들은 많지 않을 겁니다. HTML5에 추가된 태그들만 해도 많아서 대부분의 경우는 div, span section,ul,li 등의 태그들이 이...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1462713114000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/11/ec-9e-91-ec-84-b1-ec-a4-91-ec-9d-b4-eb-b2-88-ec-a3-bc-ed-95-b4-ec-bb-a4-eb-89-b4-ec-8a-a4-ec-86-8c-ec-8b-9d/">3월 4주차 해커뉴스 소식</a></h2>
+          <p>
+             
+  Lee Sedol Beats AlphaGo in Game 4 (gogameguru.com)  
+ 
+ 이세돌과 알파고의 대결은 전세계 개발자들에게도 많은 이슈거리가 되었습니다. 이세돌 9단이 승리한 4국에 대한 소식이 해커뉴스 이번주 탑에 올라왔습니다.  http...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1460337987000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/ea-b8-88-ec-a3-bc-ec-9d-98-ed-85-8c-ed-81-ac-eb-89-b4-ec-8a-a4/">금주의 테크뉴스</a></h2>
+          <p>
+               Google releases new tool to scan Android apps for accessibility issues  
+ Google이 Android App들의 접근성을 체크하는 툴을 공개하였습니다.  앱을 작동시킨 채로 다른 앱을 실행하고 검사 버튼을...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459768275000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/stack-overflow-the-architecture-2016-edition/">Stack Overflow : The Architecture - 2016 Edition</a></h2>
+          <p>
+             지난 2월 17일 Stack Overflow의 시스템 관리자인  Nick Craver의 블로그의 올라온 글 을 번역해 보려고 합니다. 
+ [caption id=”” align=”aligncenter” width=”601”]  주인장 허락 받은 글임.[/caption]...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459767880000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/4-ec-9b-94-1-ec-a3-bc-ec-b0-a8-ed-95-b4-ec-bb-a4-eb-89-b4-ec-8a-a4-ec-86-8c-ec-8b-9d/">4월 1주차 해커뉴스 소식</a></h2>
+          <p>
+             
+  NPM and Left-Pad: Have We Forgotten How to Program? (haneycodes.net)  
+ 
+ “left-pad”라는 npm모듈과 React, Babel 그리고 다른 패키지들과의 의존성 때문에 많은  npm 패키지들이 깨지는...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459767722000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/free-code-camp-seoul-meetup-eb-8b-a4-eb-85-80-ec-99-94-ec-96-b4-ec-9a-94/">Free Code Camp Seoul MeetUp 다녀왔어요!</a></h2>
+          <p>
+             지난 4월 2일 토요일!  드디어! Free Code Camp(FCC) Seoul MeetUp에 devpools가 다녀왔습니다. 만나서 어떤 일을 하나? 다들 많이 궁금해 하셨을 텐데요. (사실 저희도 그게 궁금해서 가봤습니다.) 다녀온 소감 간단하게 남겨보려고 합니...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459767697000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/codeybot-new-robot-who-teaches-coding/">Codeybot : New Robot Who Teaches Coding</a></h2>
+          <p>
+             안녕하세요. 이번에 소개해드릴 KickStarter Crowdfunding Item은  Codeybot  입니다. 
+   
+ “Codebot, The Fully Customizable Robot, Teaches Coding, Dances, Plays Music, an...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459766437000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/04/04/4-ec-9b-94-1-ec-a3-bc-ec-b0-a8-ea-b9-83-ed-97-99-ed-8a-b8-eb-a0-8c-eb-93-9c/">4월 1주차 깃헙트렌드</a></h2>
+          <p>
+               
+   React  이번 주에는 react 관련한 프로젝트들이 생각보다 눈에 띄었습니다. 한번 살펴 볼까요? 
+    react-native-desktop   이번엔 또 뭐야.라고 하실지 모르겠습니다. React는 뭐고 React Native는 뭐고 이번엔 또 R...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459765521000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/03/28/github-trend-3-ec-9b-94-4-ec-a3-bc-ec-b0-a8/">[github-trend] 3월 4주차</a></h2>
+          <p>
+               
+ 이번주는 드디어 FreeCodeCamp가 bootstrap의  깃헙 All time No.1자리를 차지했습니다. 
+   
+    &amp;gt;교육, 교육, 교육   언제나 github에는 교육용 프로젝트들이 넘쳐납니다. 
+    FreeCodeCamp   이제 더 ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1459159774000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/03/14/ec-a3-bc-ea-b0-84-ea-b9-83-ed-97-99-ed-8a-b8-eb-a0-8c-eb-93-9c-2016-eb-85-84-3-ec-9b-94-ec-b2-ab-ed-98-b8/">주간 깃헙 트렌드 2016 년 3월 첫호</a></h2>
+          <p>
+               
+ &amp;nbsp; 
+ 주간 깃헙트렌드 2016년 3월 첫호입니다. 
+ 이번주에 리뷰할 순위에 들어있는 프로젝트에는 AlphaGo 가 올라와 있습니다. ( 구글 딥마인드의 그 알파고는 아닙니다만, 같은 논문을 통해 작성되었다고 하니 관심을 가져봐도 될 것 같습니다. ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1457951542000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/03/14/weekly-hacker-new/">Weekly Hacker New</a></h2>
+          <p>
+             이번주 해커 뉴스의 best 10 입니다. 
+ 특히 오늘 이세돌과 알파고의 첫 바둑 경기가 있었는데요, 끝난지 몇시간이 채 되지 않아 “Huge milestone in AI!”라고 외치는 달랑 사진1장의 트위터의 글이 해커뉴스의 위클리로 올라왔습니다. 알고보니 알파고...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1457951193000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/03/14/ea-b8-88-ec-a3-bc-ed-85-8c-ed-81-ac-ed-95-ab-ec-9d-b4-ec-8a-88/">금주 테크 핫이슈</a></h2>
+          <p>
+             금주 해외의 테크 핫이슈를 알아보는 시간입니다. 
+ &amp;nbsp; 
+ 
+  The Terrifying ‘Yelp for People’ App Is Now Available  이번에는 사람을 평가하는 앱이 등장하여 떠들석합니다. “Peeple”라는 앱은 일명 “Yelp ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1457950104000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/03/07/github-trend-ec-a3-bc-ea-b0-84-eb-a0-88-ed-8f-ac-ed-8a-b8/">[github-trend] 주간 레포트</a></h2>
+          <p>
+             
+  FreeCodeCamp/FreeCodeCamp  JavaScript 3327 리뷰 :  http://tech.shma.so/post/138852047393/github-trendfreecodecamp  
+  fulldecent/system-bus-radio  C...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> 미분류 </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1457346341000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

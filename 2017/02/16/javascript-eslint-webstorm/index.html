@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    [JavaScript] ESLint with WebStorm | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  ESLint,IntellisJ,WebStorm
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1487239434000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1487239434000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>[JavaScript] ESLint with WebStorm</h1>
+    <p>IntelliJ 의 웹 버전인 WebStorm을 사용할 때 ESLint를 사용하는 방법을 알아보겠습니다. 프로젝트에도 적용할 수 있겠지만 에디터에서 자동으로 문제가 있는 (혹은 버그를 생산하는) 코드를 미리 찾아 볼 수 있습니다.</p>
+<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h3><p>“Linting”이라는 행위는 버그가 날 수 있을 만한 코드를 찾아서 체크를 해 주는일을 의미합니다.</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_programming" title="Computer programming" target="_blank" rel="noopener">computer programming</a>, <strong>lint</strong> is a Unix utility that flags some <a href="https://en.wikipedia.org/wiki/C_(programming_language" target="_blank" rel="noopener">suspicious and non-portable constructs</a>#Language<em>tools “C (programming language)”) (likely to be bugs) in [C language](<a href="https://en.wikipedia.org/wiki/C" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/C</a></em>(programming_language) “C (programming language)”)<a href="https://en.wikipedia.org/wiki/Source_code" title="Source code" target="_blank" rel="noopener">source code</a>; generically, lint or a <strong>linter</strong> is any tool that flags suspicious usage in software written in any <a href="https://en.wikipedia.org/wiki/Computer_language" title="Computer language" target="_blank" rel="noopener">computer language</a>. The term <strong>lint-like behavior</strong> is sometimes applied to the process of flagging suspicious language usage. Lint-like tools generally perform <a href="https://en.wikipedia.org/wiki/Static_code_analysis" title="Static code analysis" target="_blank" rel="noopener">static analysis</a> of source code. - 위키피디아 <a href="https://en.wikipedia.org/wiki/Lint_%28software%29" target="_blank" rel="noopener">Lint</a></p>
+</blockquote>
+<p>JavaScript 에서 이 Lint라는 의미를 처음 얘기한 사람은 Douglas crockford 였고 그는 JsLint라는 툴을 만들어 냅니다. JavaScript Definite Guide  같은 책에서도 내용을 언급하고 있습니다.</p>
+<p>[contentcards url=”<a href="http://www.jslint.com/" target="_blank" rel="noopener">http://www.jslint.com/</a>“ target=”_blank”]</p>
+<p>하지만 최근의 대부분의 JavaScript 커뮤니티에서 사용하는 Lint  툴은 ESLint 툴입니다.</p>
+<p>Nicholas Jakas에 의해 2013년에 나온 이 툴은 현재 여러 툴들에서 플러그인으로 사용되고 있습니다.</p>
+<p>[contentcards url=”<a href="http://eslint.org/" target="_blank" rel="noopener">http://eslint.org/</a>“ target=”_blank”]</p>
+<p>“JSX” 지원하는 것에 대해서 언급이 첫페이지에 있습니다.  React 와 JSX는 다르다고 하는군요.  아무래도 Pluggable한 아키텍처로 이루어져 있기에 오리지날인 JSLint에 비해 많이 쓰이는 거라고 보여집니다.</p>
+<h3 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h3><p>웹스톰은 IntelliJ를 만든 Jetbrains에서 만든 웹 개발자용 IDE 입니다. 이클립스가 약간은 범용에 가깝다고 하면  이 웹 스톰은 JavaScript 최근 트렌드 및 개발 환경에 대한 이해가 큰 IDE 입니다. Node 모듈에 대한 이해도 가지고 있고 npm  을 기본적으로 작동시킬 수 있습니다. 유료 IDE기는 하지만 IntelliJ에 적응된 개발자들은 이webstorm의 여러가지 기능에 대해서 많이 만족하고 쓰고 있습니다. 최근 팝잇에 올라온 IntelliJ에 관한 글을 읽어보면 많은 인사이트들을 얻을 수 있습니다.</p>
+<p>[contentcards url=”<a href="http://www.popit.kr/%EC%9D%B8%ED%85%94%EB%A6%ACj-%ED%99%9C%EC%9A%A9-%EA%BF%80%ED%8C%81-42%EA%B0%80%EC%A7%80-%EC%A0%95%EB%A6%AC/" target="_blank" rel="noopener">http://www.popit.kr/%EC%9D%B8%ED%85%94%EB%A6%ACj-%ED%99%9C%EC%9A%A9-%EA%BF%80%ED%8C%81-42%EA%B0%80%EC%A7%80-%EC%A0%95%EB%A6%AC/</a>“ target=”_blank”]</p>
+<h3 id="WebStrom-ESLint"><a href="#WebStrom-ESLint" class="headerlink" title="WebStrom + ESLint"></a>WebStrom + ESLint</h3><p>이 WebStorm에서 ESLint를 설정하는 방법은 다음과 같습니다.</p>
+<p>preference -&gt; Languges &amp; Framework -&gt; ESLint</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170306_061320-1024x712.jpg" alt=""></p>
+<p>두가지를 셋팅해 주셔야 하는데 하나는 Node 를 지정하는 것이고 또 다른 하나는 ESLint 폴더를 지정해 주는 것입니다. Node 는 각자의 환경을 정하면 될 것입니다.</p>
+<p>ESLint 폴더를 지정할 때는</p>
+<pre><span style="font-size: 12pt; font-family: terminal, monaco, monospace;">$ npm list -g|more </span></pre>
+
+<p>옵션을 통해서 어디에 설치를 했는지 확인해 주시면 됩니다.</p>
+<p>확인이 되셨으면</p>
+<pre><span style="font-size: 12pt; font-family: terminal, monaco, monospace;">`$ npm install -g eslint`</span></pre>
+
+<p>[contentcards url=”<a href="https://github.com/eslint/eslint" target="_blank" rel="noopener">https://github.com/eslint/eslint</a>“ target=”_blank”]</p>
+<p>이후 몇가지 모듈을 더 설치해야 합니다.</p>
+<pre><span style="font-family: terminal, monaco, monospace; font-size: 12pt;">$npm install eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-import -g</span></pre>
+
+<p>실행해 주고 나서 WebStorm을 다시 작동시키면 아래와 같은 좋은 예를 볼 수 있습니다.</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/스크린샷-2017-02-16-오후-6.49.10.jpg" alt=""></p>
+<p>&nbsp;</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

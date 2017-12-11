@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460">
+    <div class="user-name">
+      <div class="blog-title">devpools blog</div>
+      <div class="blog-author">devpools</div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Asia/Seoul
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:ehrudxo@gmail.com">ehrudxo@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.devpools.kr">http://www.devpools.kr</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      개발 바보들 모여라
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Asia/Seoul
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:ehrudxo@gmail.com">ehrudxo@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.devpools.kr">http://www.devpools.kr</a>
+    </li>
+  </ul>
+
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+      <li class="social-media-item"><a href="https://github.com/devpools" target="_blank"><i class="fa fa-github"></i></a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">52</span></a>
+    </li>
+    <li class="selected">
+      <a href="/categories">Categories <span
+                class="counter">23</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">44</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/11/25/ec-84-9c-eb-b2-84-eb-a6-ac-ec-8a-a4-ec-95-84-ed-82-a4-ed-85-8d-ec-b2-98-ec-86-8c-ec-85-9c-eb-af-b8-eb-94-94-ec-96-b4-ea-b0-9c-eb-b0-9c-ea-b8-b0-0-ed-8e-b8/">서버리스 아키텍처 소셜미디어 개발기 0편</a></h2>
+          <p>
+             
+ Firebase에 데이타를 저장하고 
+ 소셜 미디어용 카드는 Embed.ly 를 이용해서 만들어 
+ github-page에 자동으로 배포하는 
+ 
+ 100% 서버리스 아키텍쳐의 소셜 미디어를 만들어 보도록 하겠습니다. 
+ 프레임워크는 react를 써 볼까 하고 있...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item">embed.ly</li>
+            
+            <li class="tag-list-item">firebase</li>
+            
+            <li class="tag-list-item">github-page</li>
+            
+            <li class="tag-list-item">serverless</li>
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> Dev-Story </span>
+            <span><i class="fa fa-tag"></i> 4 </span>
+            <span>Published {{moment(1480042846000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2016/09/12/ec-9e-90-eb-b0-94-ec-8a-a4-ed-81-ac-eb-a6-bd-ed-8a-b8-eb-a6-b4-eb-a6-ac-ec-a6-88-es2016-ea-b3-bc-ea-b7-b8-ec-9d-b4-ed-9b-84/">자바스크립트 릴리즈 : ES2016과 그 이후...</a></h2>
+          <p>
+             2016년 2월 8일에 올라온  Jack Franklin님의 글 입니다. 
+ ※ 주의 : 원문이 더 이해하기 쉬울 수 있습니다 :) 
+ ES2015에는 매우 방대한 양이 새로운 기능으로 추가 되었습니다. 그 중에 대부분의 것은 환영받는 기능이지만 화살표 함수, 맵, ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item">es2015</li>
+            
+            <li class="tag-list-item">es2016</li>
+            
+            <li class="tag-list-item">javascript</li>
+            
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> Dev-Story </span>
+            <span><i class="fa fa-tag"></i> 3 </span>
+            <span>Published {{moment(1473674017000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

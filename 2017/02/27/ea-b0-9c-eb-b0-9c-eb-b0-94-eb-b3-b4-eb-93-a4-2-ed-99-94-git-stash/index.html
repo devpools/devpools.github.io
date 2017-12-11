@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    개발바보들 2화 – git “Stash” | devpools blog
+  </title>
+  <meta name="description" content="개발 바보들 모여라">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="devpools">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars2.githubusercontent.com/u/5300359?v=4&amp;s=460"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 52 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 44 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 23 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">devpools blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    devpools
+
+    <span class="post-date float-right" title="{{moment(1488192644000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1488192644000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>개발바보들 2화 – git “Stash”</h1>
+    <p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/01-e1488948109290.png" alt=""></p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/1-640x1024.png" alt=""></p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082859.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082858-2.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082858-1.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082858.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082856.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082854.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082852.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082850.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082848.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082846.png" alt=""> <img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/20170313_082844.png" alt=""> 세상을 살아갈 때, 내가 계획한 대로 되는 일이 거의 없드시 개발도 마찮가지로, 다양한 상황을 겪게 됩니다. 이런 예상치 못한 일을 겪게 될 때, 유연하게 대처하는 방법 중 하나가  stash 입니다.  stash는 Git에서 사용하는 임시저장 명령입니다.</p>
+<hr>
+<p>다음과 같은 상황을 한번 생각해보세요.</p>
+<ol>
+<li>다음 버전의 신규 기능을 개발하고 있는데, 며칠 전 배포한 버전의 기능에서 문제가 생겨서, 긴급히 수정해야하는 상황.</li>
+<li>코딩을 한참 했는데, 커밋을 하려고 보니 master 브랜치<del>( 헛!! )</del>인 상황.</li>
+</ol>
+<p>&nbsp;</p>
+<p>1번의 경우라면 임시로 커밋하고 릴리즈 브랜치로 이동해서 버그 패치를 만들 수 있을텐데, 2번의 경우는 그마저도 좀 어렵죠. 네. 이미 예상하셨드시 stash를 사용하면 간단합니다. 그러면 stash에 대해서 좀 더 자세히 설명해 볼께요.</p>
+<p>stash의 임시 저장은 저장하고 불러오고가 기본입니다. <code>git stash</code> 와 <code>git stash pop</code>만 아시면 되요. 임시 저장하고, 임시 저장된 내용을 가져오고 임시저장된 내용을 거죠. 쉽죠? 그런데 이렇게 하면 임시저장소를 하나만 사용하는 거예요. ( 그렇게 까지 사용하시지는 않겠지만) stash의 임시 저장공간 갯수는 제한이 없습니다.  그래서 pop 말고도 여러가지 명령이 있습니다.</p>
+<ul>
+<li><strong>저장하기 (SAVE)</strong> “<em>git stash save [메시지]</em>“<br>“<em>git stash</em>“ 명령은 save 옵션이 생략된 축약형입니다. 그대로만 사용하셔도 되지만, stash에 메시지를 지정할때는 save를 명시 해줘야 합니다.</li>
+<li><strong>목록보기(LIST)</strong> “_git stash list”<br>_stash에 저장된 목록을 봅니다. stash@{숫자}의 형식으로 보여지게 되는데, 가장 최근에 stash된것이 0번이고, 이후로 저장하게 되면 순서가 밀리게 됩니다. 그래서 항상 0번이 최신이고 1,2 .. 순서로 밀려서 저장됩니다.</li>
+<li><strong>불러오기(APPLY)</strong> “<em>git stash apply stash@{숫자}</em>“<br>지정된 stash를 불러옵니다. 이때, stash를 지정하지 않으면 가장 최신의( stash@{0}) 을 불러옵니다. stash될 때 인덱스에 추가된 상태로 적용하고 싶다면 –index 옵션을 주시면 됩니다.</li>
+<li><strong>삭제하기(DROP)</strong> “<em>git stash drop [stash@{숫자}]</em>“<br>지정된 stash를 삭제합니다. 마찬가지로 stash를 지정하지 않으면 최신의 stash를 삭제합니다.</li>
+<li><strong>불러오고 삭제하기(POP)</strong> “<em>git stash pop [stash@{숫자}]</em>“<br>apply와 drop을 한번에 수행합니다. 지정된 stash를 불러오고 삭제합니다. 마찬가지로 stash를 지정하지 않으면 최신의 stash를 삭제합니다.</li>
+<li><strong>내용 보기(SHOW)</strong> “<em>git stash show[stash@{숫자}]</em>“<br>stash 된 내용을 확인합니다. 마찬가지로 stash를 지정하지 않으면 최신의 stash를 보여줍니다.</li>
+<li><strong>브랜치로 만들기(BRANCH)</strong> “<em>git stash branch &lt;새로만들브랜치이름&gt; [stash@{숫자}]</em>“<br>stash 된 내용으로 새로운 브랜치를 만듭니다. 이때, pop과 마찬가지로 stash 된 내용은 삭제됩니다.</li>
+</ul>
+<p>&nbsp;</p>
+<p>stash는 여러개를 저장할 수 있고, 그것들을 골라서 적용할 수 있다, 그리고 stash된 걸로 브랜치를 만들 수 있다라고 알아두세요. ( 어차피 커맨드로 안하시잖아요? )</p>
+<p>그럼 다시 위의 상황을 다시 보시죠.</p>
+<p>첫번째 경우에서는 <code>git stash</code>했다가 패치를 만들고 나서 다시 내 브랜치로 돌아와서 <code>git stash pop</code>하면 되고, 두번째 경우에서는 <code>git stash branch feature-mymy</code>처럼 브랜치를 생성하면 됩니다. 알고보니 참 쉽죠? <del>( 이제 임시커밋, 쩜 찍고 커밋 같은 걸로 혼나지 맙시다 ㅠㅠ )</del></p>
+<p>&nbsp;</p>
+<p><img src="http://devpools.kr/wordpress/wp-content/uploads/2017/02/2-1-640x1024.png" alt=""></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <a href="http://www.devpools.kr" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2016 devpools</li>
+      <li><a href="http://www.devpools.kr">Home</a></li>
+      
+      <li><a href="https://github.com/devpools">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
