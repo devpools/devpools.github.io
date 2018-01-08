@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="최근에 headless chrome 이 나름 화제가 되어서 돌았는데 이 headless 라는 의미가 어떻게 쓰이는지 잘 모르는 사람들을 위해 이야기를 하고 넘어갈까 한다. headless browserheadless browser는 기본적으로 GUI 없는 웹 브라우저를 의미한다.  “A headless browser is a web browser witho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node">
+<meta property="og:url" content="http://www.devpools.kr/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="최근에 headless chrome 이 나름 화제가 되어서 돌았는데 이 headless 라는 의미가 어떻게 쓰이는지 잘 모르는 사람들을 위해 이야기를 하고 넘어갈까 한다. headless browserheadless browser는 기본적으로 GUI 없는 웹 브라우저를 의미한다.  “A headless browser is a web browser witho">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://keen.devpools.kr/images/seleniumhq.jpg">
+<meta property="og:updated_time" content="2017-12-13T09:51:30.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node">
+<meta name="twitter:description" content="최근에 headless chrome 이 나름 화제가 되어서 돌았는데 이 headless 라는 의미가 어떻게 쓰이는지 잘 모르는 사람들을 위해 이야기를 하고 넘어갈까 한다. headless browserheadless browser는 기본적으로 GUI 없는 웹 브라우저를 의미한다.  “A headless browser is a web browser witho">
+<meta name="twitter:image" content="http://keen.devpools.kr/images/seleniumhq.jpg">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="article-date">
+            <time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>최근에 headless chrome 이 나름 화제가 되어서 돌았는데 이 headless 라는 의미가 어떻게 쓰이는지 잘 모르는 사람들을 위해 이야기를 하고 넘어갈까 한다.</p>
+<h2 id="headless-browser"><a href="#headless-browser" class="headerlink" title="headless browser"></a><a href="http://keen.devpools.kr/2017/06/07/about-test/#headless-browser" title="headless browser" target="_blank" rel="noopener"></a>headless browser</h2><p>headless browser는 기본적으로 GUI 없는 웹 브라우저를 의미한다.</p>
+<blockquote>
+<p>“A headless browser is a web browser without a graphical user interface.”<br>출처 : <a href="http://blog.arhg.net/2009/10/what-is-headless-browser.html" target="_blank" rel="noopener">What is a headless browser?</a></p>
+</blockquote>
+<p>즉 CLI(Command Line interface)에서만 다루는 브라우저를 이야기 한다.유명한 헤드리스 브라우저로는  phantomJS 가 있다.</p>
+<p>헤드리스 브라우저가 사용되는 예는 여러가지가 있는데 좋은 예로는 테스트 자동화를 할 수 있고 데이타를 긁어오기(scraping) 하는 데 사용되고 스크린샷을 뜨는데에도 손쉽게 사용된다. 웹페이지 반응을 자동으로 스크립팅할 수 있는 부분도 존재한다.나쁜 예로는 DDOS 공격을 하는데 사용되기도 하고, 자동화를 좋지 않은데에 쓰이기도 한다는 것이다.</p>
+<h2 id="selenium은-어떻게-다른가"><a href="#selenium은-어떻게-다른가" class="headerlink" title="selenium은 어떻게 다른가"></a><a href="http://keen.devpools.kr/2017/06/07/about-test/#selenium%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8B%A4%EB%A5%B8%EA%B0%80" title="selenium은 어떻게 다른가" target="_blank" rel="noopener"></a>selenium은 어떻게 다른가</h2><p>셀레니엄은 태생 자체가 다르다고 보면 된다. 헤드리스 브라우저는 범용적인 목적에 따라 CLI환경에서 브라우저 환경을 에뮬레이션 하는 것이라고 하면 selenium은 브라우저 플러그인을 넣고 테스트를 실행시킨다. 서버 사이드에서 테스트에 관련된 실행을 시킬 수 있는 리모트 컨트롤러가 존재하고 다양한 브라우저를 지원하기 위해 드라이버들을 제공하는데 webdriver 라고 불려진다. 이후 버전이 업데이트 되었다.</p>
+<p>클라이언트 서버 구조로 서버 사이드와 RC(Remote Control)로 구성되어 있던 것을 webdriver와 결합하면서 현재의 selenium2가 된 것이다.</p>
+<p><img src="http://keen.devpools.kr/images/seleniumhq.jpg" alt="selenium1 + webdriver = selenium2"></p>
+<p>즉 CLI 툴로 사용할 수 있는 헤드리스 크롬의 경우는 다양한 브라우저를 테스트의 목적으로 사용해야 하는 범용 테스트 목적 보다는 다른 용도로 많이 사용될 것으로 보인다. <del>DDOS machine?</del></p>
+<h2 id="자-그러면-node-환경에서-selenium2를-사용해-보자"><a href="#자-그러면-node-환경에서-selenium2를-사용해-보자" class="headerlink" title="자 그러면 node 환경에서 selenium2를 사용해 보자."></a><a href="http://keen.devpools.kr/2017/06/07/about-test/#%EC%9E%90-%EA%B7%B8%EB%9F%AC%EB%A9%B4-node-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-selenium2%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4-%EB%B3%B4%EC%9E%90" title="자 그러면 node 환경에서 selenium2를 사용해 보자." target="_blank" rel="noopener"></a>자 그러면 node 환경에서 selenium2를 사용해 보자.</h2><p>nightwatch 혹은 webdriverio는 node 환경에서 selenium2를 사용할 수 있게 해 준다. 옵션과 홈페이지, 구글 트렌드를 생각하면 nightwatch를 이용해야겠지만 일단 간단하게 사용하기 위해 webdriver로 실행을 해 보자.(robotframework도 같이 고려)</p>
+<p>전역 옵션으로 webdriverio를 아래와 같이 설치한다.(nightwatch의 경우도 같이 진행할 수 있음.)</p>
+<figure class="highlight plain"><br><br><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;npm install -g webdriverio</div></pre></td></tr></table><br><br></figure>
+
+<p>selenium2는 다음과 같은 명령으로 내려받을 수 있다.</p>
+<figure class="highlight plain"><br><br><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;curl -O <a href="http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.4.0.jar" target="_blank" rel="noopener">http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.4.0.jar</a></div></pre></td></tr></table><br><br></figure>
+
+<p>크롬용 웹드라이버 -chromedriver를 받아서 압축을 풀고 PATH에 적용 시켜 준다.</p>
+<figure class="highlight plain"><br><br><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;curl -O <a href="https://chromedriver.storage.googleapis.com/index.html?path=2.29/chromedriver_mac64.zip" target="_blank" rel="noopener">https://chromedriver.storage.googleapis.com/index.html?path=2.29/chromedriver_mac64.zip</a></div></pre></td></tr></table><br><br></figure>
+
+<h2 id="headless-chrome-을-설치-한다"><a href="#headless-chrome-을-설치-한다" class="headerlink" title="headless chrome 을 설치 한다."></a><a href="http://keen.devpools.kr/2017/06/07/about-test/#headless-chrome-%EC%9D%84-%EC%84%A4%EC%B9%98-%ED%95%9C%EB%8B%A4" title="headless chrome 을 설치 한다." target="_blank" rel="noopener"></a>headless chrome 을 설치 한다.</h2><p>이 경우는 며칠전만 해도 canary를 쓴다고 했지만 지금은 크롬 최신버전이면 다음의 옵션만으로 실행할 수 있다.(MacOS 의 경우)</p>
+<figure class="highlight plain"><br><br><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; chrome –headless –disable-gpu –screenshot &quot;<a href="http://devpools.kr&amp;quot" target="_blank" rel="noopener">http://devpools.kr&amp;quot</a>;</div></pre></td></tr></table><br><br></figure>
+
+<h2 id="테스트-코드-작성"><a href="#테스트-코드-작성" class="headerlink" title="테스트 코드 작성"></a><a href="http://keen.devpools.kr/2017/06/07/about-test/#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1" title="테스트 코드 작성" target="_blank" rel="noopener"></a>테스트 코드 작성</h2><p>아래와 같이 테스트 코드를 작성하고 나면 일단은 selenium2 기반의 테스트 프레임워크의 시작을 했다고 보면 된다.</p>
+<figure class="highlight javascript">
+
+<table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//test.js</span></div><div class="line"><span class="keyword">var</span> webdriverio = <span class="built_in">require</span>(<span class="string">‘webdriverio’</span>);</div><div class="line"><span class="keyword">var</span> options = &#123;</div><div class="line">    <span class="attr">desiredCapabilities</span>: &#123;</div><div class="line">        <span class="attr">browserName</span>: <span class="string">‘chrome’</span>,</div><div class="line">        <span class="attr">chromeOptions</span>: &#123;</div><div class="line">            <span class="attr">args</span>: [</div><div class="line">                   <span class="string">‘headless’</span>,</div><div class="line">                   <span class="string">‘disable-gpu’</span>,</div><div class="line">               ],</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">webdriverio</div><div class="line">    .remote(options)</div><div class="line">    .init()</div><div class="line">    .url(<span class="string">‘<a href="http://www.devpools.kr">http://www.devpools.kr</a>‘</span>)</div><div class="line">    .getTitle().then(<span class="function"><span class="keyword">function</span>(<span class="params">title</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">‘Title was: ‘</span> + title);</div><div class="line">    &#125;)</div><div class="line">    .end();</div></pre></td></tr></table>
+
+<p></p></figure><br>결과는 다음과 같다.<p></p>
+<p><img src="http://keen.devpools.kr/images/headlessscraping.jpg" alt="개발바보들의 타이틀을 긁어왔다"></p>
+<p>해당 소스는 깃헙의 다음 링크에서 받아볼 수 있다.<br><a href="https://github.com/ehrudxo/headlesssample" target="_blank" rel="noopener">https://github.com/ehrudxo/headlesssample</a></p>
+<p>.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" data-id="cjc5ste060049b05j0dhalf6c" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/08/deeplearning-basic01/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            딥러닝 무식하게 정리해 보기 01
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/05/30/챗봇-프로젝트를-진행하면서-알게-된-사실들/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">챗봇 프로젝트를 진행하면서 알게 된 사실들</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2017112701.png)" alt="[2017-11-27] 11월 깃헙 트렌드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="title">[2017-11-27] 11월 깃헙 트렌드</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T03:42:39.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/sourcecodemgmt.png)" alt="[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a></p>
+                            <p class="item-title"><a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="title">[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:31:23.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/puppeteer.jpg)" alt="[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/github-trend-github/">github-trend, github</a></p>
+                            <p class="item-title"><a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="title">[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:09:55.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/08/deeplearning-basic01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/playmobil-451203_640.jpg)" alt="딥러닝 무식하게 정리해 보기 01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/deep-learning/">deep learning</a></p>
+                            <p class="item-title"><a href="/2017/09/08/deeplearning-basic01/" class="title">딥러닝 무식하게 정리해 보기 01</a></p>
+                            <p class="item-date"><time datetime="2017-09-08T02:44:06.000Z" itemprop="datePublished">2017-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/seleniumhq.jpg)" alt="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a></p>
+                            <p class="item-title"><a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="title">헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github-page/" style="font-size: 20px;">github-page</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 20px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 20px;">reset</a> <a href="/tags/revert/" style="font-size: 20px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

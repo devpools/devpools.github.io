@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>챗봇 프로젝트를 진행하면서 알게 된 사실들 | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="챗봇 프로젝트를 진행하면서 알게 된 사실들 AI vs Human Brain최근 급하게 프로젝트에 두달간 투입이 되면서 블로그 포스팅을 할 여유가 전혀 없었다.좀 반성하는 차에 진행한 프로젝트에서 얻은 인사이트를 공유하고자 한다. 챗봇을 위한 디자인 원칙들이 속속 나오고 있다.어떤 절대적인 가이드라인은 사실 없기 때문에 마음대로 만들 수는 있고 마음대로 기획">
+<meta property="og:type" content="article">
+<meta property="og:title" content="챗봇 프로젝트를 진행하면서 알게 된 사실들">
+<meta property="og:url" content="http://www.devpools.kr/2017/05/30/챗봇-프로젝트를-진행하면서-알게-된-사실들/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="챗봇 프로젝트를 진행하면서 알게 된 사실들 AI vs Human Brain최근 급하게 프로젝트에 두달간 투입이 되면서 블로그 포스팅을 할 여유가 전혀 없었다.좀 반성하는 차에 진행한 프로젝트에서 얻은 인사이트를 공유하고자 한다. 챗봇을 위한 디자인 원칙들이 속속 나오고 있다.어떤 절대적인 가이드라인은 사실 없기 때문에 마음대로 만들 수는 있고 마음대로 기획">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*cUkbr04Um53uekAF.jpg">
+<meta property="og:updated_time" content="2017-12-13T09:48:27.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="챗봇 프로젝트를 진행하면서 알게 된 사실들">
+<meta name="twitter:description" content="챗봇 프로젝트를 진행하면서 알게 된 사실들 AI vs Human Brain최근 급하게 프로젝트에 두달간 투입이 되면서 블로그 포스팅을 할 여유가 전혀 없었다.좀 반성하는 차에 진행한 프로젝트에서 얻은 인사이트를 공유하고자 한다. 챗봇을 위한 디자인 원칙들이 속속 나오고 있다.어떤 절대적인 가이드라인은 사실 없기 때문에 마음대로 만들 수는 있고 마음대로 기획">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/0*cUkbr04Um53uekAF.jpg">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-챗봇-프로젝트를-진행하면서-알게-된-사실들" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        챗봇 프로젝트를 진행하면서 알게 된 사실들
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/05/30/챗봇-프로젝트를-진행하면서-알게-된-사실들/" class="article-date">
+            <time datetime="2017-05-30T14:19:43.000Z" itemprop="datePublished">2017-05-30</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="챗봇-프로젝트를-진행하면서-알게-된-사실들"><a href="#챗봇-프로젝트를-진행하면서-알게-된-사실들" class="headerlink" title="챗봇 프로젝트를 진행하면서 알게 된 사실들"></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EC%B1%97%EB%B4%87-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%98%EB%A9%B4%EC%84%9C-%EC%95%8C%EA%B2%8C-%EB%90%9C-%EC%82%AC%EC%8B%A4%EB%93%A4" title="챗봇 프로젝트를 진행하면서 알게 된 사실들" target="_blank" rel="noopener"></a>챗봇 프로젝트를 진행하면서 알게 된 사실들</h3><p><img src="https://cdn-images-1.medium.com/max/1600/0*cUkbr04Um53uekAF.jpg" alt="AI vs Human Brain"></p>
+<p>AI vs Human Brain<br>최근 급하게 프로젝트에 두달간 투입이 되면서 블로그 포스팅을 할 여유가 전혀 없었다.<br>좀 반성하는 차에 진행한 프로젝트에서 얻은 인사이트를 공유하고자 한다.</p>
+<h4 id="챗봇을-위한-디자인-원칙들이-속속-나오고-있다"><a href="#챗봇을-위한-디자인-원칙들이-속속-나오고-있다" class="headerlink" title="챗봇을 위한 디자인 원칙들이 속속 나오고 있다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EC%B1%97%EB%B4%87%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%9B%90%EC%B9%99%EB%93%A4%EC%9D%B4-%EC%86%8D%EC%86%8D-%EB%82%98%EC%98%A4%EA%B3%A0-%EC%9E%88%EB%8B%A4" title="챗봇을 위한 디자인 원칙들이 속속 나오고 있다." target="_blank" rel="noopener"></a>챗봇을 위한 디자인 원칙들이 속속 나오고 있다.</h4><p>어떤 절대적인 가이드라인은 사실 없기 때문에 마음대로 만들 수는 있고 마음대로 기획할 수는 있지만 많은 경우에 지금 활용할 수 있는 가이드라인들은 존재한다. 이른바 먼저 가본 사람들이 적어 놓은 가이드 라인들이 있다.</p>
+<p>여기 가장 유명한 두개의 가이드라인만 소개를 할까 한다.</p>
+<ol>
+<li><a href="https://medium.muz.li/the-ultimate-guide-to-chatbots-why-theyre-disrupting-ux-and-best-practices-for-building-345e2150b682" target="_blank" rel="noopener">궁극가이드 — 9가지 원칙이라고 국내에는 알려져 있는…</a></li>
+</ol>
+<ul>
+<li>사용자에게 거짓말하지 않는다 (봇이라고 알려라!)</li>
+<li>대화를 유도하라</li>
+<li>사용자의 감성을 고려해 디자인한다</li>
+<li>대화에 제한을 두지 않는다(지속적으로 개선하라!)</li>
+<li>경계를 만든다 (사람들이 몰입할 수 있는 경계를 쳐 주라)</li>
+<li>사람들을 실망시킬 때는 조심하라</li>
+<li>모든 인터랙션은 의미가 있다.(사용자가 이탈하는 부분을 정확히 트래킹하라)</li>
+<li>사용자를 잘 도와줘야 시스템이 도움을 받는다.</li>
+<li>사용자의 감정을 확인하고 감정을 목표점으로 한다.</li>
+</ul>
+<ol>
+<li><a href="http://refreshstudio.tistory.com/entry/%EB%B4%87-%EB%94%94%EC%9E%90%EC%9D%B8bot-design%EC%9D%98-8%EA%B0%80%EC%A7%80-%EC%9B%90%EC%B9%99" target="_blank" rel="noopener">디자인 8원칙</a></li>
+</ol>
+<ul>
+<li><strong>인간인 척 하지 말기</strong></li>
+<li>단순함을 극도로 유지하기</li>
+<li>채팅이라는 표현수단 이해하기</li>
+<li>최종 사용자에게 맞추기</li>
+<li>간단하게 응답하기</li>
+<li>봇으로 안될 경우를 대비할 것</li>
+<li>가능하면 구조적인 입력을 만들것</li>
+<li>모두가 같은 것을 볼 것 (응답이 제각각이지 않을 것)</li>
+</ul>
+<p>이 중에서 가장 첫번째 원칙인 인간인척 하지 않는 것. 즉 사용자에게 사람인척 하지 않는 것이 중요한데 사람은 챗봇이라고 생각할 때와 사람이라고 생각할 때에 다르게 행동(입력)하고 기대하는 바도 매우 다르기 때문이다. 그래서 사람이 아닌 챗봇이라 버튼을 활용한다던지 다른 인터페이스에 대한 디자인을 하는 것은 무척이나 중요하다.</p>
+<h4 id="인공지능에-대한-이해-보다-중요한-게-있다"><a href="#인공지능에-대한-이해-보다-중요한-게-있다" class="headerlink" title="인공지능에 대한 이해 보다 중요한 게 있다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4-%EB%B3%B4%EB%8B%A4-%EC%A4%91%EC%9A%94%ED%95%9C-%EA%B2%8C-%EC%9E%88%EB%8B%A4" title="인공지능에 대한 이해 보다 중요한 게 있다." target="_blank" rel="noopener"></a>인공지능에 대한 이해 보다 중요한 게 있다.</h4><p><img src="https://cdn-images-1.medium.com/max/1600/0*rYIrAKa51Aw1PBte.jpg" alt="사람"></p>
+<p>사람<br>디자인 원칙에서 보았듯이 가장 중요한 원칙은 사람에 대한 이해다.<br>사용자가 어떻게 챗봇을 활용할 지를 이해하지 못하면 서비스가 제대로 쓸모 없는 서비스를 하게 마련이다. 그런 의미에서 아직은 인공지능과 사람의 인터페이스는 투박하다.<br>사용자가 어떻게 챗봇을 쓸 것인지를 정의하려면 내가 하려는 서비스가 어떤 것인지를 명확하게 정의해야 하고 어떤 기능을 대체를 하려는지를 기획자 혹은 개발자 스스로가 알고 있어야 한다.</p>
+<h4 id="챗봇에-대한-기대는-굉장히-천차-만별이다"><a href="#챗봇에-대한-기대는-굉장히-천차-만별이다" class="headerlink" title="챗봇에 대한 기대는 굉장히 천차 만별이다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EC%B1%97%EB%B4%87%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B8%B0%EB%8C%80%EB%8A%94-%EA%B5%89%EC%9E%A5%ED%9E%88-%EC%B2%9C%EC%B0%A8-%EB%A7%8C%EB%B3%84%EC%9D%B4%EB%8B%A4" title="챗봇에 대한 기대는 굉장히 천차 만별이다." target="_blank" rel="noopener"></a>챗봇에 대한 기대는 굉장히 천차 만별이다.</h4><p>사용자들과 인터뷰를 하다보면 정작 사용할 사용자들은 챗봇에게 큰 기대를 하지 않는다. 마치 우리가 시리와 빅스비에게 심드렁한 것 처럼. 하지만 기획단계에서의 기획자와 발안자들은 굉장히 많은 기대를 가지고 프로젝트에 접근한다.</p>
+<p><strong>심지어 챗봇을 위한 디자인 원칙들을 읽어 보지도 않고 말이다.</strong> 챗봇들이 무엇인가 세상을 바꿀 것 처럼 굉장히 멋진 장표들과 아키텍처들을 보고 있지만 정작 이것이 어떤 문제를 해결할 지 알고 있는 사람은 없다.</p>
+<p>개발을 진행하면서 이 프로젝트들이 꽤나 많은 분야의 인력에 대한 감축을 전제로 하고 그런 미래가 바로 닥쳐 있다는 사실을 부정할 수는 없지만 굉장한 청사진 또한 동의할 수 없다. 그래서 현실적이지 않은 요구사항들을 사용자 인터뷰와 가이드라인을 기준으로 다 잘라내고 있지만 의사 결정자들 마저도 굉장한 기대감을 가지고 있다는 사실은 어떻게 보면 슬픈 일이다.</p>
+<p>하지만 심지어 페이스북과 같이 작업을 했던 항공 티케팅 분야의 챗봇 담당자는 이렇게 이야기 한다<br>“아무도 챗봇으로 티켓을 사려고 하지는 않아요.”</p>
+<h4 id="개발의-대부분은-인공지능과-관련이-없다"><a href="#개발의-대부분은-인공지능과-관련이-없다" class="headerlink" title="개발의 대부분은 인공지능과 관련이 없다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EA%B0%9C%EB%B0%9C%EC%9D%98-%EB%8C%80%EB%B6%80%EB%B6%84%EC%9D%80-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC-%EA%B4%80%EB%A0%A8%EC%9D%B4-%EC%97%86%EB%8B%A4" title="개발의 대부분은 인공지능과 관련이 없다." target="_blank" rel="noopener"></a>개발의 대부분은 인공지능과 관련이 없다.</h4><p>우리는 구글이 아니다. 이걸 인정하면 마음은 굉장히 편해지지만 대부분의 어른들(?)은 그걸 인정하기가 아들 딸 성적표보다 어려운 모양이다. 하지만 우리에게도 희망은 있다. 챗봇의 아키텍처에서 인공지능이 차지하는 부분은 우리가 기대하는 부분보다 굉장히 작다. 오히려 룰을 어떻게 만들고 어떻게 처리할 것인가 하는 부분이 훨씬 중요한 문제로 다가오게 된다.</p>
+<h4 id="개발자는-그래서-또-너무나-중요하다"><a href="#개발자는-그래서-또-너무나-중요하다" class="headerlink" title="개발자는 그래서 또 너무나 중요하다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8A%94-%EA%B7%B8%EB%9E%98%EC%84%9C-%EB%98%90-%EB%84%88%EB%AC%B4%EB%82%98-%EC%A4%91%EC%9A%94%ED%95%98%EB%8B%A4" title="개발자는 그래서 또 너무나 중요하다." target="_blank" rel="noopener"></a>개발자는 그래서 또 너무나 중요하다.</h4><p>위의 주제의 연속이다. 챗봇의 대부분은 소프트웨어 엔지니어의 영역이다. 그래서 챗봇 엔진을 잘 만들기 위해서는 좋은 엔지니어와 좋은 아키텍트가 당연히 필요하다. 물론 NLU라던지 딥러닝을 잘 하면 할 수록 더욱 좋다. 하지만 좋은 개발만큼 중요한 부분은 없다.</p>
+<p>좋은 개발자는 여러가지 복잡하게 얽혀있는 챗봇의 어려움들을 풀어줄 시작과 마지막이다. 점점 인공지능의 세상이 오면 올 수록 사용자의 입장에서 이해하는 개발자가 더 중요해 질 것이다.</p>
+<h4 id="우리는-기존의-레거시를-대체해야-한다"><a href="#우리는-기존의-레거시를-대체해야-한다" class="headerlink" title="우리는 기존의 레거시를 대체해야 한다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EC%9A%B0%EB%A6%AC%EB%8A%94-%EA%B8%B0%EC%A1%B4%EC%9D%98-%EB%A0%88%EA%B1%B0%EC%8B%9C%EB%A5%BC-%EB%8C%80%EC%B2%B4%ED%95%B4%EC%95%BC-%ED%95%9C%EB%8B%A4" title="우리는 기존의 레거시를 대체해야 한다." target="_blank" rel="noopener"></a>우리는 기존의 레거시를 대체해야 한다.</h4><p><img src="https://cdn-images-1.medium.com/max/1600/0*5vgnyq-ln8SBEbYO.jpg" alt="이렇게 죽어있는 레거시는 곤란하다"></p>
+<p>이렇게 죽어있는 레거시는 곤란하다</p>
+<p>상담이라던지, 견적이라던지 모든 챗봇이 풀고자 하는 문제들은 기존의 시스템이 자리잡고 있다. 그럼 이 레거시들을 어떻게 유기적으로 풀고 어떻게 서비스를 대체할 수 있을까? 마이크로 서비스 아키텍처는 그 중의 좋은 대답이 될 수 있다. 하지만 이것은 만병통치약은 아니다. 가장 중요한 것은 기존 레거시 함수를 묶어주는 표준을 만들어 주는 것이고 그 레거시를 어떻게 접근할지에 대한 해답은 챗봇이 가지고 있어야 한다.</p>
+<p>그렇다면 사용자의 자연어와 레거시간의 연계는 어떻게 이루어 질 것인가. 여기에는 기존에 없던 인공지능 분야의 기술이 필요하다.</p>
+<h4 id="과소-평가해서도-곤란하다"><a href="#과소-평가해서도-곤란하다" class="headerlink" title="과소 평가해서도 곤란하다."></a><a href="http://keen.devpools.kr/2017/05/30/%5B2017-05-30%2023:19:43%5D%E1%84%8E%E1%85%A2%E1%86%BA%E1%84%87%E1%85%A9%E1%86%BA%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%86%AB%E1%84%92%E1%85%A2%E1%86%BC%E1%84%92%E1%85%A1%E1%84%86%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A6%20%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%89%E1%85%A1%E1%84%89%E1%85%B5%E1%86%AF%E1%84%83%E1%85%B3%E1%86%AF/#%EA%B3%BC%EC%86%8C-%ED%8F%89%EA%B0%80%ED%95%B4%EC%84%9C%EB%8F%84-%EA%B3%A4%EB%9E%80%ED%95%98%EB%8B%A4" title="과소 평가해서도 곤란하다." target="_blank" rel="noopener"></a>과소 평가해서도 곤란하다.</h4><p><img src="https://cdn-images-1.medium.com/max/1600/0*EHAkE0QhpD2tOPTZ.jpg" alt="stay tuned"></p>
+<p>stay tuned<br>이 쪽은 지속적으로 계속 발전할 것이다. 그렇다는 것은 지금 발을 들이기에 무척이나 좋은 시기라는 것이다.<br>아무래도 발전에 대한 틀은 대부분이 갖춰지는 것 같다.<br>누군가가 기가막힌 사용자 인터페이스를 제시할 것이고 그 때 쯤이면 아직까지는 기대할 것 없는 챗봇 분야의 인공지능도 수준이 많이 올라갈 것이다.<br>언제나 관심을 기울이고 있어야 한다는 이야기다.</p>
+<hr>
+<p><em>Originally published at </em><a href="http://devpools.kr/2017/05/30/%EC%B1%97%EB%B4%87-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%98%EB%A9%B4%EC%84%9C-%EC%95%8C%EA%B2%8C-%EB%90%9C-%EC%82%AC%EC%8B%A4%EB%93%A4/" target="_blank" rel="noopener"><em>개발바보들</em></a><em>.</em></p>
+<p>By <a href="https://medium.com/@keendev" target="_blank" rel="noopener">Keen Dev</a> on <a href="https://medium.com/p/179d67a9e2af" target="_blank" rel="noopener">May 30, 2017</a>.</p>
+<p>Exported from <a href="https://medium.com/" target="_blank" rel="noopener">Medium</a> on May 31, 2017.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2017/05/30/챗봇-프로젝트를-진행하면서-알게-된-사실들/" data-id="cjc5stdzy003yb05jw34mypq3" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2017/05/30/챗봇-프로젝트를-진행하면서-알게-된-사실들/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/05/16/엑셀의-분석도구를-이용한-간단한-선형-회귀분석-실/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">엑셀의 분석도구를 이용한 간단한 선형 회귀분석 실습</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2017112701.png)" alt="[2017-11-27] 11월 깃헙 트렌드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="title">[2017-11-27] 11월 깃헙 트렌드</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T03:42:39.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/sourcecodemgmt.png)" alt="[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a></p>
+                            <p class="item-title"><a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="title">[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:31:23.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/puppeteer.jpg)" alt="[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/github-trend-github/">github-trend, github</a></p>
+                            <p class="item-title"><a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="title">[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:09:55.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/08/deeplearning-basic01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/playmobil-451203_640.jpg)" alt="딥러닝 무식하게 정리해 보기 01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/deep-learning/">deep learning</a></p>
+                            <p class="item-title"><a href="/2017/09/08/deeplearning-basic01/" class="title">딥러닝 무식하게 정리해 보기 01</a></p>
+                            <p class="item-date"><time datetime="2017-09-08T02:44:06.000Z" itemprop="datePublished">2017-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/seleniumhq.jpg)" alt="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a></p>
+                            <p class="item-title"><a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="title">헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github-page/" style="font-size: 20px;">github-page</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 20px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 20px;">reset</a> <a href="/tags/revert/" style="font-size: 20px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>REACT 컴포넌트 | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="React 컴포넌트를 작성하는 방법은 크게 두가지가 있습니다.(정확하게는 세가지가 있습니다.) 하나는 React.createClass 메쏘드를 이용하는 방법이고 또 다른 방법은 ES2015의 class extends 를 사용하는 방법입니다. React.createClass 로 컴포넌트를 작성할때와 ES2015의 class extends를 사용하는 방법은 다">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REACT 컴포넌트">
+<meta property="og:url" content="http://www.devpools.kr/2016/07/03/react-컴포넌트/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="React 컴포넌트를 작성하는 방법은 크게 두가지가 있습니다.(정확하게는 세가지가 있습니다.) 하나는 React.createClass 메쏘드를 이용하는 방법이고 또 다른 방법은 ES2015의 class extends 를 사용하는 방법입니다. React.createClass 로 컴포넌트를 작성할때와 ES2015의 class extends를 사용하는 방법은 다">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://www.devpools.kr/images/2016/07/React.createClass-235x300.jpg">
+<meta property="og:updated_time" content="2018-01-07T06:42:35.334Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="REACT 컴포넌트">
+<meta name="twitter:description" content="React 컴포넌트를 작성하는 방법은 크게 두가지가 있습니다.(정확하게는 세가지가 있습니다.) 하나는 React.createClass 메쏘드를 이용하는 방법이고 또 다른 방법은 ES2015의 class extends 를 사용하는 방법입니다. React.createClass 로 컴포넌트를 작성할때와 ES2015의 class extends를 사용하는 방법은 다">
+<meta name="twitter:image" content="http://www.devpools.kr/images/2016/07/React.createClass-235x300.jpg">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/ReactJs/">ReactJs</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-react-컴포넌트" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        REACT 컴포넌트
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2016/07/03/react-컴포넌트/" class="article-date">
+            <time datetime="2016-07-03T14:52:43.000Z" itemprop="datePublished">2016-07-03</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>React 컴포넌트를 작성하는 방법은 크게 두가지가 있습니다.(정확하게는 세가지가 있습니다.)</p>
+<p>하나는 React.createClass 메쏘드를 이용하는 방법이고 또 다른 방법은 ES2015의 class extends 를 사용하는 방법입니다.</p>
+<p>React.createClass 로 컴포넌트를 작성할때와 ES2015의 class extends를 사용하는 방법은 다음과 같습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/abea06e5da36555cf3fbc878920faca7" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/abea06e5da36555cf3fbc878920faca7</a></p>
+<p>이렇게 코드를 들여다 보면 의구심이 듭니다. React.createClass를 통해 Class생성을 하는 것과 ES2015 class extends를 이용하는 것은 어떤 차이가 있을까요?</p>
+<h3 id="실행환경에서-살펴보기"><a href="#실행환경에서-살펴보기" class="headerlink" title="실행환경에서 살펴보기"></a>실행환경에서 살펴보기</h3><h4 id="React-createClass"><a href="#React-createClass" class="headerlink" title="React.createClass"></a>React.createClass</h4><p>먼저 코드를 짜 보겠습니다.</p>
+<p>html 코드와 js 코드는 다음과 같습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/35105441ea195edfbf1bfffea9adb820" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/35105441ea195edfbf1bfffea9adb820</a></p>
+<p>&nbsp;</p>
+<p>위와 같이 javascript 코드를 짜면 손 쉽게 React.createClass를 이용해서 만든 코드가 실행환경에서 어떻게 보이는지 확인해 볼 수 있습니다.</p>
+<p>브라우저의 console 도구를 활용해서 본 클래스는 실제로는 function으로 정의가 되고 다음과 같이 보여집니다.</p>
+<p><img src="/images/2016/07/React.createClass-235x300.jpg" alt="React.createClass"></p>
+<p>var로 지정한 ReactComponent를 이름으로 가지고 prototype에 여러가지 속성들을 가지는데 한번 눈여겨 볼 필요가 있습니다.</p>
+<p>componentDidUpdate, componentWillMount, componentWillReceiveProps, componentWillUnmount, componentWillUpdate 등은 바로 뒤에 다룰 생명주기 함수들과 연관이 있습니다. 하지만 render 말고는 모두 null 로 셋팅이 되어 있는 것도 왜 그럴까 라고 생각해 보면 좋은 학습이 될 거 같습니다.( DeepDive#1)</p>
+<h4 id="ES2015-class"><a href="#ES2015-class" class="headerlink" title="ES2015 class"></a>ES2015 class</h4><p>ES2015 의 코드를 똑같이 짜 보도록 하겠습니다.</p>
+<p>코드는 다음과 같습니다</p>
+<p><a href="https://gist.github.com/ehrudxo/a54614c19a2d0a69f1aa654a17e2690c" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/a54614c19a2d0a69f1aa654a17e2690c</a></p>
+<p>어떤 일이 벌어질까요?</p>
+<p><img src="/images/2016/07/ES2015.Class-300x149.jpg" alt="ES2015.Class"></p>
+<p>어떤가요? React.createClass 와 비교해 보면 어떤 형태인가요?</p>
+<p>함수 이름은 ES2015Component로 바뀌었는데, prototype 부분에 있어야 할 많은 속성, 혹은 함수들이 보이지 않습니다.</p>
+<p>왜 이런 일이 벌어지는 걸까요? 이에 대한 답을 하기 전에 아까 두가지라고 하고는 괄호로 세가지라고 힌트를 준 걸 기억하실 겁니다. 다음 내용을 먼저 보시죠.</p>
+<h4 id="function-만으로-컴포넌트-생성"><a href="#function-만으로-컴포넌트-생성" class="headerlink" title="function 만으로 컴포넌트 생성"></a>function 만으로 컴포넌트 생성</h4><p>코드는 다음과 같습니다.</p>
+<p>실행을 하면 어떤 일이 벌어질까요?</p>
+<p><a href="https://gist.github.com/ehrudxo/93406b42f748426dd1624a24877cb768" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/93406b42f748426dd1624a24877cb768</a></p>
+<p><img src="/images/2016/07/PureFunction01-300x71.jpg" alt="PureFunction01"></p>
+<p>보시는 바와 같이 훌륭하게 페이지에 출력 됩니다.</p>
+<p>콘솔 도구를 확인해 보겠습니다.</p>
+<p><img src="/images/2016/07/PureFunction02.jpg" alt="PureFunction02"></p>
+<p>훨씬 간단한 함수가 있다는 사실을 알게 됩니다.</p>
+<h4 id="왜-이렇게-돌아가는-걸까"><a href="#왜-이렇게-돌아가는-걸까" class="headerlink" title="왜 이렇게 돌아가는 걸까."></a>왜 이렇게 돌아가는 걸까.</h4><p><a href="https://facebook.github.io/react/docs/glossary.html" target="_blank" rel="noopener">facebook 공식 페이지에 따르면</a> ReacDOM.render 함수의 첫번째 arguments는 (ReactElement, HTMLElement | SVGElement)를 받을 수 있도록 되어 있습니다.</p>
+<p>결국 순수 함수라고는 했지만 이 함수가 하는 일은 HTML Element 를 반환하는 것 뿐입니다.</p>
+<p>즉 다음과 같이 표현식을 바꾸는 거랑 똑같은 역할을 한다는 것입니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/c2464a81fe005d5e889dbef2802b08a5" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/c2464a81fe005d5e889dbef2802b08a5</a></p>
+<p>이렇게 그려 넣고 보니 어떤가요?</p>
+<p>너무 당연한걸 돌아 돌아 설명을 한 거 같습니다. 처음 서두에 React 컴포넌트를 생성하는 방법은 두가지 라고 설명을 드렸습니다만, 반전으로 말씀드리면 Javascript Syntax로 클래스 라고 생각되는 방법을 크게 두가지로 알면 될 것 같습니다.</p>
+<pre>조금 더 심화의 내용으로 설명드리면 ES2015를 가더라도 브라우저가 인식하는 java 같은 언어에서 얘기하는 class라는 개념은 실제로는 존재하지 않습니다.
+보셔서 아시겠지만 function 이자 prototype 을 이용해서 React가 활용을 하는 셈이지요.
+관련 내용에 대해서 더 알고 싶으신 분을 위해서는 Javascript Definite Guide 책을 추천드립니다.
+</pre>
+
+<h4 id="그럼-어떤-방식으로-짜는-게-좋을까요"><a href="#그럼-어떤-방식으로-짜는-게-좋을까요" class="headerlink" title="그럼 어떤 방식으로 짜는 게 좋을까요?"></a>그럼 어떤 방식으로 짜는 게 좋을까요?</h4><p>Airbnb 는 각 개발언어의 style guide를 훌륭하게 내기로 유명한데 <a href="https://github.com/airbnb/javascript/tree/master/react" target="_blank" rel="noopener">React 용 style 가이드</a>도 공개했습니다.</p>
+<p>아래와 같은 원칙을 갖고 있네요.</p>
+<p><a href="https://gist.github.com/ehrudxo/822b121cd680a23cf6cf6d704d6f505f" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/822b121cd680a23cf6cf6d704d6f505f</a></p>
+<p>생명주기와 관련된 함수가 사용되지 않는 이상(stateless) pure function 으로 사용하는 것이 낫다고 하는데, 여기에 대해서는 장기적인 performance 이슈를 그 예로 들고 있습니다. 이와 관련해서는 저도 찬성입니다.</p>
+<pre>**즉, 단순히 HTML을 구조화 하는 state 가 변할 필요학 없는 tag에 대해서는 javascript function 을 사용할 것. 그리고 그 경우가 아니면  ES2015 로 갈 것.
+**</pre>
+
+<p>을 원칙으로 하면 될 것 같습니다.</p>
+<p>저도 글을 작성할 때에 ES2015기준으로 작성하되, 설명을 위한 특별한 기준이 필요할 때에는 혼용해서 사용할 수 있음을 밝혀둡니다.</p>
+<h4 id="ES2015로-가면-모든-기능에-문제가-없을까"><a href="#ES2015로-가면-모든-기능에-문제가-없을까" class="headerlink" title="ES2015로 가면 모든 기능에 문제가 없을까?"></a>ES2015로 가면 모든 기능에 문제가 없을까?</h4><p>일단 ES2015를 이용하려면 브라우저 호환성을 위해 <a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a> 같은 transpiler(혹은 compiler)와 <a href="https://webpack.github.io/" target="_blank" rel="noopener">webpack</a> 같은 번들러가 필요합니다.</p>
+<p>컴포넌트에 관해서만 이야기하면 React 컴포넌트의 mixin, this autobinding 기능은 ES2015에서는 사용할 수 없습니다. 관련 기능을 이용하시려면 React.createClass를 이용해서 컴포넌트를 작성해야 합니다.(mixin 및 autobinding 기능은 재사용 컴포넌트 만들기를 설명할 때에 다시 다루도록 하겠습니다.)</p>
+<h4 id="끝내기-전에"><a href="#끝내기-전에" class="headerlink" title="끝내기 전에"></a>끝내기 전에</h4><p>읽어보다 SVGElement 관련해서 잠깐 언급된 적이 있죠?</p>
+<p>잘 되는지 한번 확인해 봐야겠습니다.</p>
+<p>SVG 코드 안에는 Devpools 로고를 집어 넣어 보겠습니다.</p>
+<p><a href="https://gist.github.com/ehrudxo/203ec6a0f4c0a97236f801b7ef44c769" target="_blank" rel="noopener">https://gist.github.com/ehrudxo/203ec6a0f4c0a97236f801b7ef44c769</a></p>
+<p>결과를 확인해 보니</p>
+<p><img src="/images/2016/07/svg_element-300x200.jpg" alt="svg_element"></p>
+<p>잘 나오는 것을 확인해 볼 수 있습니다.</p>
+<h5 id="이것이-의미-하는-것은"><a href="#이것이-의미-하는-것은" class="headerlink" title="이것이 의미 하는 것은?"></a>이것이 의미 하는 것은?</h5><p>UI관련 컴포넌트를 만드는 데에도 React는 잘 준비되어 있다라는 것과 아직 구조적으로 Canvas에 대한 지원은 없겠구나 라는 것을 확인할 수 있습니다.</p>
+<p>위 내용의 코드는 모두 다음의 jsfiddle 사이트에서 확인할 수 있습니다.</p>
+<iframe src="//jsfiddle.net/ehrudxo/kwvrxpz0/embedded/" width="800" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2016/07/03/react-컴포넌트/" data-id="cjc5stdy7001rb05jcvab2ah7" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2016/07/03/react-컴포넌트/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/07/10/react-컴포넌트-생명-주기/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            REACT 컴포넌트 생명 주기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2016/05/23/2016-5월-주간깃헙-2호/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">2016 5월 주간깃헙 2호</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2017112701.png)" alt="[2017-11-27] 11월 깃헙 트렌드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="title">[2017-11-27] 11월 깃헙 트렌드</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T03:42:39.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/sourcecodemgmt.png)" alt="[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a></p>
+                            <p class="item-title"><a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="title">[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:31:23.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/puppeteer.jpg)" alt="[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/github-trend-github/">github-trend, github</a></p>
+                            <p class="item-title"><a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="title">[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:09:55.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/08/deeplearning-basic01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/playmobil-451203_640.jpg)" alt="딥러닝 무식하게 정리해 보기 01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/deep-learning/">deep learning</a></p>
+                            <p class="item-title"><a href="/2017/09/08/deeplearning-basic01/" class="title">딥러닝 무식하게 정리해 보기 01</a></p>
+                            <p class="item-date"><time datetime="2017-09-08T02:44:06.000Z" itemprop="datePublished">2017-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/seleniumhq.jpg)" alt="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a></p>
+                            <p class="item-title"><a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="title">헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github-page/" style="font-size: 20px;">github-page</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 20px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 20px;">reset</a> <a href="/tags/revert/" style="font-size: 20px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

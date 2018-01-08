@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[JavaScript] ESLint with WebStorm | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="ESLint,IntellisJ,WebStorm" />
+    
+    <meta name="description" content="IntelliJ 의 웹 버전인 WebStorm을 사용할 때 ESLint를 사용하는 방법을 알아보겠습니다. 프로젝트에도 적용할 수 있겠지만 에디터에서 자동으로 문제가 있는 (혹은 버그를 생산하는) 코드를 미리 찾아 볼 수 있습니다. ESLint“Linting”이라는 행위는 버그가 날 수 있을 만한 코드를 찾아서 체크를 해 주는일을 의미합니다.  In comp">
+<meta name="keywords" content="ESLint,IntellisJ,WebStorm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JavaScript] ESLint with WebStorm">
+<meta property="og:url" content="http://www.devpools.kr/2017/02/16/javascript-eslint-webstorm/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="IntelliJ 의 웹 버전인 WebStorm을 사용할 때 ESLint를 사용하는 방법을 알아보겠습니다. 프로젝트에도 적용할 수 있겠지만 에디터에서 자동으로 문제가 있는 (혹은 버그를 생산하는) 코드를 미리 찾아 볼 수 있습니다. ESLint“Linting”이라는 행위는 버그가 날 수 있을 만한 코드를 찾아서 체크를 해 주는일을 의미합니다.  In comp">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://www.devpools.kr/images/2017/02/20170306_061320-1024x712.jpg">
+<meta property="og:updated_time" content="2018-01-07T06:42:35.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JavaScript] ESLint with WebStorm">
+<meta name="twitter:description" content="IntelliJ 의 웹 버전인 WebStorm을 사용할 때 ESLint를 사용하는 방법을 알아보겠습니다. 프로젝트에도 적용할 수 있겠지만 에디터에서 자동으로 문제가 있는 (혹은 버그를 생산하는) 코드를 미리 찾아 볼 수 있습니다. ESLint“Linting”이라는 행위는 버그가 날 수 있을 만한 코드를 찾아서 체크를 해 주는일을 의미합니다.  In comp">
+<meta name="twitter:image" content="http://www.devpools.kr/images/2017/02/20170306_061320-1024x712.jpg">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-javascript-eslint-webstorm" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JavaScript] ESLint with WebStorm
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/02/16/javascript-eslint-webstorm/" class="article-date">
+            <time datetime="2017-02-16T10:03:54.000Z" itemprop="datePublished">2017-02-16</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ESLint/">ESLint</a>, <a class="tag-link" href="/tags/IntellisJ/">IntellisJ</a>, <a class="tag-link" href="/tags/WebStorm/">WebStorm</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>IntelliJ 의 웹 버전인 WebStorm을 사용할 때 ESLint를 사용하는 방법을 알아보겠습니다. 프로젝트에도 적용할 수 있겠지만 에디터에서 자동으로 문제가 있는 (혹은 버그를 생산하는) 코드를 미리 찾아 볼 수 있습니다.</p>
+<h3 id="ESLint"><a href="#ESLint" class="headerlink" title="ESLint"></a>ESLint</h3><p>“Linting”이라는 행위는 버그가 날 수 있을 만한 코드를 찾아서 체크를 해 주는일을 의미합니다.</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_programming" title="Computer programming" target="_blank" rel="noopener">computer programming</a>, <strong>lint</strong> is a Unix utility that flags some <a href="https://en.wikipedia.org/wiki/C_(programming_language" target="_blank" rel="noopener">suspicious and non-portable constructs</a>#Language<em>tools “C (programming language)”) (likely to be bugs) in [C language](<a href="https://en.wikipedia.org/wiki/C" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/C</a></em>(programming_language) “C (programming language)”)<a href="https://en.wikipedia.org/wiki/Source_code" title="Source code" target="_blank" rel="noopener">source code</a>; generically, lint or a <strong>linter</strong> is any tool that flags suspicious usage in software written in any <a href="https://en.wikipedia.org/wiki/Computer_language" title="Computer language" target="_blank" rel="noopener">computer language</a>. The term <strong>lint-like behavior</strong> is sometimes applied to the process of flagging suspicious language usage. Lint-like tools generally perform <a href="https://en.wikipedia.org/wiki/Static_code_analysis" title="Static code analysis" target="_blank" rel="noopener">static analysis</a> of source code. - 위키피디아 <a href="https://en.wikipedia.org/wiki/Lint_%28software%29" target="_blank" rel="noopener">Lint</a></p>
+</blockquote>
+<p>JavaScript 에서 이 Lint라는 의미를 처음 얘기한 사람은 Douglas crockford 였고 그는 JsLint라는 툴을 만들어 냅니다. JavaScript Definite Guide  같은 책에서도 내용을 언급하고 있습니다.</p>
+<p>[contentcards url=”<a href="http://www.jslint.com/" target="_blank" rel="noopener">http://www.jslint.com/</a>“ target=”_blank”]</p>
+<p>하지만 최근의 대부분의 JavaScript 커뮤니티에서 사용하는 Lint  툴은 ESLint 툴입니다.</p>
+<p>Nicholas Jakas에 의해 2013년에 나온 이 툴은 현재 여러 툴들에서 플러그인으로 사용되고 있습니다.</p>
+<p>[contentcards url=”<a href="http://eslint.org/" target="_blank" rel="noopener">http://eslint.org/</a>“ target=”_blank”]</p>
+<p>“JSX” 지원하는 것에 대해서 언급이 첫페이지에 있습니다.  React 와 JSX는 다르다고 하는군요.  아무래도 Pluggable한 아키텍처로 이루어져 있기에 오리지날인 JSLint에 비해 많이 쓰이는 거라고 보여집니다.</p>
+<h3 id="webstorm"><a href="#webstorm" class="headerlink" title="webstorm"></a>webstorm</h3><p>웹스톰은 IntelliJ를 만든 Jetbrains에서 만든 웹 개발자용 IDE 입니다. 이클립스가 약간은 범용에 가깝다고 하면  이 웹 스톰은 JavaScript 최근 트렌드 및 개발 환경에 대한 이해가 큰 IDE 입니다. Node 모듈에 대한 이해도 가지고 있고 npm  을 기본적으로 작동시킬 수 있습니다. 유료 IDE기는 하지만 IntelliJ에 적응된 개발자들은 이webstorm의 여러가지 기능에 대해서 많이 만족하고 쓰고 있습니다. 최근 팝잇에 올라온 IntelliJ에 관한 글을 읽어보면 많은 인사이트들을 얻을 수 있습니다.</p>
+<p>[contentcards url=”<a href="http://www.popit.kr/%EC%9D%B8%ED%85%94%EB%A6%ACj-%ED%99%9C%EC%9A%A9-%EA%BF%80%ED%8C%81-42%EA%B0%80%EC%A7%80-%EC%A0%95%EB%A6%AC/" target="_blank" rel="noopener">http://www.popit.kr/%EC%9D%B8%ED%85%94%EB%A6%ACj-%ED%99%9C%EC%9A%A9-%EA%BF%80%ED%8C%81-42%EA%B0%80%EC%A7%80-%EC%A0%95%EB%A6%AC/</a>“ target=”_blank”]</p>
+<h3 id="WebStrom-ESLint"><a href="#WebStrom-ESLint" class="headerlink" title="WebStrom + ESLint"></a>WebStrom + ESLint</h3><p>이 WebStorm에서 ESLint를 설정하는 방법은 다음과 같습니다.</p>
+<p>preference -&gt; Languges &amp; Framework -&gt; ESLint</p>
+<p><img src="/images/2017/02/20170306_061320-1024x712.jpg" alt=""></p>
+<p>두가지를 셋팅해 주셔야 하는데 하나는 Node 를 지정하는 것이고 또 다른 하나는 ESLint 폴더를 지정해 주는 것입니다. Node 는 각자의 환경을 정하면 될 것입니다.</p>
+<p>ESLint 폴더를 지정할 때는</p>
+<pre><span style="font-size: 12pt; font-family: terminal, monaco, monospace;">$ npm list -g|more </span></pre>
+
+<p>옵션을 통해서 어디에 설치를 했는지 확인해 주시면 됩니다.</p>
+<p>확인이 되셨으면</p>
+<pre><span style="font-size: 12pt; font-family: terminal, monaco, monospace;">`$ npm install -g eslint`</span></pre>
+
+<p>[contentcards url=”<a href="https://github.com/eslint/eslint" target="_blank" rel="noopener">https://github.com/eslint/eslint</a>“ target=”_blank”]</p>
+<p>이후 몇가지 모듈을 더 설치해야 합니다.</p>
+<pre><span style="font-family: terminal, monaco, monospace; font-size: 12pt;">$npm install eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-import -g</span></pre>
+
+<p>실행해 주고 나서 WebStorm을 다시 작동시키면 아래와 같은 좋은 예를 볼 수 있습니다.</p>
+<p><img src="/images/2017/02/스크린샷-2017-02-16-오후-6.49.10.jpg" alt=""></p>
+<p>&nbsp;</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2017/02/16/javascript-eslint-webstorm/" data-id="cjc5stdxy001db05juy6ty7vr" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2017/02/16/javascript-eslint-webstorm/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/02/27/개발바보들-2화-git-stash/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            개발바보들 2화 – git “Stash”
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/02/09/깃헙트렌드-lottie/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[깃헙트렌드]Lottie</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2017112701.png)" alt="[2017-11-27] 11월 깃헙 트렌드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="title">[2017-11-27] 11월 깃헙 트렌드</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T03:42:39.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/sourcecodemgmt.png)" alt="[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a></p>
+                            <p class="item-title"><a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="title">[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:31:23.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/puppeteer.jpg)" alt="[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/github-trend-github/">github-trend, github</a></p>
+                            <p class="item-title"><a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="title">[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:09:55.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/08/deeplearning-basic01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/playmobil-451203_640.jpg)" alt="딥러닝 무식하게 정리해 보기 01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/deep-learning/">deep learning</a></p>
+                            <p class="item-title"><a href="/2017/09/08/deeplearning-basic01/" class="title">딥러닝 무식하게 정리해 보기 01</a></p>
+                            <p class="item-date"><time datetime="2017-09-08T02:44:06.000Z" itemprop="datePublished">2017-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/seleniumhq.jpg)" alt="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a></p>
+                            <p class="item-title"><a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="title">헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github-page/" style="font-size: 20px;">github-page</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 20px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 20px;">reset</a> <a href="/tags/revert/" style="font-size: 20px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

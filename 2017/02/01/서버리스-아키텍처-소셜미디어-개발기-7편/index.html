@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>서버리스 아키텍처 소셜미디어 개발기 7편 | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="" />
+    
+    <meta name="description" content="서버리스 아키텍처 소셜미디어 개발기 7편대망의 마지막 편입니다. 서버리스 아키텍처 소셜미디어 개발기 6편_나프다 발표 이후 한참 글이 뜸했네요. 이제 점점 끝이 보입니다. 속도를 내야겠네요 사용자 스토리4 1. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 위해 스탠드업이라는 웹 앱을 찾아간다. …_techstory.shma.so 지난">
+<meta property="og:type" content="article">
+<meta property="og:title" content="서버리스 아키텍처 소셜미디어 개발기 7편">
+<meta property="og:url" content="http://www.devpools.kr/2017/02/01/서버리스-아키텍처-소셜미디어-개발기-7편/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="서버리스 아키텍처 소셜미디어 개발기 7편대망의 마지막 편입니다. 서버리스 아키텍처 소셜미디어 개발기 6편_나프다 발표 이후 한참 글이 뜸했네요. 이제 점점 끝이 보입니다. 속도를 내야겠네요 사용자 스토리4 1. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 위해 스탠드업이라는 웹 앱을 찾아간다. …_techstory.shma.so 지난">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*ylD3EMpOg_303zM3jOxHTA.jpeg">
+<meta property="og:updated_time" content="2017-12-13T09:40:19.872Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="서버리스 아키텍처 소셜미디어 개발기 7편">
+<meta name="twitter:description" content="서버리스 아키텍처 소셜미디어 개발기 7편대망의 마지막 편입니다. 서버리스 아키텍처 소셜미디어 개발기 6편_나프다 발표 이후 한참 글이 뜸했네요. 이제 점점 끝이 보입니다. 속도를 내야겠네요 사용자 스토리4 1. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 위해 스탠드업이라는 웹 앱을 찾아간다. …_techstory.shma.so 지난">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*ylD3EMpOg_303zM3jOxHTA.jpeg">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-서버리스-아키텍처-소셜미디어-개발기-7편" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        서버리스 아키텍처 소셜미디어 개발기 7편
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/02/01/서버리스-아키텍처-소셜미디어-개발기-7편/" class="article-date">
+            <time datetime="2017-02-01T01:29:09.000Z" itemprop="datePublished">2017-02-01</time>
+        </a>
+    </div>
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="서버리스-아키텍처-소셜미디어-개발기-7편"><a href="#서버리스-아키텍처-소셜미디어-개발기-7편" class="headerlink" title="서버리스 아키텍처 소셜미디어 개발기 7편"></a><a href="http://keen.devpools.kr/2017/02/01/%5B2017-02-01%2010:29:09%5D%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%20%E1%84%89%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AF%E1%84%86%E1%85%B5%E1%84%83%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B5%207%E1%84%91%E1%85%A7%E1%86%AB/#%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%86%8C%EC%85%9C%EB%AF%B8%EB%94%94%EC%96%B4-%EA%B0%9C%EB%B0%9C%EA%B8%B0-7%ED%8E%B8" title="서버리스 아키텍처 소셜미디어 개발기 7편" target="_blank" rel="noopener"></a>서버리스 아키텍처 소셜미디어 개발기 7편</h3><p>대망의 마지막 편입니다.</p>
+<p><a href="https://techstory.shma.so/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%86%8C%EC%85%9C%EB%AF%B8%EB%94%94%EC%96%B4-%EA%B0%9C%EB%B0%9C%EA%B8%B0-6%ED%8E%B8-b30a7d6ad854#.2kqclsfo7" title="https://techstory.shma.so/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%86%8C%EC%85%9C%EB%AF%B8%EB%94%94%EC%96%B4-%EA%B0%9C%EB%B0%9C%EA%B8%B0-6%ED%8E%B8-b30a7d6ad854#.2kqclsfo7" target="_blank" rel="noopener"><strong>서버리스 아키텍처 소셜미디어 개발기 6편</strong><br>_나프다 발표 이후 한참 글이 뜸했네요. 이제 점점 끝이 보입니다. 속도를 내야겠네요 사용자 스토리4 1. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 위해 스탠드업이라는 웹 앱을 찾아간다. …_techstory.shma.so</a><a href="https://techstory.shma.so/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%86%8C%EC%85%9C%EB%AF%B8%EB%94%94%EC%96%B4-%EA%B0%9C%EB%B0%9C%EA%B8%B0-6%ED%8E%B8-b30a7d6ad854#.2kqclsfo7" target="_blank" rel="noopener"></a></p>
+<p>지난 편에 이어 계속 하겠습니다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*ylD3EMpOg_303zM3jOxHTA.jpeg" alt="">우린 모두 한 그룹이니까요~</p>
+<pre><code>1\. 김개발은 아침 스탠드업 시간에 같이 이야기를 나눌 수 있는 주제를 위해 스탠드업이라는 웹 앱을 찾아간다. 이렇게 함으로써 사람들과 IT에 대한 주제로 커뮤니케이션을 할 수 있다.  
+2\. 김개발이 사이트를 방문해서 자신이 어제 유심하게 읽은 글을 올릴 수 있다. 이렇게 하면 다른 사람들이 볼 수 있다.  
+\* 에디터 창에 인터넷 링크를 입력하면 자동적으로 페이지 카드가 만들어 진다. 이 때 페이지 링크는 oEmbed를 써서 동작하는데 웹 표준을 준수하고 자연스러워야 한다.  
+\* 에디터 창은 하나만 있고 거기서 글을 작성하고 업로드 하면 글이 외부 클라우드 공간에 저장이 된다.
+
+3\. 김개발이 작성한 글이 목록으로 보여진다. 이렇게 함으로써 다른 사람들이 목록을 확인할 수 있다.  
+4\. 김개발은 google ID를 가지고 로그인을 할 수 있다. 이렇게 함으로써 내가 쓴 글만 따로 모아서 볼 수 있다.**  
+5\. 김개발은 그룹 별로 스탠드업을 만들 수 있고 각 그룹별고 글을 올릴 수 있다**
+`&lt;/pre&gt;
+
+그룹 기능을 넣고 나서는 내가 이럴려고 계속한다 했나 자괴감 들어.라는 순간이 몇번이나 왔는지 모르겠습니다. 이유는 몇가지가 있는데 첫번째는 처음 설계를 몇번이나 바꿔야 하는 것이며 , 두 번째는 테스트 코드가 어느 순간 동작하지 않는 것이었습니다. 설계를 바꾸는 것은 개발의 숙명이라 받아들일 수 있었는데 테스트 코드는 어느 순간 놓치고 나니 TDD를 진행하지 못한 부분이 있어 많이 부끄러워 지더군요.
+
+본론으로 들어가서 이번 글에는 유저스토리를 하나 더 추가해 보았습니다. “**김개발은 그룹을 만들 수 있고 각 그룹별고 글을 올릴 수 있다.” **이 내용을 토대로 어떻게 들어갔는지 한번 살펴 보도록 하겠습니다.
+
+#### [](http://keen.devpools.kr/2017/02/01/%5B2017-02-01%2010:29:09%5D%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%20%E1%84%89%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AF%E1%84%86%E1%85%B5%E1%84%83%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B5%207%E1%84%91%E1%85%A7%E1%86%AB/#0-%EA%B3%A0%EC%B9%A9%EB%8B%88%EB%8B%A4 &quot;0\. 고칩니다&quot;)0\. 고칩니다
+
+이전에 firebase-ui 때문에 외부에 소스를 뺀 적이 있죠? 시간은 어느덧 두달이 지났으니 당연히 npm으로 등록이 되었습니다. 나프다 발표하는 당일에 추가가 되기는 했었습니다.
+
+&lt;pre&gt;`$npm install firebase firebaseui --save
+`&lt;/pre&gt;
+
+#### [](http://keen.devpools.kr/2017/02/01/%5B2017-02-01%2010:29:09%5D%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%20%E1%84%89%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AF%E1%84%86%E1%85%B5%E1%84%83%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B5%207%E1%84%91%E1%85%A7%E1%86%AB/#1-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90 &quot;1\. 시작하기 전에&quot;)1\. 시작하기 전에
+
+![](https://cdn-images-1.medium.com/max/1600/1*OlvH8Q0PNeY0IZpiFELC8g.jpeg)그림1
+
+그림 1과 같은 역할을 하는 UI를 먼저 만들어 보려고 합니다. 기본 UI 기능은 그룹을 선택해야 할 수 있어야 하고 그룹을 만들 수 있어야 합니다. 그래서 선택을 할 수 있는 회전목마(Carousel) UI가 필요하고 그룹을 만들 수 있는 UI도 필요해서 새 그룹이라는 버튼을 달아 두었습니다.
+
+#### [](http://keen.devpools.kr/2017/02/01/%5B2017-02-01%2010:29:09%5D%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%20%E1%84%89%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AF%E1%84%86%E1%85%B5%E1%84%83%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B5%207%E1%84%91%E1%85%A7%E1%86%AB/#2-%EA%B7%B8%EB%A3%B9-%EB%A7%8C%EB%93%A4%EA%B8%B0 &quot;2\. 그룹 만들기&quot;)2\. 그룹 만들기
+
+그룹을 만들기 위해서는 당연히 기존의 firebase 에 저장된 스키마에 대한 조정이 필요하겠죠?
+
+![](https://cdn-images-1.medium.com/max/1600/1*sSrIpCI61RQLXqUo1oReFg.jpeg)posts 생긴 형태
+
+기존의 posts라는 스키마에는 모든 글이 저장되고 이 내용을 읽어와서 작업을 했었는데, 이제는 group 별로 조정할 일들이 생겼습니다.
+
+![](https://cdn-images-1.medium.com/max/1600/1*p3_WoYtd7UWa4l3E1wrgMQ.jpeg)기존의 posts는 더 이상 필요가 없다.
+
+groups는 그룹을 만들면 생성될 수 있는 엔트리가 될 것이고 group-posts에 각 그룹 별로 아티클이 들어갈 수 있도록 작업을 할 것입니다. 먼저 그룹을 생성하고 리스트 하는 작업을 해 보겠습니다. 생성을 하려면 다음과 같은 UI를 통해 그룹간 이동을 할 수 있습니다.
+
+![](https://cdn-images-1.medium.com/max/1600/1*sVIaS0JmBfItOazHLlQURQ.jpeg)
+
+일단 이 일련의 작업들을 하는 세가지 버튼을 만들어 보겠습니다. 먼저 그룹 페이지에 처음 들어오게 되면 그룹에 해당하는 이미지가 보여지고 그룹 작업을 선택하면(1) 새 그룹을 만들 수 있어야 하며(3), 다른 그룹을 선택할 수도(4) 있어야 합니다. 글 쓰기 버튼을 선택하면(2) 글 쓰기를 할 수 있는 에디터가 나와서 글이 작성되어야 하며 여러가지 모든 상황에서 원래 그룹으로 원상복귀(5)할 수 도 있어야 합니다.
+
+어떤 작업을 먼저 하면 좋을까요? **React 개발에 있어서는 state를 어떻게 관리할 것인가** 를 첫번째 질문으로 가져가야 할 것입니다. 외부에서 URL 기반으로 타이핑해서 들어올 때 처음 형태를 어떻게 가져야 할지를기준으로 설계를 해 보겠습니다.
+
+1.  기존의 edit를 하던 부분을 URL로 처리했던 부분은 그렇게 중요하지 않을 것입니다.
+2.  내부에서 선택 버튼을 누를 경우는 URL이 변경되어야 합니다.
+3.  글쓰기 를 작성하면 URL은 변경되지 않지만 버튼의 state는 변경되어야 합니다.
+
+![](https://cdn-images-1.medium.com/max/1600/1*W6HXkcZHcGVkR9-5GLaelQ.jpeg)
+
+먼저 세가지 버튼에 대해서 상태를 유지하고 그 값에 따라 아래 Action Bar를 선택하도록 해 보겠습니다.
+
+![](https://cdn-images-1.medium.com/max/1600/1*X5npSzmjYIiumCvSHl-wzA.jpeg)상태에 따라 색도 변하도록 설계하자버튼 선택에 따라 state 가 바뀌고, 변수 선택에 따른 컴포넌트 렌더링이 달라지게 설계!
+
+버튼을 클릭하면 selectedButton 즉 선택한 버튼을 확인하게 되고 그에 따라서 CSS 값을 변경해 주는 작업을 하는 컴포넌트입니다. 이걸 가능하게 하기 위해서 actions, reducers 폴더 밑에 각각 Button.js파일을 만들었습니다.
+
+&lt;pre&gt;`//ActionBar를 그려준다. 안드로이드의 액션바와는 다르다. 액션바와는...  
+{**this**.renderActionBar(selectedButton)}
+
+//그룹이 존재하고 버튼선택이 된 경우  
+{groupName &amp;amp;&amp;amp; !selectedButton&amp;amp;&amp;amp;  
+&amp;lt;div style={{width:'100%',height:150,position:'relative'}}\&amp;gt;  
+&amp;lt;img src={logoUrl} alt={groupName} style={{width:'100%',height:150}}/\&amp;gt;  
+&amp;lt;div className=&amp;quot;style\_title&amp;quot; style={{width:"100%"}}\&amp;gt;{groupName}&amp;lt;/div\&amp;gt;  
+&amp;lt;/div\&amp;gt;  
+}
+`&lt;/pre&gt;
+
+renderActionBar는 ActionBar 가 선택된 버튼에 따라서 다르게 그려지도록 했고 어떤 버튼도 선택되지 않을 경우에는 그룹의 로고 URL을 보여주도록합니다.
+
+**2.1\. 그룹 만들기**
+
+자, 그럼 그룹은 어떻게 만들까요?
+
+![](https://cdn-images-1.medium.com/max/1600/1*AaIZeG2Tpgf58IMmPG_H5A.jpeg)파일 업로드가 시급하다.
+
+그룹명이 존재하는지 (1)중복 확인을 한 후에 (2)드래그앤 드롭을 통한 파일 업로드, (3)그룹생성 의 순서대로 이루어집니다.
+
+이중 1,3번의 Group의 Real Time DB에 대한 DAO는 여기서 다루지 않겠습니다. (소스에서 확인하세요.) 드래그앤 드롭해서 파일 업로드 하는 부분만 확인을 하면 Firebase의 FileUpload에 대한 인터페이스와 Dropzone UI 에 대한 이야기로 나눠서 볼 수 있을 거 같습니다.
+
+**Firebase FileUpload**
+
+src 폴더 아래 FileUtil.js를 만들었습니다.
+
+주목 하셔야 할 부분은 다음의 storageRef 입니다.
+
+&lt;pre&gt;`//storageRef 정의  
+var storageRef = firebase.storage().ref();
+
+**// 업로드  
+var **uploadTask = storageRef.child(&amp;apos;images/&amp;apos; + file.name).put(file, metadata);
+
+// 이벤트 정의
+
+uploadTask.on(firebase.storage._TaskEvent_.STATE\_CHANGED,....(중략)
+`&lt;/pre&gt;
+
+그럼 이 부분을 호출한 부분을 살펴 볼까요?
+
+**Dropzone**
+
+src 파일 밑에 GroupAdd.js 라는 파일을 만들었습니다. 이 파일에서 중요하게 눈여겨 보실 부분은 react-dropzone이라는 라이브러리를 이용했다는 점이고 그 부분은 소스의 처음 import 부분에 포함이 되어 있습니다.
+
+&lt;pre&gt;`&amp;lt;Dropzone onDrop={(acceptedFiles, rejectedFiles)=\&amp;gt;**this**.onDrop} accept=&amp;quot;image/\*&amp;quot; className=&amp;quot;drop-file padding-top&amp;quot;\&amp;gt;  
+&amp;lt;div\&amp;gt;파일을 드래그앤 드롭 하거나 클릭해서 선택하세요&amp;lt;/div\&amp;gt;  
+&amp;lt;/Dropzone\&amp;gt;
+`&lt;/pre&gt;
+
+Dropzone 에서 onDrop이라는 이벤트를 만들었고 이 이벤트는 기본적으로 허용된 파일과 거절된 파일을 인자로 받아서 처리해 줍니다.
+
+&lt;pre&gt;`onDrop (acceptedFiles, rejectedFiles) {
+
+...  
+**if**(acceptedFiles &amp;amp;&amp;amp; acceptedFiles.length\&amp;gt;0){  
+**...**  
+imageUpload(acceptedFiles, 1, (downloadUrl)=\&amp;gt;{  
+**this**.setState({  
+groupImage:downloadUrl,  
+isSpin: **false  
+**});  
+});  
+}**else**{  
+...  
+}  
+}
+`&lt;/pre&gt;
+
+#### [](http://keen.devpools.kr/2017/02/01/%5B2017-02-01%2010:29:09%5D%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5%20%E1%84%89%E1%85%A9%E1%84%89%E1%85%A7%E1%86%AF%E1%84%86%E1%85%B5%E1%84%83%E1%85%B5%E1%84%8B%E1%85%A5%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B5%207%E1%84%91%E1%85%A7%E1%86%AB/#3-%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0 &quot;3\. 조회하기&quot;)3\. 조회하기
+
+이렇게 그룹을 만들고 났으면 URL 별로 그룹이 조회가 되도록 내용을 추가해 줍니다. 스키마에 대해서는 서두에 밝혔으니 소스코드 레벨로만 간단하게 설명하겠습니다. (FirebaseDAO에 대해서는 이미 수차례 설명했으니 소스코드도 최대한 짧게 가겠습니다.)
+
+reducer는 생략하고 action만 살펴보고 넘어가겠습니다.
+
+&lt;pre&gt;`**export function **groupSelect(groupName){  
+**return **(dispatch) =\&amp;gt; {  
+dao.getGroup(groupName).once(&amp;apos;value&amp;apos;, (snapshot) =\&amp;gt; {  
+**if**(snapshot.val()) {  
+**let **logoUrl = snapshot.val().logoUrl;  
+dispatch(getGroup(groupName, logoUrl));  
+dispatch(selectButton());  
+}  
+})  
+}  
+}  
+**export function **getGroup(groupName, logoUrl){  
+**return **(dispatch) =\&amp;gt; {  
+dao.listGroupArticle(groupName).then((articles)=\&amp;gt;dispatch(getArticle(articles,groupName,logoUrl)));  
+}  
+}
+`&lt;/pre&gt;
+
+소스코드 처럼 group을 가지고 와서 로고 및 데이타를 가져온 뒤에 버튼을 선택하는 액션을 다시한번 연결하고는 끝이 납니다.
+
+라우터 소스는 그에 따라 아래와 같이 간단해 졌습니다.
+
+&lt;pre&gt;`&amp;lt;Provider store={store}\&amp;gt;  
+&amp;lt;Router history={history}\&amp;gt;  
+&amp;lt;Route path=&amp;quot;/&amp;quot; component={App}\&amp;gt;  
+&amp;lt;Route path=&amp;quot;login&amp;quot; component={Login}/\&amp;gt;  
+&amp;lt;Route path=&amp;quot;groups/:groupName&amp;quot; /\&amp;gt;  
+&amp;lt;Route path=&amp;quot;\*&amp;quot; component={NotFound}/\&amp;gt;  
+&amp;lt;/Route\&amp;gt;  
+&amp;lt;/Router\&amp;gt;  
+&amp;lt;/Provider\&amp;gt;
+</code></pre><p>이렇게 그룹의 개념을 집어 넣어서 전체 내용을 다시한번 리마인드 하면서 전체에 대한 시리즈는 끝을 낼까 합니다.</p>
+<p>지금까지는 실행에 대한 내용이었고 이후는 서버리스 아키텍처에 대한 고찰에 관한 이야기 + 리팩토링에 대한 이야기를 해 볼까 합니다.</p>
+<p>그 동안 어려운 내용 같이 따라오신다고 고생하셨습니다.</p>
+<p>소스코드는 아래 링크를 참고하시면 됩니다.</p>
+<p><a href="https://github.com/ehrudxo/standup/tree/day7" title="https://github.com/ehrudxo/standup/tree/day7" target="_blank" rel="noopener"><strong>ehrudxo/standup</strong><br>_standup project for newbi_github.com</a><a href="https://github.com/ehrudxo/standup/tree/day7" target="_blank" rel="noopener"></a></p>
+<p>By <a href="https://medium.com/@keendev" target="_blank" rel="noopener">Keen Dev</a> on <a href="https://medium.com/p/c835a41ae9d0" target="_blank" rel="noopener">February 1, 2017</a>.</p>
+<p>Exported from <a href="https://medium.com/" target="_blank" rel="noopener">Medium</a> on May 31, 2017.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2017/02/01/서버리스-아키텍처-소셜미디어-개발기-7편/" data-id="cjc5stdzh003ab05jhfdl3fed" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2017/02/01/서버리스-아키텍처-소셜미디어-개발기-7편/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/02/05/초보용-git-되돌리기-reset-revert/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            [초보용] Git 되돌리기( Reset, Revert )
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/01/31/개발바보들-1화-git-back-to-the-future/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">개발바보들 1화 -  git &amp;quot;Back to the Future&amp;quot;</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2017112701.png)" alt="[2017-11-27] 11월 깃헙 트렌드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" class="title">[2017-11-27] 11월 깃헙 트렌드</a></p>
+                            <p class="item-date"><time datetime="2017-11-27T03:42:39.000Z" itemprop="datePublished">2017-11-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/sourcecodemgmt.png)" alt="[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a></p>
+                            <p class="item-title"><a href="/2017/09/14/tip-도커로-깃랩을-설치했을때-젠킨스-연결은-어떻게-할-것인가/" class="title">[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:31:23.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/puppeteer.jpg)" alt="[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/github-trend-github/">github-trend, github</a></p>
+                            <p class="item-title"><a href="/2017/09/14/githubnode-js-기반-헤드리스-브라우저-컨트롤-api-puppeteer/" class="title">[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T04:09:55.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/08/deeplearning-basic01/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/playmobil-451203_640.jpg)" alt="딥러닝 무식하게 정리해 보기 01" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/deep-learning/">deep learning</a></p>
+                            <p class="item-title"><a href="/2017/09/08/deeplearning-basic01/" class="title">딥러닝 무식하게 정리해 보기 01</a></p>
+                            <p class="item-date"><time datetime="2017-09-08T02:44:06.000Z" itemprop="datePublished">2017-09-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/seleniumhq.jpg)" alt="헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a></p>
+                            <p class="item-title"><a href="/2017/06/07/헤드리스-크롬과-selenium2의-조합을-사용해-보자-with-node/" class="title">헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</a></p>
+                            <p class="item-date"><time datetime="2017-06-07T04:31:34.000Z" itemprop="datePublished">2017-06-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/github-page/" style="font-size: 20px;">github-page</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 20px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 20px;">reset</a> <a href="/tags/revert/" style="font-size: 20px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
