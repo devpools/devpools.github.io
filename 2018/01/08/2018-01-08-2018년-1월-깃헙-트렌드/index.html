@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[2018-01-08] 2018년 1월 깃헙 트렌드 - Rust와 웹 어셈블리의 혁신적인 도발 | devpools blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="github, github-trend, tech-trend" />
+    
+    <meta name="description" content="2018년 새해가 밝았다. 올해는 어떤 포스팅을 더 할 수 있을지 고민해 보았다. 물론 언제나 나의 계획과 이룰 수 있는데에는 한계가 있다.  올 한해 하고 싶은 포스팅 가방끈 짧은 개발자의 딥러닝 시리즈  프론트엔드 개발자가 배워야 하는 기반 기술 총망라. ( HTTP1.0 부터 ES2018까지. 아 이건 위키가 더 좋을까.  총망라 라니.. 이런 아재">
+<meta name="keywords" content="github, github-trend, tech-trend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[2018-01-08] 2018년 1월 깃헙 트렌드 - Rust와 웹 어셈블리의 혁신적인 도발">
+<meta property="og:url" content="http://www.devpools.kr/2018/01/08/2018-01-08-2018년-1월-깃헙-트렌드/index.html">
+<meta property="og:site_name" content="devpools blog">
+<meta property="og:description" content="2018년 새해가 밝았다. 올해는 어떤 포스팅을 더 할 수 있을지 고민해 보았다. 물론 언제나 나의 계획과 이룰 수 있는데에는 한계가 있다.  올 한해 하고 싶은 포스팅 가방끈 짧은 개발자의 딥러닝 시리즈  프론트엔드 개발자가 배워야 하는 기반 기술 총망라. ( HTTP1.0 부터 ES2018까지. 아 이건 위키가 더 좋을까.  총망라 라니.. 이런 아재">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://www.devpools.kr/images/2018/01/rust_page.png">
+<meta property="og:updated_time" content="2018-01-10T11:30:04.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[2018-01-08] 2018년 1월 깃헙 트렌드 - Rust와 웹 어셈블리의 혁신적인 도발">
+<meta name="twitter:description" content="2018년 새해가 밝았다. 올해는 어떤 포스팅을 더 할 수 있을지 고민해 보았다. 물론 언제나 나의 계획과 이룰 수 있는데에는 한계가 있다.  올 한해 하고 싶은 포스팅 가방끈 짧은 개발자의 딥러닝 시리즈  프론트엔드 개발자가 배워야 하는 기반 기술 총망라. ( HTTP1.0 부터 ES2018까지. 아 이건 위키가 더 좋을까.  총망라 라니.. 이런 아재">
+<meta name="twitter:image" content="http://www.devpools.kr/images/2018/01/rust_page.png">
+    
+
+    
+        <link rel="alternate" href="http://www.devpool.kr/atom.xml" title="devpools blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-74651367-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">개발 바보들의 놀이터</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">홈</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="검색" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '포스트',
+            PAGES: 'Pages',
+            CATEGORIES: '카테고리',
+            TAGS: '태그',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    미지정
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-2018-01-08-2018년-1월-깃헙-트렌드" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [2018-01-08] 2018년 1월 깃헙 트렌드 - Rust와 웹 어셈블리의 혁신적인 도발
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/01/08/2018-01-08-2018년-1월-깃헙-트렌드/" class="article-date">
+            <time datetime="2018-01-08T08:47:43.000Z" itemprop="datePublished">2018-01-08</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/github-github-trend-tech-trend/">github, github-trend, tech-trend</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>2018년 새해가 밝았다. 올해는 어떤 포스팅을 더 할 수 있을지 고민해 보았다. 물론 언제나 나의 계획과 이룰 수 있는데에는 한계가 있다. </p>
+<h3 id="올-한해-하고-싶은-포스팅"><a href="#올-한해-하고-싶은-포스팅" class="headerlink" title="올 한해 하고 싶은 포스팅"></a>올 한해 하고 싶은 포스팅</h3><ol>
+<li>가방끈 짧은 개발자의 딥러닝 시리즈 </li>
+<li>프론트엔드 개발자가 배워야 하는 기반 기술 총망라. ( HTTP1.0 부터 ES2018까지. 아 이건 위키가 더 좋을까.  총망라 라니.. 이런 아재 감각.)</li>
+<li>머리속에 그리는 리액트 심화 가즈아~</li>
+<li>깃헙 트렌드 격주 발행 ( 가능할 것인가?!! )</li>
+</ol>
+<h3 id="1월의-깃헙-트렌드"><a href="#1월의-깃헙-트렌드" class="headerlink" title="1월의 깃헙 트렌드"></a>1월의 깃헙 트렌드</h3><p>1월 한달간 깃헙에 올라온 프로젝트 중 많은 호응을 얻었던 프로젝트들을 정리해 보았다. 특이하게 디버깅에 관련된 프로젝트들이 많이 올라 왔다.  30 seconds of code 는 매우 유용한 자바스크립트 코드를 확인해 볼 수 있다.</p>
+<ul>
+<li><a href="https://github.com/x64dbg/x64dbg" target="_blank" rel="noopener">x64dbg</a></li>
+<li><a href="https://github.com/tipsy/github-profile-summary" target="_blank" rel="noopener">github-profile-summary</a></li>
+<li><a href="https://github.com/Chalarangelo/30-seconds-of-code" target="_blank" rel="noopener">30-seconds-of-code</a></li>
+<li><a href="https://github.com/wangshub/wechat_jump_game" target="_blank" rel="noopener">wechat_jump_game</a></li>
+<li><a href="https://github.com/parcel-bundler/parcel" target="_blank" rel="noopener">parcel</a></li>
+<li><a href="https://github.com/skylot/jadx" target="_blank" rel="noopener">jadx</a></li>
+<li><a href="https://github.com/jwasham/coding-interview-university" target="_blank" rel="noopener">coding-interview-university</a></li>
+<li><a href="https://github.com/Konloch/bytecode-viewer" target="_blank" rel="noopener">bytecode-viewer</a></li>
+<li><a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="noopener">tensorflow</a></li>
+<li><a href="https://github.com/google/boardgame.io" target="_blank" rel="noopener">boardgame.io</a></li>
+</ul>
+<p>이 중에서 yew라는 rust 기반의 프로젝트를 살펴보자.</p>
+<h3 id="yew"><a href="#yew" class="headerlink" title="yew"></a>yew</h3><p>yew는 rust 기반의 웹 프레임 워크를 표방하고 있다. </p>
+<h4 id="rust"><a href="#rust" class="headerlink" title="rust"></a>rust</h4><p><img src="/images/2018/01/rust_page.png" alt="rust page"><br>rust 라고 하면 기본적으로 어려운 언어. 파이어폭스의 다음버전 퀀텀의 기반. 혁신적인 속도 등의 키워드로 개발자들에게 알려져 있다. 물론 비슷한 시기에 나와서 더 성공적으로 론칭된 go의 경우는 구글의 버프를 받고 무럭 무럭 개발자 커뮤니티가 성장하고 있다. 그에 비해 rust 는 많이 외면 받아 왔는데 그 이유로는 어려운 문맥과 더불어 타게팅된 어플리케이션을 찾기가 힘들었다.  </p>
+<p><img src="/images/2018/01/servo_page.png" alt="servo page"><br>그 와중에 우리가 들어 봤던 가장 좋은 소식중에 하나는 아마도 <a href="https://servo.org/" target="_blank" rel="noopener">servo</a> 일 것이고 그 servo가 차기 파이어 폭스 퀀텀의 핵심이 될 것이다.(아니 이미 서브 프로젝트들은 퀀텀에 장착되기 시작했다.) 그런데 퀀텀은 이미 개발자들 사이에 굉장히 화제가 되었고 속도가 많이 개선되었다는 이야기들이 오가기 시작했다. 다만 이전 플러그인들 호환 문제 때문에 파이어 폭스의 미래는 여전히 밝지 않지만 모두에게 rust === ‘고성능이였지’ 공식의 향수를 일으키기에 충분했다.</p>
+<p>그러던 와중에 1월의 프로젝트중에 yew가 눈에 띄었다. 그래서 한 번 살펴 보았는데, 프론트엔트 개발자들에게는 개발에 대한 패러다임을 바꿀 수 있는 어떤 무언가가 보여서 한 번 나눠볼까 한다. </p>
+<h4 id="React-like-Virtural-DOM"><a href="#React-like-Virtural-DOM" class="headerlink" title="React like Virtural DOM"></a>React like Virtural DOM</h4><p>Rust 내부에 DOM 코드를 작성하는 형식은 리액트의 Virtual DOM을 따라 했는데, 컴파일을 하고 서비스가 로딩이 된 후 사이트에 접속을 하면 react 처럼 virtual dom을 만들고 렌더링을 한다.<br>네트워크를 통해 전송되는 html은 다음과 같다.</p>
+<ul>
+<li>소스코드 - To Do MVC HTML 코드<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Yew • TodoMVC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"styles.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/app.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>하지만 DOM의 경우는 다음 그림처럼 렌더링이 되어 있다.<br><img src="/images/2018/01/todo_mvc_html_dom.png" alt="To Do MVC HTML DOM"></p>
+<h4 id="Web-Assembly"><a href="#Web-Assembly" class="headerlink" title="Web Assembly"></a>Web Assembly</h4><p>자바 스크립트는 웹 어셈블리(혹은 Asm.js)로 작성되어서 떨어진다. Asm.js는 브라우저가 이해하기 쉬운 기계어 포맷에 가까운 자바스크립트이고, 웹 어셈블리는 이전에 블로그에서 언급한 적이 있다.<br><img src="/images/2018/01/web_assemply.png" alt="WebAssembly - hello world 어셈블리를 브라우저에 올려보자"><br>링크 : <a href="http://www.devpools.kr/2017/01/21/webassembly-binaryen-emscripten/">WebAssembly - hello world 어셈블리를 브라우저에 올려보자</a><br>말 그대로 브라우저에서 돌아가는 기계어다.<br>아무래도 ???! 이게 뭐지? 하는 느낌으로 지금쯤 읽고 있는 독자들이 많으리라.<br>코드를 보고 이야기 하자.</p>
+<h4 id="백타가-불여일견"><a href="#백타가-불여일견" class="headerlink" title="백타가 불여일견"></a>백타가 불여일견</h4><p>먼저 TO DO MVC 코드는 다음과 같다. 맞다 . 여러분이 아는 그 To Do MVC 말이다. <a href="http://todomvc.com/" target="_blank" rel="noopener">ToDoMVC</a></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 중략 </span></span><br><span class="line"><span class="comment">// 모델을 정의한다.</span></span><br><span class="line"><span class="meta">#[derive(Serialize, Deserialize)]</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Model</span></span> &#123;</span><br><span class="line">    entries: <span class="built_in">Vec</span>&lt;Entry&gt;,</span><br><span class="line">    filter: Filter,</span><br><span class="line">    value: <span class="built_in">String</span>,</span><br><span class="line">    edit_value: <span class="built_in">String</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#[derive(Serialize, Deserialize)]</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Entry</span></span> &#123;</span><br><span class="line">    description: <span class="built_in">String</span>,</span><br><span class="line">    completed: <span class="built_in">bool</span>,</span><br><span class="line">    editing: <span class="built_in">bool</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//중략 </span></span><br><span class="line"><span class="comment">// update 함수는 Add,Edit 등등의 명령어를 받으면 모델을 변경한다.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">update</span></span>(context: &amp;<span class="keyword">mut</span> Context, model: &amp;<span class="keyword">mut</span> Model, msg: Msg) &#123;</span><br><span class="line">    <span class="keyword">match</span> msg &#123;</span><br><span class="line">        Msg::Add =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> entry = Entry &#123;</span><br><span class="line">                description: model.value.clone(),</span><br><span class="line">                completed: <span class="literal">false</span>,</span><br><span class="line">                editing: <span class="literal">false</span>,</span><br><span class="line">            &#125;;</span><br><span class="line">            model.entries.push(entry);</span><br><span class="line">            model.value = <span class="string">""</span>.to_string();</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::Edit(idx) =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> edit_value = model.edit_value.clone();</span><br><span class="line">            model.complete_edit(idx, edit_value);</span><br><span class="line">            model.edit_value = <span class="string">""</span>.to_string();</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::Update(val) =&gt; &#123;</span><br><span class="line">            <span class="built_in">println!</span>(<span class="string">"Input: &#123;&#125;"</span>, val);</span><br><span class="line">            model.value = val;</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::UpdateEdit(val) =&gt; &#123;</span><br><span class="line">            <span class="built_in">println!</span>(<span class="string">"Input: &#123;&#125;"</span>, val);</span><br><span class="line">            model.edit_value = val;</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::Remove(idx) =&gt; &#123;</span><br><span class="line">            model.remove(idx);</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::SetFilter(filter) =&gt; &#123;</span><br><span class="line">            model.filter = filter;</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::ToggleEdit(idx) =&gt; &#123;</span><br><span class="line">            model.toggle_edit(idx);</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::ToggleAll =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> status = !model.is_all_completed();</span><br><span class="line">            model.toggle_all(status);</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::Toggle(idx) =&gt; &#123;</span><br><span class="line">            model.toggle(idx);</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::ClearCompleted =&gt; &#123;</span><br><span class="line">            model.clear_completed();</span><br><span class="line">        &#125;</span><br><span class="line">        Msg::Nope =&gt; &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    context.storage.store(KEY, Json(&amp;model));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//중략</span></span><br><span class="line"><span class="comment">// view 는 브라우저에 렌더링한다. 변경에 따른 바인딩과 이벤트의 바인등을 정의한다.</span></span><br><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">view</span></span>(model: &amp;Model) -&gt; Html&lt;Msg&gt; &#123;</span><br><span class="line">    html! &#123;</span><br><span class="line">        &lt;div class=<span class="string">"todomvc-wrapper"</span>,&gt;</span><br><span class="line">            &lt;section class=<span class="string">"todoapp"</span>,&gt;</span><br><span class="line">                &lt;header class=<span class="string">"header"</span>,&gt;</span><br><span class="line">                    &lt;h1&gt;&#123; "todos" &#125;&lt;/h1&gt;</span><br><span class="line">                    &#123; view_input(&amp;model) &#125;</span><br><span class="line">                &lt;/header&gt;</span><br><span class="line">                &lt;section class=<span class="string">"main"</span>,&gt;</span><br><span class="line">                    &lt;input class="toggle-all", type="checkbox", checked=model.is_all_completed(), onclick=|_| Msg::ToggleAll, /&gt;</span><br><span class="line">                    &lt;ul class=<span class="string">"todo-list"</span>,&gt;</span><br><span class="line">                        &#123; <span class="keyword">for</span> model.entries.iter().filter(|e| model.filter.fit(e)).enumerate().map(view_entry) &#125;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                &lt;/section&gt;</span><br><span class="line">                &lt;footer class=<span class="string">"footer"</span>,&gt;</span><br><span class="line">                    &lt;span class=<span class="string">"todo-count"</span>,&gt;</span><br><span class="line">                        &lt;strong&gt;&#123; model.total() &#125;&lt;/strong&gt;</span><br><span class="line">                        &#123; <span class="string">" item(s) left"</span> &#125;</span><br><span class="line">                    &lt;/span&gt;</span><br><span class="line">                    &lt;ul class=<span class="string">"filters"</span>,&gt;</span><br><span class="line">                        &#123; <span class="keyword">for</span> Filter::iter().map(|flt| view_filter(&amp;model, flt)) &#125;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                    &lt;button class=<span class="string">"clear-completed"</span>, onclick=|_| Msg::ClearCompleted,&gt;</span><br><span class="line">                        &#123; <span class="built_in">format!</span>(<span class="string">"Clear completed (&#123;&#125;)"</span>, model.total_completed()) &#125;</span><br><span class="line">                    &lt;/button&gt;</span><br><span class="line">                &lt;/footer&gt;</span><br><span class="line">            &lt;/section&gt;</span><br><span class="line">            &lt;footer class=<span class="string">"info"</span>,&gt;</span><br><span class="line">                &lt;p&gt;&#123; "Double-click to edit a todo" &#125;&lt;/p&gt;</span><br><span class="line">                &lt;p&gt;&#123; "Written by " &#125;&lt;a href="https://github.com/DenisKolodin/", target="_blank",&gt;&#123; "Denis Kolodin" &#125;&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">                &lt;p&gt;&#123; "Part of " &#125;&lt;a href="http://todomvc.com/", target="_blank",&gt;&#123; "TodoMVC" &#125;&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">            &lt;/footer&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>코드는 생각보다 어렵지 않다. Gorilla 같은 Go의 웹 프레임워크를 처음 볼때와 흡사하다. 다만 다른 부분은 view안에 JSX 처럼 코드 스니펫을 사용한다는 것이다. JSX 처럼 컴포넌트화 하지는 않는 것 같다.<br>struct는 모델을 정의하고 이벤트를 처리할 함수를 update로 정의한 후에 view 에서 렌더링을 하고 있다. 이렇게 코드를 작성하고 실행을 시키고 나면, 다음과 같이 ToDoMVC 앱이 뜨는 것이다.<br><img src="/images/2018/01/todo_mvc.png" alt="진리의 asdf"></p>
+<p>이것이 정확히 어떻게 작동하게 되는지 app.js를 알아보자. toggleEdit이라는 이벤트의 아래 코드는 다음과 같이 바뀐다.<br><img src="/images/2018/01/code_converted.png" alt="그만 알아 보자"></p>
+<h4 id="cargo-web"><a href="#cargo-web" class="headerlink" title="cargo-web"></a>cargo-web</h4><p>이런 극적인 코드가 가능해 지는데에는 cargo-web 이라는 프로젝트가 뒤에 있다.<br><img src="/images/2018/01/cargo_web.png" alt="카르고 웹"><br>링크 : <a href="https://github.com/koute/cargo-web" target="_blank" rel="noopener">cargo web</a> </p>
+<p>cargo는 rust 에서 사용되는 패키지 매니저인데 subcommand라는 개념으로 패키지들을 관리한다.<br>그 중에 이 cargo web이라는 프로젝트가 rust 코드를 asm.js 록은 웹어셈블리로 변환해 주는 역할을 하고 있다.</p>
+<h4 id="설치스크립트"><a href="#설치스크립트" class="headerlink" title="설치스크립트"></a>설치스크립트</h4><p>Mac OS 기준으로 아래와 같은 명령어를 사용해서 설치를 했다.</p>
+<ol>
+<li><p>emscripten 설치</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$curl -O https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz</span><br><span class="line">$tar -xzf emsdk-portable.tar.gz</span><br><span class="line">$source ./emsdk_portable/emsdk_env.sh</span><br><span class="line">$emsdk install sdk-incoming-<span class="number">64</span>bit</span><br><span class="line">$emsdk activate sdk-incoming-<span class="number">64</span>bit</span><br><span class="line">``` </span><br><span class="line">설치하다 openssl 관련해서 에러가 날 수가 있는데, 그럴 경우에는 OPENSSL_DIR을 제대로 지정해 주면 에러가 사라진다. </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. rust 설치</span><br><span class="line">```<span class="built_in">cmd</span></span><br><span class="line">$curl https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cargo 설치</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$curl -sSf https://static.rust-lang.org/rustup.sh | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cargo web 설치</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cargo install cargo-web</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>yew 설치</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cargo install cargo-web</span><br><span class="line">$ rustup target add asmjs-unknown-emscripten</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="실행"><a href="#실행" class="headerlink" title="실행"></a>실행</h4><p>프로젝트에 데모가 존재한다.<br>깃으로 클론을 받자<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/DenisKolodin/yew</span><br></pre></td></tr></table></figure></p>
+<p>프로젝트에 들어가서 해당 샘플폴더(Cargo.toml이 있는 곳)에서 cargo web start를 실행하면 프로젝트가 시작이 된다. 기본포트는 8000번을 사용한다.<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cargo web <span class="built_in">start</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/2018/01/cargo_web_started.png" alt="카르고 웹 스타트"></p>
+<h4 id="링크-모음"><a href="#링크-모음" class="headerlink" title="링크 모음"></a>링크 모음</h4><p>관련 링크는 다음과 같다.</p>
+<ul>
+<li><a href="https://www.rust-lang.org/ko-KR/" target="_blank" rel="noopener">rust</a></li>
+<li><a href="https://servo.org/" target="_blank" rel="noopener">servo</a> </li>
+<li><a href="https://github.com/koute/cargo-web" target="_blank" rel="noopener">cargo-web</a></li>
+<li><a href="https://github.com/DenisKolodin/yew" target="_blank" rel="noopener">yew</a></li>
+<li><a href="https://github.com/mbasso/asm-dom" target="_blank" rel="noopener">asm-dom</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://www.devpools.kr/2018/01/08/2018-01-08-2018년-1월-깃헙-트렌드/" data-id="cjhq58m0x0000fi5jl6h1uoqc" class="article-share-link"><i class="fa fa-share"></i>공유하기</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+      
+    <div class="fb-comments" data-width="100%" data-href="http://www.devpools.kr/2018/01/08/2018-01-08-2018년-1월-깃헙-트렌드/" data-num-posts="5"></div>
+
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>팔로우:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/groups/1685004178439716/" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/orgs/devpools/dashboard" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="http://www.devpool.kr/atom.xml" target="_blank">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/01/09/2019-01-09-CSV/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">새로운</strong>
+        <p class="article-nav-title">
+        
+            기업의 CSR vs CSV
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/11/27/2017-11-27-11월-깃헙-트렌드/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">오래된</strong>
+        <p class="article-nav-title">[2017-11-27] 11월 깃헙 트렌드</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">최근 글</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/27/2018-05-22-2018년-4-5월-깃헙-트렌드-당신만의-프로젝트를-스스로-만들어보기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2018/05/tongtong.gif)" alt="[2018-05-22]2018년 4~5월 깃헙 트렌드 - 당신만의 프로젝트를 스스로 만들어보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/05/27/2018-05-22-2018년-4-5월-깃헙-트렌드-당신만의-프로젝트를-스스로-만들어보기/" class="title">[2018-05-22]2018년 4~5월 깃헙 트렌드 - 당신만의 프로젝트를 스스로 만들어보기</a></p>
+                            <p class="item-date"><time datetime="2018-05-26T22:51:17.000Z" itemprop="datePublished">2018-05-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/04/27/2018-04-27-Responsive-Web을-위해-개발자가-꼭-알아야-하는-기술들/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://keen.devpools.kr/images/2018/05/responsive.jpg)" alt="[2018-04-27]Responsive Web을 위해 개발자가 꼭 알아야 하는 기술들" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/04/27/2018-04-27-Responsive-Web을-위해-개발자가-꼭-알아야-하는-기술들/" class="title">[2018-04-27]Responsive Web을 위해 개발자가 꼭 알아야 하는 기술들</a></p>
+                            <p class="item-date"><time datetime="2018-04-27T01:38:11.000Z" itemprop="datePublished">2018-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/03/16/2018-03-16-Happy_Workers/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://namojo.github.io/assets/img/post_03_01.jpg)" alt="Happy Workers" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/03/16/2018-03-16-Happy_Workers/" class="title">Happy Workers</a></p>
+                            <p class="item-date"><time datetime="2018-03-16T00:00:00.000Z" itemprop="datePublished">2018-03-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/02/01/2019-02-01-it_hr_important/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://www.mckinsey.com/~/media/McKinsey/Industries/Financial%20Services/Our%20Insights/INGs%20agile%20transformation/SVG%20QWeb_ING_ex1.ashx)" alt="IT기업에서 HR은 왜 중요한가?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/02/01/2019-02-01-it_hr_important/" class="title">IT기업에서 HR은 왜 중요한가?</a></p>
+                            <p class="item-date"><time datetime="2018-02-01T00:00:00.000Z" itemprop="datePublished">2018-02-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/2019-01-09-CSV/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://namojo.github.io/assets/img/post_01_01.png)" alt="기업의 CSR vs CSV" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/01/09/2019-01-09-CSV/" class="title">기업의 CSR vs CSV</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T00:00:20.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">링크</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://keen.devpools.kr">keen</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://alex.devpools.kr">alex</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://tiffany.devpools.kr">tiffany</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">카테고리</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cartoon/">Cartoon</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/">Dev-Story</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Story/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Tips/">Dev-Tips</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gadget/">Gadget</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/">GitHub-trend</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-trend/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hacker-News/">Hacker News</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/">ReactJs</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/ReactJs/Refactoring/">Refactoring</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Meetup/">Meetup</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ReactJs/">ReactJs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/">Small talk</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Small-talk/미분류/">미분류</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/UX-UI/">UX/UI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/deep-learning/">deep learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-trend-github/">github-trend, github</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tip-docker-devops-git/">tip, docker, devops, git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web-test-test-suite-headless-chrome-selenium/">web test, test suite, headless chrome, selenium</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/미분류/">미분류</a><span class="category-list-count">15</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">아카이브</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">5월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2월 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1월 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9월 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6월 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2월 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1월 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9월 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7월 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5월 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4월 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3월 2016</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">태그</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWSomeDayKR/">AWSomeDayKR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asm-js/">Asm.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNA/">CNA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSR/">CSR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSV/">CSV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cisco/">Cisco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ESLint/">ESLint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emscripten/">Emscripten</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/">Excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-End/">Front-End</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HR/">HR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IntellisJ/">IntellisJ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lifecycle/">Lifecycle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UI/">UI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebAssembly/">WebAssembly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebStorm/">WebStorm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/airbnb/">airbnb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binaryen/">binaryen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/black-screen/">black-screen</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/brave/">brave</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/developer/">developer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devpools/">devpools</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/embed-ly/">embed.ly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2015/">es2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es2016/">es2016</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/facebook/">facebook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firebase/">firebase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/front-end/">front-end</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-github-trend-tech-trend/">github, github-trend, tech-trend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-page/">github-page</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/happy/">happy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/horizon/">horizon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/">https</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lets-encrypt/">lets encrypt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lottie/">lottie</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/octotree/">octotree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plyr/">plyr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/push-js/">push.js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/re-View/">re:View</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-boilerplate/">react-boilerplate</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reset/">reset</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/revert/">revert</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serverless/">serverless</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synology/">synology</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/telegram/">telegram</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wordpress/">wordpress</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/worker/">worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/코드리뷰/">코드리뷰</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/텔레그램/">텔레그램</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/회귀분석/">회귀분석</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">태그 클라우드</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AWSomeDayKR/" style="font-size: 10px;">AWSomeDayKR</a> <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Asm-js/" style="font-size: 10px;">Asm.js</a> <a href="/tags/CNA/" style="font-size: 10px;">CNA</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/CSV/" style="font-size: 10px;">CSV</a> <a href="/tags/Cisco/" style="font-size: 10px;">Cisco</a> <a href="/tags/ESLint/" style="font-size: 10px;">ESLint</a> <a href="/tags/Emscripten/" style="font-size: 10px;">Emscripten</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Front-End/" style="font-size: 10px;">Front-End</a> <a href="/tags/HR/" style="font-size: 10px;">HR</a> <a href="/tags/IntellisJ/" style="font-size: 10px;">IntellisJ</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Lifecycle/" style="font-size: 10px;">Lifecycle</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/airbnb/" style="font-size: 10px;">airbnb</a> <a href="/tags/binaryen/" style="font-size: 10px;">binaryen</a> <a href="/tags/black-screen/" style="font-size: 10px;">black-screen</a> <a href="/tags/brave/" style="font-size: 10px;">brave</a> <a href="/tags/developer/" style="font-size: 10px;">developer</a> <a href="/tags/devpools/" style="font-size: 20px;">devpools</a> <a href="/tags/embed-ly/" style="font-size: 10px;">embed.ly</a> <a href="/tags/es2015/" style="font-size: 10px;">es2015</a> <a href="/tags/es2016/" style="font-size: 10px;">es2016</a> <a href="/tags/facebook/" style="font-size: 10px;">facebook</a> <a href="/tags/firebase/" style="font-size: 10px;">firebase</a> <a href="/tags/front-end/" style="font-size: 10px;">front-end</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github-github-trend-tech-trend/" style="font-size: 10px;">github, github-trend, tech-trend</a> <a href="/tags/github-page/" style="font-size: 15px;">github-page</a> <a href="/tags/happy/" style="font-size: 10px;">happy</a> <a href="/tags/horizon/" style="font-size: 10px;">horizon</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/lets-encrypt/" style="font-size: 10px;">lets encrypt</a> <a href="/tags/lottie/" style="font-size: 15px;">lottie</a> <a href="/tags/octotree/" style="font-size: 10px;">octotree</a> <a href="/tags/plyr/" style="font-size: 10px;">plyr</a> <a href="/tags/push-js/" style="font-size: 10px;">push.js</a> <a href="/tags/re-View/" style="font-size: 10px;">re:View</a> <a href="/tags/react-boilerplate/" style="font-size: 10px;">react-boilerplate</a> <a href="/tags/reset/" style="font-size: 15px;">reset</a> <a href="/tags/revert/" style="font-size: 15px;">revert</a> <a href="/tags/serverless/" style="font-size: 10px;">serverless</a> <a href="/tags/synology/" style="font-size: 10px;">synology</a> <a href="/tags/telegram/" style="font-size: 10px;">telegram</a> <a href="/tags/wordpress/" style="font-size: 10px;">wordpress</a> <a href="/tags/worker/" style="font-size: 10px;">worker</a> <a href="/tags/코드리뷰/" style="font-size: 10px;">코드리뷰</a> <a href="/tags/텔레그램/" style="font-size: 10px;">텔레그램</a> <a href="/tags/회귀분석/" style="font-size: 10px;">회귀분석</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 devpools</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
