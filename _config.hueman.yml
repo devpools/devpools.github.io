@@ -3,6 +3,8 @@ menu:
     Home: /
     About: /about/index.html
 
+subtitle: 개발 바보들의 놀이터
+
 customize:
     logo:
         width: 45
@@ -15,17 +17,17 @@ customize:
     thumbnail: true
     favicon:
     social_links:
-        github: https://github.com/devpools
         facebook: https://www.facebook.com/groups/1685004178439716/
+        github: https://github.com/devpools
         rss: /atom.xml
 
 widgets:
     - recent_posts
+    - links
     - category
     - archive
     - tag
     - tagcloud
-    - links
 
 search:
     insight: true
