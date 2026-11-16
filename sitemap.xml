@@ -38,15 +38,6 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2017/01/31/%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%B3%B4%EB%93%A4-1%ED%99%94-git-back-to-the-future/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/2017/02/05/%EA%B0%84%EB%8B%A8%ED%8C%81-%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-nas%EC%97%90-lets-encrypt-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
     
     <lastmod>2026-11-16</lastmod>
@@ -56,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/03/14/%EA%B8%88%EC%A3%BC-%ED%85%8C%ED%81%AC-%ED%95%AB%EC%9D%B4%EC%8A%88/</loc>
+    <loc>https://www.devpools.kr/2017/01/31/%EA%B0%9C%EB%B0%9C%EB%B0%94%EB%B3%B4%EB%93%A4-1%ED%99%94-git-back-to-the-future/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -75,6 +66,15 @@
   
   <url>
     <loc>https://www.devpools.kr/2016/04/04/%EA%B8%88%EC%A3%BC%EC%9D%98-%ED%85%8C%ED%81%AC%EB%89%B4%EC%8A%A4/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2016/03/14/%EA%B8%88%EC%A3%BC-%ED%85%8C%ED%81%AC-%ED%95%AB%EC%9D%B4%EC%8A%88/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -137,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/03/21/%EC%9A%94%EC%82%AC%EC%9D%B4-%EC%9C%A0%ED%96%89%ED%95%98%EB%8A%94-%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87-%EC%A0%80%EB%8F%84-%ED%95%9C%EB%B2%88-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B4%A4%EC%8A%B5/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/2016/09/12/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%A6%B4%EB%A6%AC%EC%A6%88-es2016%EA%B3%BC-%EA%B7%B8-%EC%9D%B4%ED%9B%84/</loc>
     
     <lastmod>2026-11-16</lastmod>
@@ -164,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2017/03/26/%EC%A0%9C1%ED%9A%8C-review-%EC%B0%B8%EC%84%9D-%ED%9B%84%EA%B8%B0/</loc>
+    <loc>https://www.devpools.kr/2016/03/21/%EC%9A%94%EC%82%AC%EC%9D%B4-%EC%9C%A0%ED%96%89%ED%95%98%EB%8A%94-%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8%EB%B4%87-%EC%A0%80%EB%8F%84-%ED%95%9C%EB%B2%88-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B4%A4%EC%8A%B5/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -173,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/03/14/%EC%A3%BC%EA%B0%84-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C-2016-%EB%85%84-3%EC%9B%94-%EC%B2%AB%ED%98%B8/</loc>
+    <loc>https://www.devpools.kr/2017/03/27/%EC%A0%9C1%ED%9A%8C-review-%EC%B0%B8%EC%84%9D-%ED%9B%84%EA%B8%B0/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -183,6 +174,15 @@
   
   <url>
     <loc>https://www.devpools.kr/2016/05/09/%EC%A3%BC%EA%B0%84-%EA%B9%83%ED%97%99-5%EC%9B%94-1%ED%98%B8/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2016/03/14/%EC%A3%BC%EA%B0%84-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C-2016-%EB%85%84-3%EC%9B%94-%EC%B2%AB%ED%98%B8/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -245,25 +245,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/03/28/github-trend-3%EC%9B%94-4%EC%A3%BC%EC%B0%A8/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/2016/03/07/github-trend-%EC%A3%BC%EA%B0%84-%EB%A0%88%ED%8F%AC%ED%8A%B8/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/2017/02/16/javascript-eslint-webstorm/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -281,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2017/03/16/jekyll%EB%A1%9C-Github-Page-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
+    <loc>https://www.devpools.kr/2017/02/16/javascript-eslint-webstorm/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -290,7 +272,25 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/07/03/react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/</loc>
+    <loc>https://www.devpools.kr/2016/04/04/mobilecg-business-card/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2017/03/08/lottie%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%99%80-%EC%B9%9C%ED%95%B4%EC%A7%80%EA%B8%B0/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2017/03/16/jekyll%EB%A1%9C-Github-Page-%EB%A7%8C%EB%93%A4%EA%B8%B0/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -308,7 +308,16 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/04/18/stack-overflow-the-hardware-2016-edition/</loc>
+    <loc>https://www.devpools.kr/2016/03/28/github-trend-3%EC%9B%94-4%EC%A3%BC%EC%B0%A8/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2016/07/03/react-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -326,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2017/09/14/tip-%EB%8F%84%EC%BB%A4%EB%A1%9C-%EA%B9%83%EB%9E%A9%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EC%9D%84%EB%95%8C-%EC%A0%A0%ED%82%A8%EC%8A%A4-%EC%97%B0%EA%B2%B0%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0-%EA%B2%83%EC%9D%B8%EA%B0%80/</loc>
+    <loc>https://www.devpools.kr/2016/04/18/stack-overflow-the-hardware-2016-edition/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -335,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/04/04/mobilecg-business-card/</loc>
+    <loc>https://www.devpools.kr/2017/09/14/tip-%EB%8F%84%EC%BB%A4%EB%A1%9C-%EA%B9%83%EB%9E%A9%EC%9D%84-%EC%84%A4%EC%B9%98%ED%96%88%EC%9D%84%EB%95%8C-%EC%A0%A0%ED%82%A8%EC%8A%A4-%EC%97%B0%EA%B2%B0%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0-%EA%B2%83%EC%9D%B8%EA%B0%80/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -354,15 +363,6 @@
   
   <url>
     <loc>https://www.devpools.kr/2016/03/14/weekly-hacker-new/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/2017/03/08/lottie%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%99%80-%EC%B9%9C%ED%95%B4%EC%A7%80%EA%B8%B0/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -407,15 +407,6 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2018/03/15/2018-03-16-Happy_Workers/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/2018/01/08/2018-01-08-2018%EB%85%84-1%EC%9B%94-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C/</loc>
     
     <lastmod>2026-11-16</lastmod>
@@ -434,7 +425,16 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2018/05/26/2018-05-22-2018%EB%85%84-4-5%EC%9B%94-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EB%8B%B9%EC%8B%A0%EB%A7%8C%EC%9D%98-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%8A%A4%EC%8A%A4%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/</loc>
+    <loc>https://www.devpools.kr/2018/03/16/2018-03-16-Happy_Workers/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2018/05/27/2018-05-22-2018%EB%85%84-4-5%EC%9B%94-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EB%8B%B9%EC%8B%A0%EB%A7%8C%EC%9D%98-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%A5%BC-%EC%8A%A4%EC%8A%A4%EB%A1%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2018/01/31/2019-02-01-it_hr_important/</loc>
+    <loc>https://www.devpools.kr/2018/01/09/2019-01-09-CSV/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -461,7 +461,16 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2018/01/08/2019-01-09-CSV/</loc>
+    <loc>https://www.devpools.kr/2018/02/01/2019-02-01-it_hr_important/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2016/04/04/4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EA%B9%83%ED%97%99%ED%8A%B8%EB%A0%8C%EB%93%9C-java%ED%8E%B8/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -479,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/04/11/4%EC%9B%94-2%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%EA%B9%83%ED%97%99/</loc>
+    <loc>https://www.devpools.kr/2016/04/04/4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%ED%95%B4%EC%BB%A4%EB%89%B4%EC%8A%A4-%EC%86%8C%EC%8B%9D/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -488,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/04/04/4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%ED%95%B4%EC%BB%A4%EB%89%B4%EC%8A%A4-%EC%86%8C%EC%8B%9D/</loc>
+    <loc>https://www.devpools.kr/2016/04/11/4%EC%9B%94-2%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%EA%B9%83%ED%97%99/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -515,16 +524,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/05/08/4%EC%9B%94-5%EC%A3%BC%EC%B0%A8-%EA%B9%83%ED%97%99%ED%8A%B8%EB%A0%8C%EB%93%9C/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/2016/04/04/4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EA%B9%83%ED%97%99%ED%8A%B8%EB%A0%8C%EB%93%9C-java%ED%8E%B8/</loc>
+    <loc>https://www.devpools.kr/2018/06/20/Github-Trends-2018%EB%85%84-6%EC%9B%94-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -542,15 +542,6 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2018/06/20/Github-Trends-2018%EB%85%84-6%EC%9B%94-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/2016/04/04/codeybot-new-rob%E2%80%A6o-teaches-coding/</loc>
     
     <lastmod>2026-11-16</lastmod>
@@ -560,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2017/09/08/deeplearning-basic01/</loc>
+    <loc>https://www.devpools.kr/2016/03/21/crowdfunding-with-kickstarter-indiegogo/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -569,7 +560,16 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/2016/03/21/crowdfunding-with-kickstarter-indiegogo/</loc>
+    <loc>https://www.devpools.kr/2016/05/08/4%EC%9B%94-5%EC%A3%BC%EC%B0%A8-%EA%B9%83%ED%97%99%ED%8A%B8%EB%A0%8C%EB%93%9C/</loc>
+    
+    <lastmod>2026-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/2017/09/08/deeplearning-basic01/</loc>
     
     <lastmod>2026-11-16</lastmod>
     
@@ -636,6 +636,20 @@
   </url>
   
   <url>
+    <loc>https://www.devpools.kr/tags/github-github-trend-tech-trend/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/front-end/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.devpools.kr/tags/happy/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -658,34 +672,6 @@
   
   <url>
     <loc>https://www.devpools.kr/tags/devpools/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/github-github-trend-tech-trend/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/front-end/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/Agile/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/HR/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -720,14 +706,14 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/tags/brave/</loc>
+    <loc>https://www.devpools.kr/tags/Agile/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/tags/facebook/</loc>
+    <loc>https://www.devpools.kr/tags/HR/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -749,6 +735,20 @@
   
   <url>
     <loc>https://www.devpools.kr/tags/UI/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/brave/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/facebook/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -777,6 +777,13 @@
   
   <url>
     <loc>https://www.devpools.kr/tags/WebStorm/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/lottie/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -825,6 +832,20 @@
   </url>
   
   <url>
+    <loc>https://www.devpools.kr/tags/lets-encrypt/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/synology/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.devpools.kr/tags/git/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -840,27 +861,6 @@
   
   <url>
     <loc>https://www.devpools.kr/tags/revert/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/lets-encrypt/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/synology/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/lottie/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -923,20 +923,6 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/tags/telegram/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/tags/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.devpools.kr/tags/es2015/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -952,6 +938,20 @@
   
   <url>
     <loc>https://www.devpools.kr/tags/javascript/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/telegram/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.devpools.kr/tags/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1016,6 +1016,13 @@
   </url>
   
   <url>
+    <loc>https://www.devpools.kr/categories/Gadget/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.devpools.kr/categories/JavaScript/ReactJs/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -1030,14 +1037,14 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/categories/Gadget/</loc>
+    <loc>https://www.devpools.kr/categories/Small-talk/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/categories/Small-talk/</loc>
+    <loc>https://www.devpools.kr/categories/github-trend-github/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1051,7 +1058,7 @@
   </url>
   
   <url>
-    <loc>https://www.devpools.kr/categories/github-trend-github/</loc>
+    <loc>https://www.devpools.kr/categories/UX-UI/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1073,13 +1080,6 @@
   
   <url>
     <loc>https://www.devpools.kr/categories/Cartoon/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.devpools.kr/categories/UX-UI/</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
