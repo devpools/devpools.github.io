@@ -33,6 +33,9 @@ root="${path%/}/"
 
 echo "url=${url} root=${root} noindex=${NOINDEX:-false}"
 
+# 글 날짜는 한국 시간으로 쓰여 있다. UTC 로 빌드하면 자정 무렵 글의 주소 날짜가 하루 밀린다
+export TZ=Asia/Seoul
+
 HEXO_NOINDEX="${NOINDEX:-}" npx hexo generate --config _config.yml,_config.ci.yml
 
 # GitHub Pages 가 결과물을 Jekyll 로 다시 처리하지 않게 한다
