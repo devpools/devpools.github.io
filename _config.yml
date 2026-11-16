@@ -56,7 +56,10 @@ index_generator:
 # Category & Tag
 default_category: Tech Trends
 category_map: JavaScript, Tech Trends, AI, Tech HR
-tag_map: 
+tag_map:
+  # 운영 사이트의 기존 주소(/tags/front-end/)를 유지한다
+  Front-End: front-end
+  Front-end: front-end
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
