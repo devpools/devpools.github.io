@@ -12,7 +12,30 @@
   <rights>All rights reserved 2026, devpools</rights>
   <subtitle>개발 바보들의 놀이터</subtitle>
   <title>devpools blog</title>
-  <updated>2026-11-16T08:59:45.828Z</updated>
+  <updated>2026-11-17T00:02:19.033Z</updated>
+  <entry>
+    <author>
+      <name>devpools</name>
+      <email>ehrudxo@gmail.com</email>
+    </author>
+    <category term="GitHub-trend" scheme="https://www.devpools.kr/categories/GitHub-trend/"/>
+    <category term="github" scheme="https://www.devpools.kr/tags/github/"/>
+    <category term="trend" scheme="https://www.devpools.kr/tags/trend/"/>
+    <category term="ai-agent" scheme="https://www.devpools.kr/tags/ai-agent/"/>
+    <content>
+      <![CDATA[<h1 id="GitHub-Trends-11월-2주"><a href="#GitHub-Trends-11월-2주" class="headerlink" title="GitHub Trends (11월 2주)"></a>GitHub Trends (11월 2주)</h1><p>마지막으로 깃헙 트렌드 글을 올린 게 2018년 6월이었습니다. 그때 1위가 막 공개된 deno였고, 한 주에 8,792개의 스타를 받았다고 적어두었네요. 8년 만에 다시 트렌드 페이지를 열어봤습니다.</p><p>결론부터 말씀드리면, 14개 리파지토리 중에 AI 에이전트와 상관없는 것을 찾는 게 더 빨랐습니다. ( 두 개 정도 됩니다. ) 예전에는 JavaScript 프레임워크와 알고리즘 학습 자료가 번갈아 올라왔는데, 이번 주는 “에이전트에게 무엇을 쥐여줄 것인가”로 거의 통일되어 있습니다. 눈에 들어온 것 위주로 살펴보겠습니다.</p><p><img src="/images/2026/11/github-trends-w2-top4.png" alt="2026년 11월 2주 GitHub 주간 트렌딩 상위 4개 리파지토리"></p><span id="more"></span><h3 id="1-NVIDIA-auto-ontology"><a href="#1-NVIDIA-auto-ontology" class="headerlink" title="1. NVIDIA &#x2F; auto-ontology"></a><a href="https://github.com/NVIDIA/auto-ontology">1. NVIDIA &#x2F; auto-ontology</a></h3><p>이번 주 9,621개의 스타를 받은 Python 리파지토리입니다. 에이전트가 데이터베이스에 질의를 던지는 건 이제 흔한 일인데, 문제는 그 숫자가 맞느냐는 것입니다. README의 첫 문장이 인상적인데, 매출 지표를 빨리 답해줘도 숫자가 틀리면 아무 가치가 없다고 합니다.</p><p>그래서 데이터가 어디에 있고 무엇을 의미하는지를 온톨로지로 만들어두고, 에이전트가 만든 쿼리를 그 정의에 맞춰 검증한 뒤 근거와 함께 답을 돌려주는 구조입니다. 자연어를 SQL로 바꾸는 부분은 NVIDIA NIM을 사용합니다. Apache 2.0 라이선스이지만 외부 기여는 아직 받지 않는다고 적혀 있습니다. 올해 4월에 만들어진 리파지토리입니다.</p><h3 id="2-vercel-labs-agent-desktop"><a href="#2-vercel-labs-agent-desktop" class="headerlink" title="2. vercel-labs &#x2F; agent-desktop"></a><a href="https://github.com/vercel-labs/agent-desktop">2. vercel-labs &#x2F; agent-desktop</a></h3><p>에이전트가 데스크톱 앱을 조작하게 해주는 Rust로 작성된 CLI입니다. 9,502개의 스타를 받았습니다. 보통 이런 도구는 화면을 캡처해서 좌표를 찍는 방식을 떠올리게 되는데, 이 도구는 스크린샷을 쓰지 않습니다. 운영체제의 접근성 트리를 읽어서 JSON으로 돌려주고, 화면의 각 요소마다 참조 ID를 붙여줍니다. 에이전트는 그 ID에 대고 클릭하거나 입력하고, 다시 화면을 읽어 결과를 확인합니다.</p><p>macOS, Windows, Linux를 모두 지원하고 <code>npm install -g agent-desktop</code>으로 설치합니다. 6위에 올라온 <a href="https://github.com/vercel-labs/agent-browser">agent-browser</a>가 같은 곳에서 만든 브라우저 버전인데, 한 팀의 도구 두 개가 같은 주에 올라와 있네요.</p><h3 id="5-max-sixty-worktrunk"><a href="#5-max-sixty-worktrunk" class="headerlink" title="5. max-sixty &#x2F; worktrunk"></a><a href="https://github.com/max-sixty/worktrunk">5. max-sixty &#x2F; worktrunk</a></h3><p>Git worktree를 관리해주는 CLI이고, 이것도 Rust입니다. 이번 주 2,093개의 스타를 받았습니다. 에이전트를 5개, 10개씩 동시에 돌리려면 각자 작업 디렉터리가 따로 있어야 서로의 변경을 밟지 않는데, git이 원래 제공하는 worktree가 딱 그 용도입니다.</p><p>다만 worktree 하나를 만들려면 브랜치 이름을 세 번 입력해야 한다는 것이 README의 불만입니다. ( <code>git worktree add -b feat ../repo.feat</code> 하고 <code>cd ../repo.feat</code> ) 이걸 <code>wt switch feat</code> 한 줄로 줄여줍니다. README에 있는 비교표를 보면 한번에 이해가 됩니다.</p><p><img src="/images/2026/11/github-trends-w2-worktrunk.png" alt="worktrunk 명령과 기본 git 명령 비교표"></p><p>에이전트 때문에 만들어진 도구이지만, 에이전트를 쓰지 않아도 worktree를 자주 쓰는 분이라면 반가울 것 같습니다.</p><h3 id="9-cloudflare-security-audit-skill"><a href="#9-cloudflare-security-audit-skill" class="headerlink" title="9. cloudflare &#x2F; security-audit-skill"></a><a href="https://github.com/cloudflare/security-audit-skill">9. cloudflare &#x2F; security-audit-skill</a></h3><p>10,967개의 스타를 받았습니다. 코딩 에이전트를 보안 감사자로 만들어주는 스킬인데, Cloudflare가 자사 취약점 탐지 시스템의 출발점이 된 스킬을 공개한 것이라고 합니다.</p><p>감사는 여섯 단계로 진행됩니다. 구조를 파악하고, 영역을 나눠 취약점을 찾고, 찾은 후보를 새 에이전트에게 넘겨 반박하게 합니다. 그 다음 결과를 정해진 형식으로 기록하고, 또 다른 에이전트가 기록을 검증한 뒤 보고서를 만듭니다. 찾는 에이전트와 검증하는 에이전트를 분리해둔 것이 눈에 띕니다. 에이전트가 “취약점을 찾았습니다”라고 자신 있게 말하는 것을 그대로 믿을 수 없다는 경험이 담겨 있는 것 같네요.</p><h3 id="14-pingdotgg-t3code"><a href="#14-pingdotgg-t3code" class="headerlink" title="14. pingdotgg &#x2F; t3code"></a><a href="https://github.com/pingdotgg/t3code">14. pingdotgg &#x2F; t3code</a></h3><p>순위는 맨 아래인데 이번 주에 받은 스타는 11,979개로 가장 많습니다. 리파지토리 설명란은 비어 있고, README에는 “에이전트 하네스 컨트롤 서피스”라고 적혀 있습니다. 설명만 봐서는 잘 이해가 안 됐는데, 내 컴퓨터에 설치된 Claude Code, Codex, Cursor 같은 에이전트들을 한 화면에서, 그리고 모바일 앱에서 조작하게 해주는 도구입니다.</p><p>README에 “그래서 뭘 팔려는 건데?”라는 항목이 있고 답이 “Nothing”인 것이 재미있습니다. MIT 라이선스입니다.</p><h3 id="스킬-스킬-스킬"><a href="#스킬-스킬-스킬" class="headerlink" title="스킬, 스킬, 스킬"></a>스킬, 스킬, 스킬</h3><p>나머지를 훑어보면 유독 skills라는 단어가 자주 보입니다. <a href="https://github.com/anthropics/skills">anthropics&#x2F;skills</a>( 3위, 전체 스타 19만 개 )와 <a href="https://github.com/mattpocock/skills">mattpocock&#x2F;skills</a>( 8위, 전체 스타 32만 개 )가 나란히 올라와 있고, 7위 <a href="https://github.com/Donchitos/Claude-Code-Game-Studios">Claude-Code-Game-Studios</a>는 에이전트 49개와 스킬 72개로 게임 스튜디오를 흉내 낸다고 합니다.</p><p>스킬이라는 게 대단한 것은 아니고, <code>SKILL.md</code> 파일 하나와 스크립트 몇 개가 들어 있는 폴더입니다. 예전에는 잘 만든 dotfiles를 공유했다면, 이제는 에이전트에게 일 시키는 방법을 폴더째로 공유하는 셈입니다. 개인이 올린 스킬 모음이 Anthropic 공식 리파지토리보다 스타가 많다는 것도 흥미롭네요.</p><h3 id="에이전트가-아닌-것들"><a href="#에이전트가-아닌-것들" class="headerlink" title="에이전트가 아닌 것들"></a>에이전트가 아닌 것들</h3><p><a href="https://github.com/D4Vinci/Scrapling">D4Vinci&#x2F;Scrapling</a>은 Python 웹 스크래핑 프레임워크이고 7,291개의 스타를 받았습니다. <a href="https://github.com/anomalyco/hex">anomalyco&#x2F;hex</a>는 로컬에서 동작하는 음성 받아쓰기 도구이고 1,839개를 받았습니다. 이번 주 목록에서 에이전트라는 단어 없이 설명되는 건 이 둘 정도입니다.</p><h3 id="8년-전과-비교해보면"><a href="#8년-전과-비교해보면" class="headerlink" title="8년 전과 비교해보면"></a>8년 전과 비교해보면</h3><p>이번 주에 받은 스타 수만 따로 모아서 그려봤습니다. 세로 선이 2018년 6월의 1위였던 deno입니다.</p><p><img src="/images/2026/11/github-trends-w2-stars.png" alt="이번 주 트렌딩 리파지토리별 주간 스타 수와 2018년 6월 1위 deno 비교"></p><p>2018년에는 한 주에 8천 개를 받으면 압도적인 1위였는데, 이번 주는 그 선을 넘은 리파지토리가 여섯 개이고, 9천 개 이상만 세어도 다섯 개입니다. 깃헙을 쓰는 사람이 늘어난 것인지, 스타를 누르는 게 가벼워진 것인지는 잘 모르겠습니다. 다음 주에도 같은 리파지토리들이 남아 있는지 확인해보면 조금 알 수 있을 것 같습니다.</p><p>끝.</p>]]>
+    </content>
+    <id>https://www.devpools.kr/2026/11/11/Github-Trends-2026%EB%85%84-11%EC%9B%94-2%EC%A3%BC-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C/</id>
+    <link href="https://www.devpools.kr/2026/11/11/Github-Trends-2026%EB%85%84-11%EC%9B%94-2%EC%A3%BC-%EA%B9%83%ED%97%99-%ED%8A%B8%EB%A0%8C%EB%93%9C/"/>
+    <published>2026-11-11T09:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="GitHub-Trends-11월-2주"><a href="#GitHub-Trends-11월-2주" class="headerlink" title="GitHub Trends (11월 2주)"></a>GitHub Trends (11월 2주)</h1><p>마지막으로 깃헙 트렌드 글을 올린 게 2018년 6월이었습니다. 그때 1위가 막 공개된 deno였고, 한 주에 8,792개의 스타를 받았다고 적어두었네요. 8년 만에 다시 트렌드 페이지를 열어봤습니다.</p>
+<p>결론부터 말씀드리면, 14개 리파지토리 중에 AI 에이전트와 상관없는 것을 찾는 게 더 빨랐습니다. ( 두 개 정도 됩니다. ) 예전에는 JavaScript 프레임워크와 알고리즘 학습 자료가 번갈아 올라왔는데, 이번 주는 “에이전트에게 무엇을 쥐여줄 것인가”로 거의 통일되어 있습니다. 눈에 들어온 것 위주로 살펴보겠습니다.</p>
+<p><img src="/images/2026/11/github-trends-w2-top4.png" alt="2026년 11월 2주 GitHub 주간 트렌딩 상위 4개 리파지토리"></p>]]>
+    </summary>
+    <title>[Github Trends] 2026년 11월 2주 깃헙 트렌드</title>
+    <updated>2026-11-17T00:02:19.033Z</updated>
+  </entry>
   <entry>
     <author>
       <name>devpools</name>
@@ -28,7 +51,7 @@
       <![CDATA[<h2 id="주목할-만한-프로젝트-–-deno"><a href="#주목할-만한-프로젝트-–-deno" class="headerlink" title="주목할 만한 프로젝트 – deno"></a>주목할 만한 프로젝트 – deno</h2><p>2018년]]>
     </summary>
     <title>deno</title>
-    <updated>2026-11-16T08:59:45.828Z</updated>
+    <updated>2026-11-17T00:02:19.038Z</updated>
   </entry>
   <entry>
     <author>
@@ -45,7 +68,7 @@
       <![CDATA[<h1 id="GitHub-Trends-6월-2주"><a href="#GitHub-Trends-6월-2주" class="headerlink" title="GitHub Trends (6월 2주)"></a>GitHub Trends (6월 2주)</h1><]]>
     </summary>
     <title>[Github Trends]2018년 6월 깃헙 트렌드</title>
-    <updated>2026-11-16T08:59:45.824Z</updated>
+    <updated>2026-11-17T00:02:19.033Z</updated>
   </entry>
   <entry>
     <author>
@@ -63,7 +86,7 @@
       <![CDATA[<p>저희 서비스중에 외부연동으로 데이터를 벌크로 등록하는 서비스가 있는데요..<br>트랜젝션이 좀 복잡한 데이터가 분당 100개씩 2~3시간 정도 등록하면 OOM으로 서버가 죽는 현상이 있었습니다.<br>힙덤프 분석을 해보니 핀포인트쪽 문제로 확인]]>
     </summary>
     <title>[2018-06-19 핀포인트를 혼내주세요!]</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -80,7 +103,7 @@
       <![CDATA[<p>우리가 편하게 개발하고 있는 토대가 되는 여러가지 도구들, 혹은 기술들 중에 ‘이건 도대체 어떻게 만들었을까?’ 라는 의문을 가지게 될때가 종종 있다.<br>나중에 한번 알아봐야지 하고 그냥 지나칠 경우가 굉장히 많은데 세상은 나처럼 게으른 자를]]>
     </summary>
     <title>[2018-05-22]2018년 4~5월 깃헙 트렌드 - 당신만의 프로젝트를 스스로 만들어보기</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -98,7 +121,7 @@
       <![CDATA[<p>반응형 웹(Responsive Web) 개발은 이미 일상이 되어버린 2018년 봄에 이런 글을 쓰게될 줄은 몰랐는데, 최근에 몇가지 프로젝트를 진행을 하다가 대부분의 개발자들이 반응형 웹에 대한 개념은 있지만 어떻게 개발해야 하는지를 모른다는 사]]>
     </summary>
     <title>[2018-04-27]Responsive Web을 위해 개발자가 꼭 알아야 하는 기술들</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -117,7 +140,7 @@
     <published>2018-03-16T00:00:00.000Z</published>
     <summary>문제를 해결을 위한 최적의 답을 고민하는 개발자가 행복할 자격이 있다.</summary>
     <title>Happy Workers</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -135,7 +158,7 @@
     <published>2018-02-01T00:00:00.000Z</published>
     <summary>HR은 왜 기업의 혁신의 발목을 잡게 될까?</summary>
     <title>IT기업에서 HR은 왜 중요한가?</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -155,7 +178,7 @@
     <published>2018-01-09T00:00:20.000Z</published>
     <summary>IT회사는 어떤 방식으로 사회에 기여하는가?</summary>
     <title>기업의 CSR vs CSV</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -174,7 +197,7 @@
 <h3 id="올-한해-하고-싶은-포스팅"><a href="#올-한해-하고-싶은-포스팅" cla]]>
     </summary>
     <title>[2018-01-08] 2018년 1월 깃헙 트렌드 - Rust와 웹 어셈블리의 혁신적인 도발</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -191,7 +214,7 @@
       <![CDATA[<p>11월 한달간 깃헙에 올라온 프로젝트 중 많은 호응을 얻었던 프로젝트들을 정리해 보았다.<br>여전히 자바스크립트와 딥러닝 쪽 트렌드가 초 강세를 보이고 있다. awesome 시리즈 같은 curation 프로젝트도 여전히 최상위권에 존재하는 중.]]>
     </summary>
     <title>[2017-11-27] 11월 깃헙 트렌드</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -209,7 +232,7 @@
       <![CDATA[<h4 id="Gatling에-대하여…"><a href="#Gatling에-대하여…" class="headerlink" title="Gatling에 대하여…"></a>Gatling에 대하여…</h4><p>지금까지는 금수저로 살아서 성능테스트는 로드런너]]>
     </summary>
     <title>[2017-11-24 Gatling으로 쏜다]</title>
-    <updated>2026-11-16T08:59:45.823Z</updated>
+    <updated>2026-11-17T00:02:19.032Z</updated>
   </entry>
   <entry>
     <author>
@@ -227,7 +250,7 @@
       <![CDATA[<p>깃랩같은 좋은 툴은 언제나 파워풀하지만, 설치가 쉽지않다. 그래서 깃랩을 설정하기가 어려운 부분은 도커가 최근에는 대신하고 있다.<br>그런데, 도커로 설치를 하다보면 CI, CD 환경을 꾸미는 것은 어떻게 해야할지 감이 오지 않을 때가 많다.<]]>
     </summary>
     <title>[tip] -도커로 깃랩을 설치했을때 젠킨스 연결은 어떻게 할 것인가</title>
-    <updated>2026-11-16T08:59:45.830Z</updated>
+    <updated>2026-11-17T00:02:19.040Z</updated>
   </entry>
   <entry>
     <author>
@@ -245,7 +268,7 @@
       <![CDATA[<p><img src="http://keen.devpools.kr/images/puppeteer.jpg" alt="puppeteer"><br>프로젝트 링크 : <a href="https://github.com/GoogleChrome/puppeteer/]]>
     </summary>
     <title>[github]Node.js 기반 헤드리스 브라우저 컨트롤 API - puppeteer</title>
-    <updated>2026-11-16T08:59:45.829Z</updated>
+    <updated>2026-11-17T00:02:19.039Z</updated>
   </entry>
   <entry>
     <author>
@@ -263,7 +286,7 @@
       <![CDATA[<p>딥러닝, 인공지능 이야기를 하면 CNN, RNN 같은 알고리즘에 관한 글만 굉장히 많아서 조금 탑뷰에서 바라볼 수 있는 관점에서 전체 기술과 활용처를 분류하고 딥러닝 프레임워크에 대해서 알아 보았다. 딥러닝 프레임워크는 같이 프로젝트를 하고 있는]]>
     </summary>
     <title>딥러닝 무식하게 정리해 보기 01</title>
-    <updated>2026-11-16T08:59:45.824Z</updated>
+    <updated>2026-11-17T00:02:19.033Z</updated>
   </entry>
   <entry>
     <author>
@@ -282,7 +305,7 @@
 <h2 id="headless-browser"><a href="#h]]>
     </summary>
     <title>헤드리스 크롬과 selenium2의 조합을 사용해 보자 with node</title>
-    <updated>2026-11-16T08:59:45.831Z</updated>
+    <updated>2026-11-17T00:02:19.041Z</updated>
   </entry>
   <entry>
     <author>
@@ -300,7 +323,7 @@
       <![CDATA[<h3 id="챗봇-프로젝트를-진행하면서-알게-된-사실들"><a href="#챗봇-프로젝트를-진행하면서-알게-된-사실들" class="headerlink" title="챗봇 프로젝트를 진행하면서 알게 된 사실들"></a><a href="http://k]]>
     </summary>
     <title>챗봇 프로젝트를 진행하면서 알게 된 사실들</title>
-    <updated>2026-11-16T08:59:45.831Z</updated>
+    <updated>2026-11-17T00:02:19.041Z</updated>
   </entry>
   <entry>
     <author>
@@ -320,7 +343,7 @@
       <![CDATA[<p>선형 회귀분석(Linear Regression)은 머신러닝을 공부할때 가장 첫번째 배우는 예측분석 모델입니다. 머신러닝 또는 딥러닝을 배우는 입장에서는 처음에 Python, Tensorflow, Keras, R, Matlab 등의 낯선 학습환경을]]>
     </summary>
     <title>엑셀의 분석도구를 이용한 간단한 선형 회귀분석 실습</title>
-    <updated>2026-11-16T08:59:45.831Z</updated>
+    <updated>2026-11-17T00:02:19.040Z</updated>
   </entry>
   <entry>
     <author>
@@ -340,7 +363,7 @@
       <![CDATA[<h2 id="들어가기에-앞서서…"><a href="#들어가기에-앞서서…" class="headerlink" title="들어가기에 앞서서…"></a>들어가기에 앞서서…</h2><p>지난 3월 22일 수요일 오후 늦은 7시, 잠실에 있는 삼성SDS 지]]>
     </summary>
     <title>제1회 re:View 참석 후기</title>
-    <updated>2026-11-16T08:59:45.831Z</updated>
+    <updated>2026-11-17T00:02:19.041Z</updated>
   </entry>
   <entry>
     <author>
@@ -358,25 +381,6 @@
 <h4 id="페이스북-소셜플러그인-댓글기능-추가]]>
     </summary>
     <title>Jekyll Page에 기능 추가하기</title>
-    <updated>2026-11-16T08:59:45.824Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>devpools</name>
-      <email>ehrudxo@gmail.com</email>
-    </author>
-    <category term="Meetup" scheme="https://www.devpools.kr/categories/Meetup/"/>
-    <category term="AWSomeDayKR" scheme="https://www.devpools.kr/tags/AWSomeDayKR/"/>
-    <content>
-      <![CDATA[<p>어제(2017.03.18)는 저번달에 회사 동료가 소개해 줘서 아무 생각없이 신청했던, AWSomeDay행사에 다녀왔습니다. ( 정작 소개해준 동료는 다른 일이 있다고 참석하지 않았습니다. 항상 이런식… ) AWSomeDay는 세종대학교 광개토관 지하2층에서 열렸습니다. 이 장소는 작년 GoogleIO Extends와 그 외 다른 행사 때문에 몇번 찾아왔던 터라 어렵지 않게 찾아갈 수 있었습니다. 토요일이고 아직 오전 9시도 안된 시각이었는데, 많은 사람들이 학교로 가고있길래 세종대 학생들은 부지런하구나 생각했지만, 대부분 광개토관으로 향하고 있었습니다. 이런 모습을 보니 AWS 행사에 많은 사람들이 관심을 가지고 있다는 것을 알 수 있었습니다.</p><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*EAaOeH-f9hLz8qFMlNpz5Q.png)<figcaption class="imageCaption">&lt;AWSomeDay 안내 입간판&gt;</figcaption></figure><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*4DtglNlylwJHTU5xXozM4A.png)<figcaption class="imageCaption">&lt;AWSomeDay 등록 데스크&gt;</figcaption></figure><p>9시 부터 등록시작이라고 했지만, 이미 등록을 시작하고 있었고 몇몇 분들이 파트너사의 홍보 부스를 구경하면서 사은품을 받아가고 있었습니다. ( 저도 역시.. 행사의 꽃은 사은품이니까요. )</p><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*sI0oxjCnRFTGJReeVSSBOw.png)<figcaption class="imageCaption">&lt;AWSomeDay에서 받은 사은품&gt;</figcaption></figure><p>색연필과 응급처치킷, ( 행사의 꽃인 ) 티셔츠를 받았습니다. 보통 반팔을 주시는 데, 특이하게 긴팔 티를 주셨습니다. 그리고 사진에는 없지만, 에코백, 수첩, 아마존 용어집 핸드북, 그리고 엄청나게 커다란 안경 닦는 수건도 받았습니다. ( 위 사진에 있는 마이보틀은 행사 종료후 아마존에서 참가기념으로 나눠준 사은품입니다) 잠시 사은품에 홀렸던 정신을 바로 잡고 행사 등록하고 참가 확인 배지를 받았습니다.</p><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*dxt1g0oWrkIqwxm9IKPvxg.png)<figcaption class="imageCaption">&lt;AWSomeDay 배지(참가 확인용)&gt;</figcaption></figure><p>9시 40분부터 입장이 시작된다고 했지만, 20분 전부터 입구에는 입장하려는 사람들이 줄을 서기 시작했으며, 입장이 시작되고 나서 빠르게 자리가 사라졌습니다. 나중에는 자리가 없어서 서서 계시는 분들도 계셨습니다. 발표장은 많은 참가자를 대상으로 하고 있어서 세군데에 대형 스크린이 설치되어 있었습니다. 주위를 둘러보니 저같이 개발자로 보이는 분 계시고, 대학생으로 보이는 분, 나이 지긋하신 아키텍쳐 또는 사장님으로 보이는 분도 계셨고 아직 많이 어려보이는 중,고등학생으로 보이는 분들도 종종 눈에 띠었습니다.</p><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*XgVAqUXm4Rr9ZXhHMjVQmQ.png)<figcaption class="imageCaption">&lt;AWSomeDay 무대&gt;</figcaption></figure><p>AWSomeDay는 아마존 웹서비스의 다양한 기능과 기본적인 서비스의 사용법을 익히는 수업인 “AWS 기술 에센셜” 과정과 동일한 내용이라는 설명으로 시작했습니다. 물론 참가 인원이 많아서 실습은 진행하지 않고, 강사분과 질의응답을 할 기회가 거의 없기 때문에 위 정규과정과는 차이가 있다고 합니다.</p><p>10시 부터 시작된 오전 세션에서는 AWS를 사용하는 주요 기업의 사례와 AWS의 인프라과 신규 기능을 소개하는 기조연설을 시작으로 아마존의 대표 서비스인 EC2( Elastic Compute Cloud )와 오프젝트 스토리지 서비스인 S3( Simple Storage Service )에 대한 사용법, 기능 및 주의점에 대한 설명을 들었고, 어떻게 사용하면 되고, 과금은 어떤 식으로 이루어지는지에 대해서 자세한 설명이 있었습니다.</p><figure class="graf graf--figure">![](https://cdn-images-1.medium.com/max/1600/1*a4Gx1GWdrHV89xtCBN6sGA.png)<figcaption class="imageCaption">&lt;점심 도시락 &gt;</figcaption></figure><p>이후 12시부터 점심시간이었습니다. 세종대학교 주변에 식사할 곳이 마땅치 않은데, AWSomeDay에서는 감사하게도 참가자 전원에게 맛있는 도시락이 제공되었습니다. 다만, 참가자가 많아 이마저도 뒤에 앉으신 분들은 본 도시락으로 드셨습니다.</p><p>한시간의 점심시간이 끝나고 1시부터 블록스토리지 서비스인 EBS( Elastic Block Storage ), 네트워크 구성과 관련된 VPC ( Virtual Private Cloud ), 보안관련 IAM( Identity and Access Management ), NoSql DB인 DynamoDB, 관계형 데이터베이스인 RDS ( Relational Database Service )에 대한 설명이 이어진 후 잠시 휴식시간을 가졌습니다. 각 서비스에 대한 설명이후에는 설명한 것에 대한 시연 영상이 보여져서 설명을 이해하는 데 도움이 되었습니다.</p><p>이후 20분 정도의 휴식시간이 주어졌고, 참가자가 많았기에 간단한 과자와 음료수가 제공되었는데, 순식간에 동이나는 광경을 목격할 수 있었습니다. 미리 사전등록을 받을 때, 인원에 제한을 두었더라면 조금은 덜 혼잡했을텐데, 조금 아쉬웠습니다. 현장등록도 가능한 것으로 보아 참가인원에 제한은 없었던 것으로 보입니다.</p><p>휴식이후 ELB( Elastic Load Balancing ), CloudWatch, Auto Scaling에 대해서 설명을 들었으며, Scale up &#x2F; down 에 대한 동작 원리, 구현 방법에 대해서 이해할 수 있었습니다. 특히 HA 구성을 할 때, 여러 AZ(가용영역)에 걸쳐서 구성할 때, 어떤 점을 고민해야하는지 설명을 해주셔서 나중 서비스를 구성할 때 도움이 될 것 같습니다. 이후 Trusted Advisor 기능 설명을 들었습니다.</p><p>모든 세션이 끝나고 경품추첨을 마지막으로 기념품인 마이보틀을 받고 모든 행사가 종료되었습니다. 아마존이라는 회사가 클라우드 서비스를 주로 하기 때문에 이런 행사를 통해서 고객을 늘린다는 목적도 있겠지만, 고객들이 본인들의 서비스를 좀 더 잘 알고 더 효율적으로 사용할 수 있도록 (큰 비용을 들여서 ) 스스로 알리고 있다는 점에서 ( 물론 프리티어 사용자 이지만 ) 한 사람의 고객으로써 감사한 마음을 가졌습니다. 지금 서비스를 위해서 사용하는 모 기업의 클라우드와 비교해보면 동일하게 클라우드를 서비스하고 있다고 주장하지만, 내부의 네트워크 구성이나 서비스 구성법을 전혀 알려주지 않고, 심지어 상품안내 조차 없는 것 등 많은 점이 비교되었고, 아마존과 비교해보면 그들이 하는 클라우드 서비스 수준은 IDC를 통해 온프라미스 서버를 구성하는 것과 크게 다르지 않음을 알 수 있었고 진정한 클라우드 서비스는 ( 시작도 다르고 추구하는 방향도 다르겠지만 ) 아직 멀었다고 말해주고 싶습니다.</p><p>집에와서 찾아보니 “AWS 기술 에센셜” 교육은 1일과정에 44만원이라 하는 과정이라 개인이 듣기에는 부담되는 과정이기에 이번 행사는 아마존 웹서비스를 처음 사용하거나, 저처럼 (몰라서) 단순히 프리티어 EC2정도만 사용하는 사람에게는 하루 정도를 투자할 가치가 충분하다고 생각되는 행사였습니다.</p>]]>
-    </content>
-    <id>https://www.devpools.kr/2017/03/19/%EA%B8%B0%ED%96%89%EB%AC%B8-awsomeday-%EB%8B%A4%EB%85%80%EC%99%94%EC%8A%B5%EB%8B%88%EB%8B%A4/</id>
-    <link href="https://www.devpools.kr/2017/03/19/%EA%B8%B0%ED%96%89%EB%AC%B8-awsomeday-%EB%8B%A4%EB%85%80%EC%99%94%EC%8A%B5%EB%8B%88%EB%8B%A4/"/>
-    <published>2017-03-19T12:50:00.000Z</published>
-    <summary>
-      <![CDATA[<p>어제(2017.03.18)는 저번달에 회사 동료가 소개해 줘서 아무 생각없이 신청했던, AWSomeDay행사에 다녀왔습니다. ( 정작 소개해준 동료는 다른 일이 있다고 참석하지 않았습니다. 항상 이런식… ) AWSomeDay는 세종대학교 광개토관]]>
-    </summary>
-    <title>[기행문] AWSomeDay 다녀왔습니다.</title>
-    <updated>2026-11-16T08:59:45.830Z</updated>
+    <updated>2026-11-17T00:02:19.033Z</updated>
   </entry>
 </feed>
