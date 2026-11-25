@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="544" viewBox="0 0 880 544" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif" role="img" aria-label="GitHub 주간 트렌딩: 이번 주에 받은 스타 수">
+<rect width="880" height="544" fill="#fcfcfb"/>
+<text x="24" y="38" font-size="18" font-weight="600" fill="#0b0b0b">GitHub 주간 트렌딩: 이번 주에 받은 스타 수</text>
+<text x="24" y="60" font-size="13" fill="#6b6a66">2026년 11월 4주 · 저장소 13개</text>
+<line x1="290.0" y1="94" x2="290.0" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="290.0" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">0</text>
+<line x1="373.3" y1="94" x2="373.3" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="373.3" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">1,000</text>
+<line x1="456.7" y1="94" x2="456.7" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="456.7" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">2,000</text>
+<line x1="540.0" y1="94" x2="540.0" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="540.0" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">3,000</text>
+<line x1="623.3" y1="94" x2="623.3" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="623.3" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">4,000</text>
+<line x1="706.7" y1="94" x2="706.7" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="706.7" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">5,000</text>
+<line x1="790.0" y1="94" x2="790.0" y2="516" stroke="#e7e6e2" stroke-width="1"/>
+<text x="790.0" y="88" font-size="11" fill="#6b6a66" text-anchor="middle">6,000</text>
+<text x="280" y="120.5" font-size="13" fill="#0b0b0b" text-anchor="end">mvanhorn/last30days-skill</text>
+<path d="M290,107.0 H733.4 Q737.4,107.0 737.4,111.0 V121.0 Q737.4,125.0 733.4,125.0 H290 Z" fill="#2a78d6"/>
+<text x="745.4" y="120.5" font-size="12" fill="#0b0b0b">5,369</text>
+<text x="280" y="152.5" font-size="13" fill="#0b0b0b" text-anchor="end">dream-num/univer</text>
+<path d="M290,139.0 H559.2 Q563.2,139.0 563.2,143.0 V153.0 Q563.2,157.0 559.2,157.0 H290 Z" fill="#2a78d6"/>
+<text x="571.2" y="152.5" font-size="12" fill="#0b0b0b">3,278</text>
+<text x="280" y="184.5" font-size="13" fill="#0b0b0b" text-anchor="end">kajisho5/ffmpeg-skill</text>
+<path d="M290,171.0 H535.4 Q539.4,171.0 539.4,175.0 V185.0 Q539.4,189.0 535.4,189.0 H290 Z" fill="#2a78d6"/>
+<text x="547.4" y="184.5" font-size="12" fill="#0b0b0b">2,993</text>
+<text x="280" y="216.5" font-size="13" fill="#0b0b0b" text-anchor="end">meta/astryx</text>
+<path d="M290,203.0 H526.8 Q530.8,203.0 530.8,207.0 V217.0 Q530.8,221.0 526.8,221.0 H290 Z" fill="#2a78d6"/>
+<text x="538.8" y="216.5" font-size="12" fill="#0b0b0b">2,890</text>
+<text x="280" y="248.5" font-size="13" fill="#0b0b0b" text-anchor="end">alibaba/open-code-review</text>
+<path d="M290,235.0 H505.8 Q509.8,235.0 509.8,239.0 V249.0 Q509.8,253.0 505.8,253.0 H290 Z" fill="#2a78d6"/>
+<text x="517.8" y="248.5" font-size="12" fill="#0b0b0b">2,638</text>
+<text x="280" y="280.5" font-size="13" fill="#0b0b0b" text-anchor="end">google-labs-code/stitch-skills</text>
+<path d="M290,267.0 H504.8 Q508.8,267.0 508.8,271.0 V281.0 Q508.8,285.0 504.8,285.0 H290 Z" fill="#2a78d6"/>
+<text x="516.8" y="280.5" font-size="12" fill="#0b0b0b">2,626</text>
+<text x="280" y="312.5" font-size="13" fill="#0b0b0b" text-anchor="end">GoogleChrome/modern-web-guidance-src</text>
+<path d="M290,299.0 H493.8 Q497.8,299.0 497.8,303.0 V313.0 Q497.8,317.0 493.8,317.0 H290 Z" fill="#2a78d6"/>
+<text x="505.8" y="312.5" font-size="12" fill="#0b0b0b">2,494</text>
+<text x="280" y="344.5" font-size="13" fill="#0b0b0b" text-anchor="end">backnotprop/plannotator</text>
+<path d="M290,331.0 H449.0 Q453.0,331.0 453.0,335.0 V345.0 Q453.0,349.0 449.0,349.0 H290 Z" fill="#2a78d6"/>
+<text x="461.0" y="344.5" font-size="12" fill="#0b0b0b">1,956</text>
+<text x="280" y="376.5" font-size="13" fill="#0b0b0b" text-anchor="end">ag-ui-protocol/ag-ui</text>
+<path d="M290,363.0 H432.1 Q436.1,363.0 436.1,367.0 V377.0 Q436.1,381.0 432.1,381.0 H290 Z" fill="#2a78d6"/>
+<text x="444.1" y="376.5" font-size="12" fill="#0b0b0b">1,753</text>
+<text x="280" y="408.5" font-size="13" fill="#0b0b0b" text-anchor="end">we-promise/sure</text>
+<path d="M290,395.0 H416.6 Q420.6,395.0 420.6,399.0 V409.0 Q420.6,413.0 416.6,413.0 H290 Z" fill="#2a78d6"/>
+<text x="428.6" y="408.5" font-size="12" fill="#0b0b0b">1,567</text>
+<text x="280" y="440.5" font-size="13" fill="#0b0b0b" text-anchor="end">tradermonty/claude-trading-skills</text>
+<path d="M290,427.0 H411.3 Q415.3,427.0 415.3,431.0 V441.0 Q415.3,445.0 411.3,445.0 H290 Z" fill="#2a78d6"/>
+<text x="423.3" y="440.5" font-size="12" fill="#0b0b0b">1,504</text>
+<text x="280" y="472.5" font-size="13" fill="#0b0b0b" text-anchor="end">ChromeDevTools/chrome-devtools-mcp</text>
+<path d="M290,459.0 H390.8 Q394.8,459.0 394.8,463.0 V473.0 Q394.8,477.0 390.8,477.0 H290 Z" fill="#2a78d6"/>
+<text x="402.8" y="472.5" font-size="12" fill="#0b0b0b">1,258</text>
+<text x="280" y="504.5" font-size="13" fill="#0b0b0b" text-anchor="end">pookjw/HermesEnabler</text>
+<path d="M290,491.0 H313.3 Q317.3,491.0 317.3,495.0 V505.0 Q317.3,509.0 313.3,509.0 H290 Z" fill="#2a78d6"/>
+<text x="325.3" y="504.5" font-size="12" fill="#0b0b0b">328</text>
+</svg>
